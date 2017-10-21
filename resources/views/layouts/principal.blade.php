@@ -128,10 +128,10 @@ Todos los derechos reservados 2017.
 
 
 
-	<script src="{{ asset ('js/jquery.js') }}"></script>
-	<script src="{{ asset ('js/admin.js') }}"></script>
-	<script src="{{ asset ('dist/jquery.fancybox.min.js') }}"></script>
+	<script src="{{ asset ('public/js/jquery.js') }}"></script>
+	<script src="{{ asset ('public/js/admin.js') }}"></script>
+	<script src="{{ asset ('public/dist/jquery.fancybox.min.js') }}"></script>
 
-	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
 </body>
 </html>
