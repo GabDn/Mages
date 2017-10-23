@@ -3,14 +3,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('public/img/favicon.ico') }}" />	
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('/img/favicon.ico') }}" />	
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Magesticd - Centro de Docencia </title>
-	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/bootstrap.min.css') }}"/>
-	<link rel="stylesheet" type="text/css" href="{{ asset('public/dist/jquery.fancybox.min.css') }}"/>
-	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/font-awesome.min.css') }}"/>
-	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/admin.css') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('dist/jquery.fancybox.min.css') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('/css/font-awesome.min.css') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ asset('/css/admin.css') }}"/>
 
 </head>
 <body>
@@ -25,9 +25,20 @@
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="fa fa-2x fa-user-circle"></span></a>
                   <ul class="dropdown-menu" role="menu">
                       
-                      <li><a href="#"><span class="fa fa-gear"></span>Cambiar Contraseña</a></li>
-                      <li class="divider"></li>
-                      <li><a href="#"><span class="fa fa-power-off"></span>Salir</a></li>
+                                     
+                                    <li>
+                                        <a href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Salir
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+
                   </ul>
               </li>
               
@@ -51,7 +62,7 @@
           <li class="nav-header">
             <div class="link"><i class="fa fa-lg fa-graduation-cap""></i>Profesores<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
-              <li><a href="#">Alta Profesor</a></li>
+              <li><a href="{{ route('profesor.nuevo') }}">Alta Profesor</a></li>
               <li><a href="#">Baja Profesor</a></li>
               <li><a href="#">Consulta de profesores</a></li>
               <li><a href="#">Altas, Bajas y Cambios</a></li>
@@ -128,10 +139,10 @@ Todos los derechos reservados 2017.
 
 
 
-	<script src="{{ asset ('public/js/jquery.js') }}"></script>
-	<script src="{{ asset ('public/js/admin.js') }}"></script>
-	<script src="{{ asset ('public/dist/jquery.fancybox.min.js') }}"></script>
+	<script src="{{ asset ('/js/jquery.js') }}"></script>
+	<script src="{{ asset ('/js/admin.js') }}"></script>
+	<script src="{{ asset ('/dist/jquery.fancybox.min.js') }}"></script>
 
-	<script src="{{ asset('public/js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

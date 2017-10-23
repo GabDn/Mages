@@ -23,7 +23,7 @@
                 <div class="panel-body">
 
                 <div class="logos col-md-12 col-center">
-                	<img class="img-escudo" src="{{ asset('public/img/cdd.png') }}">
+                	<img class="img-escudo" src="{{ asset('img/cdd.png') }}">
                 	Manejo y Gestión de información del centro de docencia.</h3>
                 
                 </div>

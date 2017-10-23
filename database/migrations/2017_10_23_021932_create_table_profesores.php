@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateTableProfesores extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,26 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('profesors', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombres');
             $table->string('apellido_paterno');
-            $table->string('apellido_materno');
-            $table->string('rfc');
+            $table->string('apellido_materno')->nullable();
+            $table->string('rfc')->unique();
             $table->string('curp');
             $table->String('fecha_nacimiento');
             $table->string('telefono');
             $table->string('grado');
             $table->string('email');
-            $table->string('usuario')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('estudios');
+            $table->string('area');
+             $table->string('comentarios');
+              $table->string('genero');
+              $table->string('tutor');
+              $table->string('baja')->nullable();
+              $table->string('causa_baja')->nullable();
+              $table->string('semblanza_corta');
+              $table->string('facebook')->nullable();
             $table->timestamps();
         });
     }
@@ -38,6 +44,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('profesores');
     }
 }

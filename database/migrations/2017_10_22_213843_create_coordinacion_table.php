@@ -15,6 +15,9 @@ class CreateCoordinacionTable extends Migration
     {
         Schema::create('coordinacion', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('abreviatura');
+            $table->string('nombre_coordinacion');
+            $table->string('comentarios');
             $table->timestamps();
         });
     }

@@ -90,8 +90,8 @@ Todos los derechos reservados 2017. </h4></p>
 </div>
     </div> <!-- /container -->        
     <script src="{{ asset ('/js/jquery.js') }}"></script>
-	<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
-	<script src="{{ asset ('/js/main.js') }}"></script>
+    <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset ('/js/main.js') }}"></script>
 
         
     </body>
