@@ -17,7 +17,7 @@
     <br>
       <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>Lista de profesores</h3>
+                    <h3>Catalogo de cursos</h3>
                       
  {!! Form::open(["route" => "profesor.busqueda", "method" => "GET"]) !!}
   <div class="input-group">
@@ -44,10 +44,10 @@
      </tr>
     @foreach($users as $user)
         <tr>
-        <td>{{ $user->nombres }} {{ $user->apellido_paterno }} {{ $user->apellido_materno }}</td>
-        <td>{{ $user->email}}</td>
-        <td><a href="{{ URL::to('profesor', $user->id) }}" class="btn btn-info">Detalles</a>
-            <a href="{{ URL::to('profesor/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
+        <td>{{ $user->nombre }} </td>
+        <td>{{ $user->objetivo}}</td>
+        <td><a href="{{ URL::to('curso', $user->id) }}" class="btn btn-info">Detalles</a>
+            <a href="{{ URL::to('curso/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
       </tr>
     @endforeach
 </table>

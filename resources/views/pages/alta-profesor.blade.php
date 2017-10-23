@@ -192,7 +192,8 @@
                             <label for="name" class="col-md-4 control-label">Genero</label>
 
                             <div class="col-md-6">
-                                <input id="genero" type="text" class="form-control" name="genero" value="{{ old('genero') }}" >
+                                    Femenino: <input id="tutor" type="radio" class="" name="genero" value="true" >
+                                Masculino: <input id="tutor" type="radio" class="" name="genero" value="false" >
 
                                 @if ($errors->has('genero'))
                                     <span class="help-block">
@@ -207,7 +208,8 @@
                             <label for="name" class="col-md-4 control-label">tutor</label>
 
                             <div class="col-md-6">
-                                <input id="tutor" type="text" class="form-control" name="tutor" value="{{ old('tutor') }}" >
+                                Si: <input id="tutor" type="radio" class="" name="tutor" value="true" >
+                                No: <input id="tutor" type="radio" class="" name="tutor" value="false" >
 
                                 @if ($errors->has('tutor'))
                                     <span class="help-block">
