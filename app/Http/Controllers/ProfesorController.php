@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Carrera;
+use App\Facultad;
 use App\Profesor;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 
@@ -35,7 +36,10 @@ class ProfesorController extends Controller
      */
     public function nuevo()
     {
-        return view("pages.alta-profesor");
+
+        $facultades = Facultad::all();
+        $carreras = Carrera::all();
+        return view("pages.alta-profesor")->with("facultades",$facultades)->with("carreras",$carreras);
     }
 
 
@@ -92,7 +96,22 @@ class ProfesorController extends Controller
         $user->tutor = $request->tutor;
         $user->semblanza_corta = $request->semblanza_corta;
         $user->facebook = $request->facebook;
-       
+        $user ->unam = $request -> unam;
+
+        if($user->unam ==true){
+            $user->procedencia = null;
+
+            if($user->facultad_id!==1){
+                $user->carrera_id=null;
+            }
+
+
+        }else{
+            $user->procedencia = $request->procedencia;
+        }
+
+
+
         if($user->email !== $request->email)
             {
                 $user->email = $request->email;
@@ -102,6 +121,8 @@ class ProfesorController extends Controller
         return view("pages.update-profesor")
             ->with("user",$user);
     }
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -179,7 +200,13 @@ class ProfesorController extends Controller
         $user->tutor = $request->tutor;
         $user->semblanza_corta = $request->semblanza_corta;
         $user->facebook = $request->facebook;
-       
+        $user ->unam = $request -> unam;
+        $user->procedencia = $request->procedencia;
+        $user->facultad_id = $request ->facultad_id;
+        $user->carrera_id = $request ->carrera_id;
+
+
+
         $user->save();
         /*Session::flash('flash_message', 'Usuario agregado!');*/
         return redirect()->back();

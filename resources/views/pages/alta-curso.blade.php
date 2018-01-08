@@ -22,9 +22,10 @@
                 </div>
                 <div class="panel-body">
 
-                
-      
-<form id="cursoform" class="form-horizontal" method="POST" action="{{ route('curso.store') }}">
+
+
+
+                    <form id="cursoform" class="form-horizontal" method="POST" action="{{ route('curso.store') }}">
                         {{ csrf_field() }}
 
                      
@@ -257,10 +258,16 @@
 
                             <div class="col-md-6">
                                 <select name="coordinacion_id" form="cursoform">
-  <option value="1">Coordinación de Pruebas</option>
-  <option value="2">Coordinación de Revisión</option>
+                                @foreach($users as $user)
 
-</select>
+                                    <option value="{{ $user->id }} "> {{ $user->nombre_coordinacion }} </option>
+
+                                @endforeach
+                                </select>
+
+
+
+
 
                                 @if ($errors->has('coordinacion_id'))
                                     <span class="help-block">
@@ -268,7 +275,7 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>     
+                        </div>
 
 
 
@@ -279,6 +286,7 @@
                                     Crear
                                 </button>
                             </div>
+                            
                         </div>
                     </form>
       </div>

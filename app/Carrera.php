@@ -1,11 +1,17 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: gmeono
+ * Date: 10/12/17
+ * Time: 02:12 PM
+ */
 
 namespace App;
-
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Coordinacion extends Authenticatable
+
+class Carrera extends Authenticatable
 {
     use Notifiable;
 
@@ -14,8 +20,10 @@ class Coordinacion extends Authenticatable
      *
      * @var array
      */
+
+    protected $table = "carreras";
     protected $fillable = [
-        'nombre_coordinacion', 'abreviatura','coordinador','comentarios',
+        'nombre','clave','id_division'
     ];
 
     /**

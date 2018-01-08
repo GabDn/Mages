@@ -192,8 +192,8 @@
                             <label for="name" class="col-md-4 control-label">Genero</label>
 
                             <div class="col-md-6">
-                                    Femenino: <input id="tutor" type="radio" class="" name="genero" value="true" >
-                                Masculino: <input id="tutor" type="radio" class="" name="genero" value="false" >
+                                    Femenino: <input id="tutor" type="radio" class="" name="genero" value="femenino" >
+                                Masculino: <input id="tutor" type="radio" class="" name="genero" value="masculino" >
 
                                 @if ($errors->has('genero'))
                                     <span class="help-block">
@@ -263,22 +263,135 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>     
+                        </div>
+
+    <div class="form-group{{ $errors->has('unam') ? ' has-error' : '' }}">
+        <label for="unam" class="col-md-4 control-label">Profesor de la UNAM: </label>
+
+        <div class="col-md-6">
+            Si: <input  onclick="interno()" id="unam" type="radio" class="" name="unam" value="true" >
+            No:  <input id="unam" onclick="externo()"   type="radio" class="" name="unam" value="false" >
+
+            @if ($errors->has('unam'))
+                <span class="help-block">
+                                        <strong>{{ $errors->first('unam') }}</strong>
+                                    </span>
+            @endif
+        </div>
+    </div>
+
+
+
+    <div style="display:none;" id="externo" class="form-group{{ $errors->has('procedencia') ? ' has-error' : '' }}">
+        <label for="procedencia" class="col-md-4 control-label">Procedencia</label>
+
+        <div class="col-md-6">
+            <input type="text" class="form-control" name="procedencia" value="{{ old('procedencia') }}" >
+
+            @if ($errors->has('procedencia'))
+                <span class="help-block">
+                                        <strong>{{ $errors->first('procedencia') }}</strong>
+                                    </span>
+            @endif
+        </div>
+    </div>
+
+    <div style="display:none;" id="facultad" class="form-group{{ $errors->has('facultad_id') ? ' has-error' : '' }}">
+        <label for="name" class="col-md-4 control-label">Facultad</label>
+
+        <div class="col-md-6">
+            <select name="facultad_id" form="cursoform">
+                <option onclick="fi()" value="1"> Facultad de Ingeniería</option>
+
+
+            @foreach($facultades as $user)
+
+                @if($user->id!==1)
+
+                    <option onclick="nofi()" value="{{ $user->id }} "> {{ $user->nombre }} </option>
+                    @endif
+                @endforeach
+            </select>
 
 
 
 
-                        <div class="form-group">
+
+            @if ($errors->has('facultad_id'))
+                <span class="help-block">
+                                        <strong>{{ $errors->first('facultad_id') }}</strong>
+                                    </span>
+            @endif
+        </div>
+    </div>
+
+    <div id="carreras" style="display:none;" class="form-group{{ $errors->has('carrera_id') ? ' has-error' : '' }}">
+        <label for="name" class="col-md-4 control-label">Carrera</label>
+
+        <div class="col-md-6">
+            <select name="carrera_id" form="cursoform">
+                @foreach($carreras as $carrera)
+
+                    <option value="{{ $carrera->id }} "> {{ $carrera->nombre }} </option>
+
+                @endforeach
+            </select>
+
+
+-
+
+
+            @if ($errors->has('carrera_id'))
+                <span class="help-block">
+                                        <strong>{{ $errors->first('carrera_id') }}</strong>
+                                    </span>
+            @endif
+        </div>
+    </div>
+
+
+
+
+    <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
                                     Crear
                                 </button>
                             </div>
                         </div>
+
                     </form>
+
       </div>
 
      </section>
-     
+
+      <script>
+          function externo() {
+              document.getElementById("externo").style.display = "initial";
+              document.getElementById("facultad").style.display = "none";
+              document.getElementById("carrera").style.display = "none";
+          }
+
+          function interno() {
+              document.getElementById("externo").style.display = "none";
+              document.getElementById("facultad").style.display = "initial";
+              document.getElementById("carreras").style.display = "initial";
+          }
+
+          function fi() {
+              document.getElementById("externo").style.display = "none";
+              document.getElementById("facultad").style.display = "initial";
+              document.getElementById("carreras").style.display = "initial";
+          }
+
+          function nofi() {
+              document.getElementById("externo").style.display = "none";
+              document.getElementById("facultad").style.display = "initial";
+              document.getElementById("carreras").style.display = "none";
+          }
+      </script>
+
+  </div>
 @endsection
   

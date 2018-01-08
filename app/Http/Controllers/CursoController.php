@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Coordinacion;
 use App\Curso;
 use Illuminate\Http\Request;
 
@@ -32,7 +33,9 @@ class CursoController extends Controller
      */
     public function nuevo()
     {
-        return view("pages.alta-curso");
+        $users = Coordinacion::all();
+
+        return view("pages.alta-curso")->with("users",$users);
     }
 
 

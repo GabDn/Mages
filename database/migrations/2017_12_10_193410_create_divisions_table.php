@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCoordinacionTable extends Migration
+class CreateDivisionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateCoordinacionTable extends Migration
      */
     public function up()
     {
-        Schema::create('coordinacions', function (Blueprint $table) {
+        Schema::create('divisions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('abreviatura');
-            $table->string('nombre_coordinacion');
-            $table->string('coordinador');
-            $table->string('comentarios');
+            $table->string('nombre');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateCoordinacionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coordinacions');
+        Schema::dropIfExists('divisions');
     }
 }

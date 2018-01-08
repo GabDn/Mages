@@ -20,9 +20,9 @@ class CreateTableProfesores extends Migration
             $table->string('apellido_materno')->nullable();
             $table->string('rfc')->unique();
             $table->string('curp');
-            $table->String('fecha_nacimiento');
-            $table->string('telefono');
-            $table->string('grado');
+                $table->String('fecha_nacimiento');
+                $table->string('telefono');
+                $table->string('grado');
             $table->string('email');
             $table->string('estudios');
             $table->string('area');
@@ -33,8 +33,18 @@ class CreateTableProfesores extends Migration
               $table->string('causa_baja')->nullable();
               $table->string('semblanza_corta');
               $table->string('facebook')->nullable();
+            $table->boolean('unam');
+            $table->string('procedencia')->nullable();
+
+            $table->integer('facultad_id')->unsigned()->nullable();
+            $table->integer('carrera_id')->unsigned()->nullable();
+
+
+            $table->foreign('facultad_id')->references('id')->on('facultads');
+            $table->foreign('carrera_id')->references('id')->on('carreras');
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**

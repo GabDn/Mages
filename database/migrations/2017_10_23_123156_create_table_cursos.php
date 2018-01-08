@@ -34,7 +34,7 @@ class CreateTableCursos extends Migration
               $table->string('consecuentes')->nullable();
                $table->integer('coordinacion_id')->unsigned();
 
-    $table->foreign('coordinacion_id')->references('id')->on('coordinacion');
+    $table->foreign('coordinacion_id')->references('id')->on('coordinacions');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();

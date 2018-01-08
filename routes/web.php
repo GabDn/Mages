@@ -35,8 +35,47 @@ Route::get('curso/nuevo', "CursoController@nuevo")->name("curso.nuevo");
 Route::post('curso/save', "CursoController@create")->name('curso.store');
 Route::get('curso/{id}', "CursoController@show")->name('curso.show');
 Route::get('curso', "CursoController@index")->name("curso.consulta");
-Route::get('curso/busqueda', "CursoController@search")->name('pcursobusqueda');
+Route::get('curso/busqueda', "CursoController@search")->name('curso.busqueda');
 Route::get('curso/actualizar/{id}', "CursoController@edit")->name('curso.update');
 Route::put('curso/actualizar/{id}', "CursoController@update")->name('curso.actualizar');
 Route::get('curso/baja/{id}', "CursoController@delete");
+
+
+Route::get('coordinacion/nuevo', "CoordinacionController@nuevo")->name("coordinacion.nuevo");
+Route::post('coordinacion/save', "CoordinacionController@create")->name('coordinacion.store');
+Route::get('coordinacion/{id}', "CoordinacionController@show")->name('coordinacion.show');
+Route::get('coordinacion', "CoordinacionController@index")->name("coordinacion.consulta");
+Route::get('coordinacion/busqueda', "CoordinacionController@search")->name('coordinacion.busqueda');
+Route::get('coordinacion/actualizar/{id}', "CoordinacionController@edit")->name('coordinacion.update');
+Route::put('coordinacion/actualizar/{id}', "CoordinacionController@update")->name('coordinacion.actualizar');
+Route::get('coordinacion/baja/{id}', "CoordinacionController@delete");
+
+Route::get('facultad/nuevo', "FacultadController@nuevo")->name("facultad.nuevo");
+Route::post('facultad/save', "FacultadController@create")->name('facultad.store');
+Route::get('facultad/{id}', "FacultadController@show")->name('facultad.show');
+Route::get('facultad', "FacultadController@index")->name("facultad.consulta");
+Route::get('facultad/busqueda', "FacultadController@search")->name('facultad.busqueda');
+Route::get('facultad/actualizar/{id}', "FacultadController@edit")->name('facultad.update');
+Route::put('facultad/actualizar/{id}', "FacultadController@update")->name('facultad.actualizar');
+Route::get('facultad/baja/{id}', "FacultadController@delete");
+
+Route::get('division/nuevo', "DivisionController@nuevo")->name("division.nuevo");
+Route::post('division/save', "DivisionController@create")->name('division.store');
+Route::get('division/{id}', "DivisionController@show")->name('division.show');
+Route::get('division', "DivisionController@index")->name("division.consulta");
+Route::get('division/busqueda', "DivisionController@search")->name('division.busqueda');
+Route::get('division/actualizar/{id}', "DivisionController@edit")->name('division.update');
+Route::put('division/actualizar/{id}', "DivisionController@update")->name('division.actualizar');
+Route::get('division/baja/{id}', "DivisionController@delete");
+
+Route::get('carrera/nuevo', "CarreraController@nuevo")->name("carrera.nuevo");
+Route::post('carrera/save', "CarreraController@create")->name('carrera.store');
+Route::get('carrera/{id}', "CarreraController@show")->name('carrera.show');
+Route::get('carrera', "CarreraController@index")->name("carrera.consulta");
+Route::get('carrera/busqueda', "CarreraController@search")->name('carrera.busqueda');
+Route::get('carrera/actualizar/{id}', "CarreraController@edit")->name('carrera.update');
+Route::put('carrera/actualizar/{id}', "CarreraController@update")->name('carrera.actualizar');
+Route::get('carrera/baja/{id}', "CarreraController@delete");
+
+
 

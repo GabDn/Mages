@@ -54,7 +54,7 @@
                         </div>
 
                          <div class="form-group{{ $errors->has('apellido_materno') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Apellido Paterno</label>
+                            <label for="name" class="col-md-4 control-label">Apellido Materno</label>
 
                             <div class="col-md-6">
                                 <input id="apellido_materno" type="text" class="form-control" name="apellido_materno" value="{{ old('apellido_materno') }}" required autofocus>
@@ -68,7 +68,7 @@
                         </div>     
 
                          <div class="form-group{{ $errors->has('rfc') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Apellido Paterno</label>
+                            <label for="name" class="col-md-4 control-label">RFC</label>
 
                             <div class="col-md-6">
                                 <input id="rfc" type="text" class="form-control" name="rfc" value="{{ old('rfc') }}" required autofocus>
@@ -82,7 +82,7 @@
                         </div>
 
                                                  <div class="form-group{{ $errors->has('curp') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Apellido Paterno</label>
+                            <label for="name" class="col-md-4 control-label">CURP</label>
 
                             <div class="col-md-6">
                                 <input id="curp" type="text" class="form-control" name="curp" value="{{ old('curp') }}" required autofocus>
@@ -96,7 +96,7 @@
                         </div>    
 
                                                  <div class="form-group{{ $errors->has('fecha_nacimiento') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Apellido Paterno</label>
+                            <label for="name" class="col-md-4 control-label">Fecha de nacimiento</label>
 
                             <div class="col-md-6">
                                 <input id="fecha_nacimiento" type="date" class="form-control" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" required autofocus>
@@ -110,7 +110,7 @@
                         </div>   
 
                                                  <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Apellido Paterno</label>
+                            <label for="name" class="col-md-4 control-label">Telefono</label>
 
                             <div class="col-md-6">
                                 <input id="telefono" type="text" class="form-control" name="telefono" value="{{ old('telefono') }}" required autofocus>
@@ -124,7 +124,7 @@
                         </div>    
 
                                                  <div class="form-group{{ $errors->has('grado') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Apellido Paterno</label>
+                            <label for="name" class="col-md-4 control-label">Grado</label>
 
                             <div class="col-md-6">
                                 <input id="grado" type="text" class="form-control" name="grado" value="{{ old('grado') }}" required autofocus>
@@ -140,7 +140,7 @@
 
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <label for="email" class="col-md-4 control-label">E-Mail</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
@@ -156,7 +156,7 @@
 
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-4 control-label">Contraseña</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
@@ -170,7 +170,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                            <label for="password-confirm" class="col-md-4 control-label">Confirmar Contraseña</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>

@@ -83,7 +83,7 @@
 		  <li class="nav-header">
             <div class="link"><i class="fa fa-lg fa-map-marker"></i>Cordinaciones<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
-              <li><a href="#">Alta de cordinación</a></li>
+              <li><a href="{{ route('coordinacion.nuevo') }}">Alta de cordinación</a></li>
                <li><a href="#">Baja de cordinación</a></li>
                <li><a href="#">Modificar cordinación</a></li>
               <li><a href="#">Cordinación general</a></li>

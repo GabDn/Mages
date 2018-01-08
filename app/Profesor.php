@@ -17,7 +17,7 @@ class Profesor extends Authenticatable
 
     protected $table = "profesors";
     protected $fillable = [
-        'nombres', 'apellido_paterno','apellido_materno','rfc','curp','fecha_nacimiento','telefono','grado','email','usuario', 'fecha_alta','estudios','grado','area','comentarios','genero','tutor','baja','causa_baja','semblanza_corta','facebook'
+        'nombres', 'apellido_paterno','apellido_materno','rfc','curp','fecha_nacimiento','telefono','grado','email','usuario', 'fecha_alta','estudios','grado','area','comentarios','genero','tutor','baja','causa_baja','semblanza_corta','facebook','unam','procedencia','facultad_id','carrera_id',
     ];
 
     /**
