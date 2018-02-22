@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Coordinacion;
 use App\Curso;
+use App\Profesor;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
@@ -34,8 +35,10 @@ class CursoController extends Controller
     public function nuevo()
     {
         $users = Coordinacion::all();
+        $profesores = Profesor::all();
 
-        return view("pages.alta-curso")->with("users",$users);
+        return view("pages.alta-curso")->with("users",$users)->with("profesores",$profesores);
+
     }
 
 
