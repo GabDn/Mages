@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 namespace App;
@@ -39,8 +38,5 @@ class Salon extends Model
     protected $fillable = [
        'sede','capacidad','ubicacion','sigla'
     ];
-
-
-
->>>>>>> 069bb25bf9449124930685c80a305e7a0e3bdb73
 }
+
