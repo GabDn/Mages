@@ -14,7 +14,9 @@ class SalonController extends Controller
      */
     public function index()
     {
-        //
+        $users = Salon::all();
+        return view("pages.consulta-salones")
+            ->with("users",$users);
     }
 
     /**
@@ -22,11 +24,25 @@ class SalonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $user = new Salon;
+        $user->sede = $request->sede;
+        $user->capacidad = $request->capacidad;
+        $user->ubicacion = $request->ubicacion;
+        $user->sigla = $request->sigla;
+
+        $user->save();
+        /*Session::flash('flash_message', 'Usuario agregado!');*/
+        return redirect()->back();
     }
 
+
+    public function nuevo()
+    {
+        return view("pages.alta-salon");
+
+    }
     /**
      * Store a newly created resource in storage.
      *

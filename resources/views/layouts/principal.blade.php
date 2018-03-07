@@ -49,8 +49,9 @@
                 <ul class="submenu">
                     <li class="dropdown-menu-right"><a href="{{ route('curso.nuevo') }}">Alta de curso</a></li>
                     <li><a href="{{ route('curso.consulta') }}">Catalogo de cursos</a></li>
+                    <li><a href="{{ route('edicion-cursos.nuevo') }}">Edicion de cursos</a></li>
                     <li><a href="inscripción.html">Inscripción de participantes</a></li>
-                    <li><a href="cursos-programados.html">Cursos programados</a></li>
+                    <li><a href="{{ route('edicion-cursos.consulta') }}">Cursos programados</a></li>
                 </ul>
             </li>
 
@@ -69,8 +70,8 @@
             <li class="nav-header">
                 <div class="link"><i class="fa fa-building"></i>Salones<i class="fa fa-chevron-down"></i></div>
                 <ul class="submenu">
-                    <li><a href="#">Consulta Salones</a></li>
-                    <li><a href="#">Alta de Salon</a></li>
+                    <li><a href="{{route('salon.consulta')}}">Consulta Salones</a></li>
+                    <li><a href="{{route('salon.nuevo')}}">Alta de Salon</a></li>
                     <li><a href="#">Baja de Salon</a></li>
                 </ul>
             </li>

@@ -17,7 +17,7 @@
     <br>
       <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>Alta Curso para catlogo</h3>
+                    <h3>Alta Curso para catálogo</h3>
                     <h4>Cordinación de Gestión y Vinculación</h4>
                 </div>
                 <div class="panel-body">
@@ -271,49 +271,6 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="form-group{{ $errors->has('profesor_id') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Profesor</label>
-
-                            <div class="col-md-6">
-                                <select name="profesor_id" form="cursoform">
-                                    @foreach($profesores as $profesor)
-
-                                        <option value="{{ $profesor->id }} "> {{ $profesor->nombres  }} </option>
-
-                                    @endforeach
-                                </select>
-
-                                @if ($errors->has('profesor_id'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('profesor_id') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('salon_id') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Salon</label>
-
-                            <div class="col-md-6">
-                                <select name="coordinacion_id" form="cursoform">
-                                    @foreach($users as $user)
-
-                                        <option value="{{ $user->id }} "> {{ $user->nombre_coordinacion }} </option>
-
-                                    @endforeach
-                                </select>
-
-                                @if ($errors->has('salon_id'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('salon_id') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-
-
-
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
