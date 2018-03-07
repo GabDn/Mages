@@ -12,19 +12,66 @@ class SalonController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+        public function __construct()
     {
-        //
+        $this->middleware('auth');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function index()
     {
-        //
+        $users = Salon::all();
+        return view("pages.consulta-salon")
+            ->with("users",$users);
+    }
+
+     public function nuevo()
+    {
+        return view("pages.alta-salon");
+    }
+
+    public function show($id)
+    {
+        $user = Salon::find($id);
+        return view("pages.ver-salon")
+            ->with("user",$user);
+    }
+
+    public function edit($id)
+    {
+        $user = Salon::find($id);
+        return view("pages.update-salon")
+            ->with("user",$user);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $user = Salon::find($id);
+        $user->sede = $request->sede;
+        $user->capacidad= $request->capacidad;
+        $user->ubicacion= $request->ubicacion;
+        $user->sigla = $request->sigla;
+        $user->save();
+        return view("pages.update-salon")
+            ->with("user",$user);
+    }
+
+    public function delete($id)
+    {
+        $user = Salon::findOrFail($id);
+        $user -> delete();
+        return redirect('/salon');
+    }
+
+    public function create(Request $request)
+    {
+        $user = new Salon;
+        $user->sede = $request->sede;
+        $user->capacidad= $request->capacidad;
+        $user->ubicacion= $request->ubicacion;
+        $user->sigla = $request->sigla;
+        $user->save();
+        /*Session::flash('flash_message', 'Usuario agregado!');*/
+        return redirect()->back();
     }
 
     /**
@@ -39,26 +86,11 @@ class SalonController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Salon  $salon
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Salon $salon)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Salon  $salon
      * @return \Illuminate\Http\Response
      */
-    public function edit(Salon $salon)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -67,10 +99,6 @@ class SalonController extends Controller
      * @param  \App\Salon  $salon
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Salon $salon)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.

@@ -33,7 +33,7 @@
     </div>
 
     <div class="form-group col-md-4">
-      {!!Form::label("ap_pat", "Tipo en diploma")!!}
+      {!!Form::label("ap_pat", "Tipo de diploma")!!}
       {!!Form::text("ap_pat", $user->apellido_paterno, [ "class" => "form-control", "placeholder" => "Tipo en diploma", "required","disabled"])!!}
     </div>
 
@@ -44,12 +44,12 @@
   </div>
 
   <div class="form-group col-md-6">
-    {!!Form::label("presentación", "presentación")!!}
+    {!!Form::label("presentación", "Presentación")!!}
     {!!Form::text("presentación", $user->presentación, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
   </div>
 
     <div class="form-group col-md-6">
-    {!!Form::label("tipo_difusion", "tipo de difusion")!!}
+    {!!Form::label("tipo_difusion", "Tipo de difusion")!!}
     {!!Form::text("tipo_difusion", $user->tipo_difusion, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
   </div>
 
@@ -58,12 +58,12 @@
     {!!Form::text("dirigido_a", $user->dirigido_a, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
   </div>
  <div class="form-group col-md-6">
-    {!!Form::label("objetivo", "objetivo")!!}
+    {!!Form::label("objetivo", "Objetivo")!!}
     {!!Form::text("objetivo", $user->objetivo, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
   </div>
 
    <div class="form-group col-md-6">
-    {!!Form::label("contenido", "contenido")!!}
+    {!!Form::label("contenido", "Contenido")!!}
     {!!Form::text("contenido", $user->contenido, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
   </div>
 
@@ -75,12 +75,12 @@
 
 
     <div class="form-group col-md-6">
-    {!!Form::label("metodologia", "metodologia")!!}
+    {!!Form::label("metodologia", "Metodologia")!!}
     {!!Form::text("metodologia", $user->metodologia, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
   </div>
 
     <div class="form-group col-md-6">
-    {!!Form::label("acreditacion", "acreditacion")!!}
+    {!!Form::label("acreditacion", "Acreditacion")!!}
     {!!Form::text("acreditacion", $user->acreditacion, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
   </div>
 
@@ -92,23 +92,24 @@
   </div>
 
    <div class="form-group col-md-6">
-    {!!Form::label("bibliografia", "bibliografia")!!}
+    {!!Form::label("bibliografia", "Bibliografia")!!}
     {!!Form::text("bibliografia", $user->bibliografia, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
   </div>
 
    <div class="form-group col-md-6">
-    {!!Form::label("antecedentes", "antecedentes")!!}
+    {!!Form::label("antecedentes", "Antecedentes")!!}
     {!!Form::text("antecedentes", $user->antecedentes, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
   </div>
 
    <div class="form-group col-md-6">
-    {!!Form::label("consecuentes", "consecuentes")!!}
+    {!!Form::label("consecuentes", "Consecuentes")!!}
     {!!Form::text("consecuentes", $user->consecuentes, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
   </div>
 
    <div class="form-group col-md-6">
+    <?php $coord_nom = DB::table('coordinacions')->where('id','=',$user->coordinacion_id)->value('nombre_coordinacion');?>
     {!!Form::label("coordinacion_id", "Coordinación")!!}
-    {!!Form::text("coordinacion_id", $user->coordinacion_id, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
+    {!!Form::text("coordinacion id", $coord_nom, [ "class" => "form-control", "placeholder" => "Coordinacion", "required","disabled"])!!}
   </div>
 
  

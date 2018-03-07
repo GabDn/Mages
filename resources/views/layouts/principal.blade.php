@@ -52,7 +52,7 @@
             <div class="link"><i class="fa fa-lg fa-book"></i>Cursos<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
               <li><a href="{{ route('curso.nuevo') }}">Alta de curso</a></li>
-              <li><a href="baja-curso.html">Baja de curso</a></li>   
+              <!--<li><a href="baja-curso.html">Baja de curso</a></li> */ --> 
               <li><a href="{{ route('curso.consulta') }}">Catalogo de cursos</a></li>
               <li><a href="inscripción.html">Inscripción de participantes</a></li>
               <li><a href="cursos-programados.html">Cursos programados</a></li>    
@@ -74,9 +74,9 @@
           <li class="nav-header">
             <div class="link"><i class="fa fa-building"></i>Salones<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
-              <li><a href="#">Consulta Salones</a></li>
-              <li><a href="#">Alta de Salon</a></li>
-              <li><a href="#">Baja de Salon</a></li>
+              <li><a href="{{ route('salon.consulta') }}">Consulta Salones</a></li>
+              <li><a href="{{ route('salon.nuevo') }}">Alta de Salon</a></li>
+              <!--<li><a href="#">Baja de Salon</a></li>-->
             </ul>
           </li>
 		  
@@ -84,7 +84,7 @@
             <div class="link"><i class="fa fa-lg fa-map-marker"></i>Cordinaciones<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
               <li><a href="{{ route('coordinacion.nuevo') }}">Alta de cordinación</a></li>
-               <li><a href="#">Baja de cordinación</a></li>
+               <!--<li><a href="#">Baja de cordinación</a></li>-->
                <li><a href="#">Modificar cordinación</a></li>
               <li><a href="#">Cordinación general</a></li>
               <li><a href="#">Secretaria de apoyo</a></li>
@@ -95,7 +95,7 @@
             <div class="link"><i class="fa fa-lg fa-suitcase"></i>Divisiones<i class="fa fa-chevron-down"></i></div>
             <ul class="submenu">
               <li><a href="#">Alta de División</a></li>
-               <li><a href="#">Baja de División</a></li>
+               <!--<li><a href="#">Baja de División</a></li>-->
                <li><a href="#">Modificar División</a></li>
             </ul>
           </li>
@@ -120,27 +120,19 @@
   
   @yield('contenido')
   
-    <foote class="content-inner">
+  <footer class="content-inner">
     <div class="panel panel-default">
-    <div class="panel-heading">
-                   Hecho en México, Universidad Nacional Autónoma de México, Facultad de Ingeniería, Unidad de servicios de cómputo académico, Departamento de Investigación y Desarrollo. 
-Todos los derechos reservados 2017. 
-                </div>
+      <div class="panel-heading">
+     Hecho en México, Universidad Nacional Autónoma de México, Facultad de Ingeniería, Unidad de servicios de cómputo académico, Departamento de Investigación y Desarrollo. 
+      Todos los derechos reservados 2017. 
+     </div>
     </div>
   </footer>
-  </div> 
-
-
 </div>
 
-
-
-
-
-	<script src="{{ asset ('/js/jquery.js') }}"></script>
-	<script src="{{ asset ('/js/admin.js') }}"></script>
-	<script src="{{ asset ('/dist/jquery.fancybox.min.js') }}"></script>
-
-	<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset ('/js/jquery.js') }}"></script>
+<script src="{{ asset ('/js/admin.js') }}"></script>
+<script src="{{ asset ('/dist/jquery.fancybox.min.js') }}"></script>
+<script src="{{ asset('/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

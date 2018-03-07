@@ -20,6 +20,7 @@
                     <h3>Alta de profesor</h3>
                     <h4>Cordinación de Gestión y Vinculación</h4>
                 </div>
+        </div>
                 <div class="panel-body">
 
                 
@@ -110,8 +111,8 @@
                                         <strong>{{ $errors->first('fecha_nacimiento') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>   
+                            </div>  
+                        </div>
 
                                                  <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Telefono</label>
@@ -205,7 +206,7 @@
 
 
                         <div class="form-group{{ $errors->has('tutor') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">tutor</label>
+                            <label for="name" class="col-md-4 control-label">Tutor</label>
 
                             <div class="col-md-6">
                                 Si: <input id="tutor" type="radio" class="" name="tutor" value="true" >
@@ -252,7 +253,7 @@
 
                         
                         <div class="form-group{{ $errors->has('comentarios') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">comentarios</label>
+                            <label for="name" class="col-md-4 control-label">Comentarios</label>
 
                             <div class="col-md-6">
                                 <input id="comentarios" type="text" class="form-control" name="comentarios" value="{{ old('comentarios') }}" >
@@ -266,7 +267,7 @@
                         </div>
 
     <div class="form-group{{ $errors->has('unam') ? ' has-error' : '' }}">
-        <label for="unam" class="col-md-4 control-label">Profesor de la UNAM: </label>
+        <label for="unam" class="col-md-4 control-label">Profesor de la UNAM </label>
 
         <div class="col-md-6">
             Si: <input  onclick="interno()" id="unam" type="radio" class="" name="unam" value="true" >
@@ -362,8 +363,6 @@
 
                     </form>
 
-      </div>
-
      </section>
 
       <script>
@@ -392,6 +391,5 @@
           }
       </script>
 
-  </div>
 @endsection
   

@@ -109,7 +109,8 @@
 
    <div class="form-group col-md-6">
     {!!Form::label("coordinacion_id", "Coordinación")!!}
-    {!!Form::text("coordinacion_id", $user->coordinacion_id, [ "class" => "form-control", "placeholder" => "presentación", "required",""])!!}
+    <?php $coords = DB::table('coordinacions')->get();?>
+    {!! Form::select('coordinacion_id', $coords, null, ['class' => 'form-control']) !!}
   </div>
 
   

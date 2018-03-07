@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/admin', 'HomeController@index')->name('home');
 
+/* Rutas de Profesor */
 Route::get('profesor/nuevo', "ProfesorController@nuevo")->name("profesor.nuevo");
 Route::post('profesor/save', "ProfesorController@create")->name('profesor.store');
 Route::get('profesor/{id}', "ProfesorController@show")->name('profesor.show');
@@ -30,7 +31,7 @@ Route::get('profesor/actualizar/{id}', "ProfesorController@edit")->name('profeso
 Route::put('profesor/actualizar/{id}', "ProfesorController@update")->name('profesor.actualizar');
 Route::get('profesor/baja/{id}', "ProfesorController@delete");
 
-
+/* Rutas de Curso */
 Route::get('curso/nuevo', "CursoController@nuevo")->name("curso.nuevo");
 Route::post('curso/save', "CursoController@create")->name('curso.store');
 Route::get('curso/{id}', "CursoController@show")->name('curso.show');
@@ -40,7 +41,7 @@ Route::get('curso/actualizar/{id}', "CursoController@edit")->name('curso.update'
 Route::put('curso/actualizar/{id}', "CursoController@update")->name('curso.actualizar');
 Route::get('curso/baja/{id}', "CursoController@delete");
 
-
+/* Rutas de Coordinacion */
 Route::get('coordinacion/nuevo', "CoordinacionController@nuevo")->name("coordinacion.nuevo");
 Route::post('coordinacion/save', "CoordinacionController@create")->name('coordinacion.store');
 Route::get('coordinacion/{id}', "CoordinacionController@show")->name('coordinacion.show');
@@ -50,6 +51,7 @@ Route::get('coordinacion/actualizar/{id}', "CoordinacionController@edit")->name(
 Route::put('coordinacion/actualizar/{id}', "CoordinacionController@update")->name('coordinacion.actualizar');
 Route::get('coordinacion/baja/{id}', "CoordinacionController@delete");
 
+/* Rutas de Facultad */
 Route::get('facultad/nuevo', "FacultadController@nuevo")->name("facultad.nuevo");
 Route::post('facultad/save', "FacultadController@create")->name('facultad.store');
 Route::get('facultad/{id}', "FacultadController@show")->name('facultad.show');
@@ -59,6 +61,7 @@ Route::get('facultad/actualizar/{id}', "FacultadController@edit")->name('faculta
 Route::put('facultad/actualizar/{id}', "FacultadController@update")->name('facultad.actualizar');
 Route::get('facultad/baja/{id}', "FacultadController@delete");
 
+/* Rutas de Division */
 Route::get('division/nuevo', "DivisionController@nuevo")->name("division.nuevo");
 Route::post('division/save', "DivisionController@create")->name('division.store');
 Route::get('division/{id}', "DivisionController@show")->name('division.show');
@@ -68,6 +71,7 @@ Route::get('division/actualizar/{id}', "DivisionController@edit")->name('divisio
 Route::put('division/actualizar/{id}', "DivisionController@update")->name('division.actualizar');
 Route::get('division/baja/{id}', "DivisionController@delete");
 
+/* Rutas de Carrera */
 Route::get('carrera/nuevo', "CarreraController@nuevo")->name("carrera.nuevo");
 Route::post('carrera/save', "CarreraController@create")->name('carrera.store');
 Route::get('carrera/{id}', "CarreraController@show")->name('carrera.show');
@@ -77,5 +81,12 @@ Route::get('carrera/actualizar/{id}', "CarreraController@edit")->name('carrera.u
 Route::put('carrera/actualizar/{id}', "CarreraController@update")->name('carrera.actualizar');
 Route::get('carrera/baja/{id}', "CarreraController@delete");
 
-
-
+/* Rutas de Salon */
+Route::get('salon/nuevo', "SalonController@nuevo")->name("salon.nuevo");
+Route::post('salon/save', "SalonController@create")->name('salon.store');
+Route::get('salon/{id}', "SalonController@show")->name('salon.show');
+Route::get('salon', "SalonController@index")->name("salon.consulta");
+Route::get('salon/busqueda', "SalonController@search")->name('salon.busqueda');
+Route::get('salon/actualizar/{id}', "SalonController@edit")->name('salon.update');
+Route::put('salon/actualizar/{id}', "SalonController@update")->name('salon.actualizar');
+Route::get('salon/baja/{id}', "SalonController@delete");

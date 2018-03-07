@@ -170,7 +170,6 @@ class CursoController extends Controller
         $user->antecedentes = $request->antecedentes;
         $user->consecuentes = $request->consecuentes;
         $user->coordinacion_id = $request->coordinacion_id;
-
        
         $user->save();
         /*Session::flash('flash_message', 'Usuario agregado!');*/
