@@ -19,6 +19,8 @@ class CreateEdicionCurso extends Migration
             $table->string('periodo_semestre');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
+            $table->string('hora_inicio');
+            $table->string('hora_fin');
             $table->String('dias_semana')->nullable();
             $table->integer('numero_sesiones');
             $table->integer('costo')->nullable();

@@ -17,12 +17,17 @@
     <br>
       <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>Lista de profesores</h3>
+                    <h3>Lista de salones</h3>
                       
- {!! Form::open(["route" => "profesor.consulta", "method" => "GET"]) !!}
+ {!! Form::open(["route" => "salon.busqueda", "method" => "GET"]) !!}
   <div class="input-group">
       {!!Form::text("pattern", null, [ "class" => "form-control", "placeholder" => "Buscar Usuario"])!!}
-
+      {!! Form::select('type', array(
+        'nombre' => 'Por sede', 
+        'rfc' => 'Por capacidad', 
+        'email' => 'Por ubicacion',
+        'telefono' => 'Por sigla'), 
+        null,['class' => 'btn dropdown-toggle pull-left'] ) !!}
 {!! Form::close() !!}
 <span class="input-group-btn col-md-2">
         <button class="btn btn-search " type="submit">Buscar</button>
@@ -33,16 +38,16 @@
 
                 <table class="col-md-12">
      <tr>
-        <th>Nombre</th>
-        <th>Objetivo</th>
+        <th>Sede</th>
+        <th>Ubicacion</th>
         <th></th>
      </tr>
     @foreach($users as $user)
         <tr>
-        <td>{{ $user->nombres }} {{ $user->apellido_paterno }} {{ $user->apellido_materno }}</td>
-        <td>{{ $user->email}}</td>
-        <td><a href="{{ URL::to('profesor', $user->id) }}" class="btn btn-info">Detalles</a>
-            <a href="{{ URL::to('profesor/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
+        <td>{{ $user->sede }}</td>
+        <td>{{ $user->ubicacion}}</td>
+        <td><a href="{{ URL::to('salon', $user->id) }}" class="btn btn-info">Detalles</a>
+            <a href="{{ URL::to('salon/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
       </tr>
     @endforeach
 </table>
@@ -55,4 +60,3 @@
      </section>
      
 @endsection
-  

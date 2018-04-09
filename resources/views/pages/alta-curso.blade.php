@@ -4,8 +4,7 @@
 
 @section('contenido')
   <!--Body content-->
-
-  <div class="content">
+<div class="content">
     <div class="top-bar">       
       <a href="#menu" class="side-menu-link burger"> 
         <span class='burger_inside' id='bgrOne'></span>
@@ -17,9 +16,11 @@
     <br>
       <div class="panel panel-default">
                 <div class="panel-heading">
+
                     <h3>Alta Curso para catálogo</h3>
                     <h4>Cordinación de Gestión y Vinculación</h4>
                 </div>
+        </div>
                 <div class="panel-body">
 
 
@@ -45,7 +46,7 @@
                         </div>
 
                          <div class="form-group{{ $errors->has('tipo_curso_diploma') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Tipo diploma</label>
+                            <label for="name" class="col-md-4 control-label">Tipo de Diploma</label>
 
                             <div class="col-md-6">
                                 <input id="tipo_curso_diploma" type="text" class="form-control" name="tipo_curso_diploma" value="{{ old('tipo_curso_diploma') }}" >
@@ -74,7 +75,7 @@
                         
 
                                                  <div class="form-group{{ $errors->has('tipo_difusion') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Difusion: </label>
+                            <label for="name" class="col-md-4 control-label">Difusion </label>
 
                             <div class="col-md-6">
                                 <input id="tipo_difusion" type="text" class="form-control" name="tipo_difusion" value="{{ old('tipo_difusion') }}" >
@@ -89,7 +90,7 @@
 
 
                                                  <div class="form-group{{ $errors->has('objetivo') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">objetivo</label>
+                            <label for="name" class="col-md-4 control-label">Objetivo</label>
 
                             <div class="col-md-6">
                                 <input id="objetivo" type="text" class="form-control" name="objetivo" value="{{ old('objetivo') }}" >
@@ -103,7 +104,7 @@
                         </div>    
 
                                                  <div class="form-group{{ $errors->has('contenido') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">contenido</label>
+                            <label for="name" class="col-md-4 control-label">Contenido</label>
 
                             <div class="col-md-6">
                                 <input id="contenido" type="text" class="form-control" name="contenido" value="{{ old('contenido') }}" >
@@ -117,7 +118,7 @@
                         </div>    
 
                              <div class="form-group{{ $errors->has('presentación') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">presentación</label>
+                            <label for="name" class="col-md-4 control-label">Presentación</label>
 
                             <div class="col-md-6">
                                 <input id="presentación" type="text" class="form-control" name="presentación" value="{{ old('presentación') }}" >
@@ -134,7 +135,7 @@
 
             
                         <div class="form-group{{ $errors->has('sintesis') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">sintesis</label>
+                            <label for="name" class="col-md-4 control-label">Sintesis</label>
 
                             <div class="col-md-6">
                                 <input id="sintesis" type="text" class="form-control" name="sintesis" value="{{ old('sintesis') }}" >
@@ -149,7 +150,7 @@
 
 
                         <div class="form-group{{ $errors->has('dirigido_a') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">dirigido a</label>
+                            <label for="name" class="col-md-4 control-label">Dirigido a</label>
 
                             <div class="col-md-6">
                                 <input id="dirigido_a" type="text" class="form-control" name="dirigido_a" value="{{ old('dirigido_a') }}" >
@@ -164,7 +165,7 @@
 
 
                         <div class="form-group{{ $errors->has('metodologia') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">metodologia</label>
+                            <label for="name" class="col-md-4 control-label">Metodologia</label>
 
                             <div class="col-md-6">
                                 <input id="metodologia" type="text" class="form-control" name="metodologia" value="{{ old('metodologia') }}" >
@@ -179,7 +180,7 @@
 
 
                         <div class="form-group{{ $errors->has('acreditacion') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">acreditacion</label>
+                            <label for="name" class="col-md-4 control-label">Acreditacion</label>
 
                             <div class="col-md-6">
                                 <input id="acreditacion" type="text" class="form-control" name="acreditacion" value="{{ old('acreditacion') }}" >
@@ -194,7 +195,7 @@
 
 
                         <div class="form-group{{ $errors->has('cobro') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">cobro</label>
+                            <label for="name" class="col-md-4 control-label">Cobro</label>
 
                             <div class="col-md-6">
                                 <input id="cobro" type="text" class="form-control" name="cobro" value="{{ old('cobro') }}" >
@@ -225,7 +226,7 @@
 
 
                         <div class="form-group{{ $errors->has('antecedentes') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">antecedentes</label>
+                            <label for="name" class="col-md-4 control-label">Antecedentes</label>
 
                             <div class="col-md-6">
                                 <input id="antecedentes" type="text" class="form-control" name="antecedentes" value="{{ old('antecedentes') }}" >
@@ -240,7 +241,7 @@
 
                         
                         <div class="form-group{{ $errors->has('consecuentes') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">consecuentes</label>
+                            <label for="name" class="col-md-4 control-label">Consecuentes</label>
 
                             <div class="col-md-6">
                                 <input id="consecuentes" type="text" class="form-control" name="consecuentes" value="{{ old('consecuentes') }}" >
@@ -254,7 +255,7 @@
                         </div>     
 
                          <div class="form-group{{ $errors->has('coordinacion_id') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">coordinación</label>
+                            <label for="name" class="col-md-4 control-label">Coordinación</label>
 
                             <div class="col-md-6">
                                 <select name="coordinacion_id" form="cursoform">

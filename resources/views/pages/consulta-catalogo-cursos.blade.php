@@ -38,13 +38,18 @@
 
                 <table class="col-md-12">
                     <tr>
-                        <th>Nombre</th>
-                        <th>Objetivo</th>
-                        <th></th>
+                        <th>Clave</th>
+                        <th>Nombre del curso</th>
+                        <th>Coordinacion</th>
+
                     </tr>
-                    @foreach($users as $user)
+                    @foreach($users as $user )
                         <tr>
-                          tmp
+                            <td>{{$user->clave_curso}}</td>
+                            <td>{{$user->nombre_curso}}</td>
+                            <td>{{$user->getCoordinacion()}}</td>
+                            <td><a href="{{ URL::to('catalogo-cursos', $user->id) }}" class="btn btn-info">Detalles</a>
+                                <a href="{{ URL::to('catalogo-cursos/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
                         </tr>
                     @endforeach
                 </table>

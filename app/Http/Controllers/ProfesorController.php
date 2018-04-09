@@ -22,9 +22,9 @@ class ProfesorController extends Controller
     }
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $users = Profesor::all();
+        $users = Profesor::name($request->get('pattern'));
         return view("pages.consulta-profesores")
             ->with("users",$users);
     }
@@ -104,14 +104,9 @@ class ProfesorController extends Controller
             if($user->facultad_id!==1){
                 $user->carrera_id=null;
             }
-
-
         }else{
             $user->procedencia = $request->procedencia;
         }
-
-
-
         if($user->email !== $request->email)
             {
                 $user->email = $request->email;
@@ -136,9 +131,9 @@ class ProfesorController extends Controller
             {
                 $words=explode(" ", $request->pattern);
                 foreach($words as $word){
-                    $users = Profesor::where('nombre','LIKE','%'.$word.'%')
-                    ->orWhere('ap_pat','LIKE','%'.$word.'%')
-                    ->orWhere('ap_mat','LIKE','%'.$word.'%')
+                    $users = Profesor::where('nombre','LIKE',"%$word%")
+                    ->orWhere('ap_pat','LIKE',"%$word%")
+                    ->orWhere('ap_mat','LIKE',"%$word%")
                     -> get();
                 }
              return view('display')->with("users",$users);

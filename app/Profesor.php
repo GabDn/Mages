@@ -28,4 +28,8 @@ class Profesor extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function scopeName($query, $name){
+        $query->where('nombres','LIKE',"%$name%");
+    }
 }

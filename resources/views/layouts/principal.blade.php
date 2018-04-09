@@ -14,7 +14,6 @@
 
 </head>
 <body>
-
 <div class="wrap">
     <nav class="nav-bar navbar-inverse" role="navigation">
         <div id ="top-menu" class="container-fluid active">
@@ -24,20 +23,23 @@
                 <li class="dropdown movable">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="fa fa-2x fa-user-circle"></span></a>
                     <ul class="dropdown-menu" role="menu">
+
+
                         <li>
                             <a href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                 Salir
                             </a>
+
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 {{ csrf_field() }}
                             </form>
                         </li>
                     </ul>
+
             </ul>
             </li>
-
             </ul>
         </div>
     </nav>
@@ -47,11 +49,11 @@
             <li class="nav-header">
                 <div class="link"><i class="fa fa-lg fa-book"></i>Cursos<i class="fa fa-chevron-down"></i></div>
                 <ul class="submenu">
-                    <li class="dropdown-menu-right"><a href="{{ route('curso.nuevo') }}">Alta de curso</a></li>
-                    <li><a href="{{ route('curso.consulta') }}">Catalogo de cursos</a></li>
-                    <li><a href="{{ route('edicion-cursos.nuevo') }}">Edicion de cursos</a></li>
-                    <li><a href="inscripción.html">Inscripción de participantes</a></li>
-                    <li><a href="{{ route('edicion-cursos.consulta') }}">Cursos programados</a></li>
+                    <li><a href="{{ route('curso.nuevo') }}">Alta de curso</a></li>
+                    <li><a href="{{ route('catalogo-cursos.consulta') }}">Catalogo de cursos</a></li>
+                    <li><a href="{{ route('catalogo-cursos.nuevo') }}">Alta Catalogo</a></li>
+                    <li><a href="#">Inscripción de participantes</a></li>
+                    <li><a href="{{ route('catalogo-cursos.consulta') }}">Cursos programados</a></li>
                 </ul>
             </li>
 
@@ -70,9 +72,9 @@
             <li class="nav-header">
                 <div class="link"><i class="fa fa-building"></i>Salones<i class="fa fa-chevron-down"></i></div>
                 <ul class="submenu">
-                    <li><a href="{{route('salon.consulta')}}">Consulta Salones</a></li>
-                    <li><a href="{{route('salon.nuevo')}}">Alta de Salon</a></li>
-                    <li><a href="#">Baja de Salon</a></li>
+                    <li><a href="{{ route('salon.consulta') }}">Consulta Salones</a></li>
+                    <li><a href="{{ route('salon.nuevo') }}">Alta de Salon</a></li>
+                    <!--<li><a href="#">Baja de Salon</a></li>-->
                 </ul>
             </li>
 
@@ -124,18 +126,9 @@
         </div>
     </footer>
 </div>
-
-
-</div>
-
-
-
-
-
 <script src="{{ asset ('/js/jquery.js') }}"></script>
 <script src="{{ asset ('/js/admin.js') }}"></script>
 <script src="{{ asset ('/dist/jquery.fancybox.min.js') }}"></script>
-
 <script src="{{ asset('/js/bootstrap.min.js') }}"></script>
 </body>
 </html>

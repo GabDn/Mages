@@ -50,7 +50,7 @@ class CoordinacionController extends Controller
         $user->nombre_coordinacion = $request->nombre_coordinacion;
         $user->abreviatura= $request->abreviatura;
         $user->coordinador= $request->coordinador;
-        $user->comentario = $request->comentario;
+        $user->comentarios = $request->comentarios;
         $user->save();
         return view("pages.update-coordinacion")
             ->with("user",$user);

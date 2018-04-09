@@ -98,21 +98,21 @@
   </div>
 
    <div class="form-group col-md-6">
-    {!!Form::label("antecedentes", "antecedentes")!!}
+    {!!Form::label("antecedentes", "Antecedentes")!!}
     {!!Form::text("antecedentes", $user->antecedentes, [ "class" => "form-control", "placeholder" => "presentación", "required",""])!!}
   </div>
 
    <div class="form-group col-md-6">
-    {!!Form::label("consecuentes", "consecuentes")!!}
+    {!!Form::label("consecuentes", "Consecuentes")!!}
     {!!Form::text("consecuentes", $user->consecuentes, [ "class" => "form-control", "placeholder" => "presentación", "required",""])!!}
   </div>
 
    <div class="form-group col-md-6">
     {!!Form::label("coordinacion_id", "Coordinación")!!}
-    {!!Form::text("coordinacion_id", $user->coordinacion_id, [ "class" => "form-control", "placeholder" => "presentación", "required",""])!!}
+       {!!Form::text("coordinacion_id", $user->coordinacion_id, [ "class" => "form-control", "placeholder" => "Coordinacion", "required",""])!!}
+
   </div>
 
-  
 
 <div>
     <button type="submit" class="btn btn-primary col-md-offset-1">Actualizar</button>

@@ -4,12 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Coordinacion;
 use App\Curso;
-use App\EdicionCurso;
+use App\CatalogoCurso;
 use App\Profesor;
 use App\Salon;
 use Illuminate\Http\Request;
 
-class EdicionCursosController extends Controller
+class CatalogoCursosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,11 +24,16 @@ class EdicionCursosController extends Controller
 
     public function index()
     {
-        $users = EdicionCurso::all();
-        return view("pages.consulta-edicion-cursos")
+        $coordinaciones = Coordinacion::all();
+        $users = CatalogoCurso::all();
+        return view("pages.consulta-catalogo-cursos")
+            ->with("coordinaciones",$coordinaciones)
             ->with("users",$users);
+
+
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -36,14 +41,10 @@ class EdicionCursosController extends Controller
      */
     public function nuevo()
     {
-        $cursos = Curso::all();
-        $profesores = Profesor::all();
-        $salones = Salon::all();
-        return view("pages.alta-edicion-cursos")
-            ->with("cursos",$cursos)
-            ->with("profesores",$profesores)
-            ->with("salones",$salones);
-
+        $coordinaciones = Coordinacion::all();
+       
+        return view("pages.alta-catalogo-cursos")
+            ->with("coordinaciones",$coordinaciones);
     }
 
     /**
@@ -54,8 +55,8 @@ class EdicionCursosController extends Controller
      */
     public function show($id)
     {
-        $user = Curso::find($id);
-        return view("pages.ver-curso")
+        $user = EdicionCurso::find($id);
+        return view("pages.ver-catalogo-cursos")
             ->with("user",$user);
     }
 
@@ -139,9 +140,9 @@ class EdicionCursosController extends Controller
 
     public function delete($id)
     {
-        $user = Curso::findOrFail($id);
+        $user = EdicionCurso::findOrFail($id);
         $user -> delete();
-        return redirect('/curso');
+        return redirect('/catalogo-cursos');
     }
 
 
@@ -160,26 +161,27 @@ class EdicionCursosController extends Controller
      */
     public function create(Request $request)
     {
-        $user = new EdicionCurso;
-        $user->semestre_imparticion = $request->semestre_imparticion;
-        $user->periodo_semestre = $request->periodo_semestre;
-        $user->fecha_inicio = $request->fecha_inicio;
-        $user->fecha_fin = $request->fecha_fin;
-        $user->hora_inicio = $request->hora_inicio;
-        $user->hora_fin = $request->hora_fin;
-        $user->dia_semana = $request->dias_semana;
-        $user->numero_sesiones = $request->numero_sesiones;
-        $user->costo = $request->costo;
-        $user->orden = $request->orden;
-        $user->fecha = $request->fecha;
-        $user->cupo_maximo = $request->cupo_maximo;
-        $user->cupo_minimo = $request->cupo_minimo;
-        $user->status_curso = $request->status_curso;
-        $user->profesor_id = $request->profesor_id;
-        $user->curso_id = $request->curso_id;
-        $user->salon_id = $request->salon_id;
-
-
+        $user = new CatalogoCurso;
+        $user->nombre_curso = $request->nombre_curso;
+        $user->duracion_curso = $request->duracion_curso;
+        $user->coordinacion_id = $request->coordinacion_id;
+        $user->tipo = $request->tipo;
+        $user->tipo_curso_diploma_instructor = $request->tipo_curso_diploma_instructor;
+        $user->presentacion = $request->presentacion;
+        $user->tipo_difusion = $request->tipo_difusion;
+        $user->dirigido = $request->dirigido;
+        $user->objetivo = $request->objetivo;
+        $user->contenido = $request->contenido;
+        $user->sintesis = $request->sintesis;
+        $user->metodologia = $request->metodologia;
+        $user->acreditacion = $request->acreditacion;
+        $user->evaluacion = $request->evaluacion;
+        $user->bibliografia = $request->bibliografia;
+        $user->antecedentes = $request->antecedentes;
+        $user->consecuentes = $request->antecedentes;
+        $user->fecha_disenio = $request->fecha_disenio;
+        $user->clave_curso = $request->clave_curso;
+        
 
         $user->save();
         /*Session::flash('flash_message', 'Usuario agregado!');*/

@@ -16,6 +16,7 @@
 
        <link rel="stylesheet" type="text/css" href="{{ asset('/css/login.css') }}"/>
 
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('/img/favicon.ico') }}" />
     </head>
     <body>
 

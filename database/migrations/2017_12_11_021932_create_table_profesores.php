@@ -33,7 +33,7 @@ class CreateTableProfesores extends Migration
               $table->string('causa_baja')->nullable();
               $table->string('semblanza_corta');
               $table->string('facebook')->nullable();
-            $table->boolean('unam');
+            $table->boolean('unam')->nullable();
             $table->string('procedencia')->nullable();
 
             $table->integer('facultad_id')->unsigned()->nullable();

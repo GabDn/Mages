@@ -25,8 +25,8 @@
                     <div class="row col-md-12 ">{!! Form::open(['route' => array('coordinacion.actualizar', $user->id), "method" => "PUT"]) !!}
 
                         <div class="form-group col-md-4">
-                            {!!Form::label("nombre", "Nombre de coordinacion")!!}
-                            {!!Form::text("nombre", $user->nombre_coordinacion, [ "class" => "form-control", "placeholder" => "Nombre", "required",""])!!}
+                            {!!Form::label("nombre_coordinacion", "Nombre de coordinacion")!!}
+                            {!!Form::text("nombre_coordinacion", $user->nombre_coordinacion, [ "class" => "form-control", "placeholder" => "Nombre", "required",""])!!}
                         </div>
                         <div class="form-group col-md-4">
                             {!!Form::label("abreviatura", "Abreviatura")!!}
