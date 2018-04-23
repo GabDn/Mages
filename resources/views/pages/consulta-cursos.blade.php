@@ -39,13 +39,15 @@
                 <table class="col-md-12">
      <tr>
         <th>Nombre</th>
-        <th>Objetivo</th>
+         <th>Profesor</th>
+        <th>Salon</th>
         <th></th>
      </tr>
     @foreach($users as $user)
         <tr>
         <td>{{ $user->nombre }} </td>
-        <td>{{ $user->objetivo}}</td>
+        <td>{{$user->getProfesor()}}</td>
+        <td>{{ $user->getSalon()}}</td>
         <td><a href="{{ URL::to('curso', $user->id) }}" class="btn btn-info">Detalles</a>
             <a href="{{ URL::to('curso/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
       </tr>

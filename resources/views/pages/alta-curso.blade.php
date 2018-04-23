@@ -18,18 +18,12 @@
                 <div class="panel-heading">
 
                     <h3>Alta Curso para catálogo</h3>
-                    <h4>Cordinación de Gestión y Vinculación</h4>
+                    <h4>{{$user->nombre_curso}}</h4>
                 </div>
         </div>
                 <div class="panel-body">
-
-
-
-
                     <form id="cursoform" class="form-horizontal" method="POST" action="{{ route('curso.store') }}">
                         {{ csrf_field() }}
-
-                     
 
                         <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
                             <label for="nombre" class="col-md-4 control-label">Nombre</label>
@@ -45,229 +39,235 @@
                             </div>
                         </div>
 
-                         <div class="form-group{{ $errors->has('tipo_curso_diploma') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Tipo de Diploma</label>
+                         <div class="form-group{{ $errors->has('semestre_imparticion') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Semestre:</label>
 
                             <div class="col-md-6">
-                                <input id="tipo_curso_diploma" type="text" class="form-control" name="tipo_curso_diploma" value="{{ old('tipo_curso_diploma') }}" >
+                                <input id="semestre_imparticion" type="text" class="form-control" name="semestre_imparticion" value="{{ old('semestre_imparticion') }}" >
 
-                                @if ($errors->has('tipo_curso_diploma'))
+                                @if ($errors->has('semestre_imparticion'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('tipo_curso_diploma') }}</strong>
+                                        <strong>{{ $errors->first('semestre_imparticion') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                         <div class="form-group{{ $errors->has('fecha_inicio') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Fecha de inicio:</label>
+
+                            <div class="col-md-6">
+                                <input id="fecha_inicio" type="date" class="form-control" name="fecha_inicio" value="{{ old('fecha_inicio') }}" >
+
+                                @if ($errors->has('fecha_inicio'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('fecha_inicio') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                         <div class="form-group{{ $errors->has('tipo') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Tipo</label>
+
+                        <div class="form-group{{ $errors->has('fecha_fin') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Fecha de fin: </label>
 
                             <div class="col-md-6">
-                                <input id="tipo" type="text" class="form-control" name="tipo" value="{{ old('tipo') }}" >
+                                <input id="fecha_fin" type="date" class="form-control" name="fecha_fin" value="{{ old('fecha_fin') }}" >
 
-                                @if ($errors->has('tipo'))
+                                @if ($errors->has('fecha_fin'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('tipo') }}</strong>
+                                        <strong>{{ $errors->first('fecha_fin') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>     
-                        
+                        </div>
 
-                                                 <div class="form-group{{ $errors->has('tipo_difusion') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Difusion </label>
+                         <div class="form-group{{ $errors->has('hora_inicio') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Hora de inicio:</label>
 
                             <div class="col-md-6">
-                                <input id="tipo_difusion" type="text" class="form-control" name="tipo_difusion" value="{{ old('tipo_difusion') }}" >
+                                <input id="hora_inicio" type="text" class="form-control" name="hora_inicio" value="{{ old('hora_inicio') }}" >
 
-                                @if ($errors->has('tipo_difusion'))
+                                @if ($errors->has('hora_inicio'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('tipo_difusion') }}</strong>
+                                        <strong>{{ $errors->first('hora_inicio') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>    
-
-
-                                                 <div class="form-group{{ $errors->has('objetivo') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Objetivo</label>
+                        </div>
+                        <div class="form-group{{ $errors->has('hora_fin') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Hora de fin:</label>
 
                             <div class="col-md-6">
-                                <input id="objetivo" type="text" class="form-control" name="objetivo" value="{{ old('objetivo') }}" >
+                                <input id="hora_fin" type="text" class="form-control" name="hora_fin" value="{{ old('hora_fin') }}" >
 
-                                @if ($errors->has('objetivo'))
+                                @if ($errors->has('hora_fin'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('objetivo') }}</strong>
+                                        <strong>{{ $errors->first('hora_fin') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>    
-
-                                                 <div class="form-group{{ $errors->has('contenido') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Contenido</label>
+                        </div>
+                        <div class="form-group{{ $errors->has('dias_semana') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Dias a la semana:</label>
 
                             <div class="col-md-6">
-                                <input id="contenido" type="text" class="form-control" name="contenido" value="{{ old('contenido') }}" >
+                                <input id="dias_semana" type="text" class="form-control" name="dias_semana" value="{{ old('dias_semana') }}" >
 
-                                @if ($errors->has('contenido'))
+                                @if ($errors->has('dias_semana'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('contenido') }}</strong>
+                                        <strong>{{ $errors->first('dias_semana') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>    
+                        </div>
 
-                             <div class="form-group{{ $errors->has('presentación') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Presentación</label>
+                        <div class="form-group{{ $errors->has('numero_sesiones') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Numero de sesiones:</label>
 
                             <div class="col-md-6">
-                                <input id="presentación" type="text" class="form-control" name="presentación" value="{{ old('presentación') }}" >
+                                <input id="numero_sesiones" type="numbrer" min="1" class="form-control" name="numero_sesiones" value="{{ old('numero_sesiones') }}" >
 
-                                @if ($errors->has('presentación'))
+                                @if ($errors->has('numero_sesiones'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('presentación') }}</strong>
+                                        <strong>{{ $errors->first('numero_sesiones') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>    
+                        </div>
 
-
-
-            
-                        <div class="form-group{{ $errors->has('sintesis') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Sintesis</label>
+                        <div class="form-group{{ $errors->has('texto_diploma') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Dirigido a:</label>
 
                             <div class="col-md-6">
-                                <input id="sintesis" type="text" class="form-control" name="sintesis" value="{{ old('sintesis') }}" >
+                                <input id="texto_diploma" type="text" class="form-control" name="texto_diploma" value="{{ old('texto_diploma') }}" >
 
-                                @if ($errors->has('sintesis'))
+                                @if ($errors->has('texto_diploma'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('sintesis') }}</strong>
+                                        <strong>{{ $errors->first('texto_diploma') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>  
-
-
-                        <div class="form-group{{ $errors->has('dirigido_a') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Dirigido a</label>
+                        </div>
+                        <div class="form-group{{ $errors->has('profesor_id') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Profesor:</label>
 
                             <div class="col-md-6">
-                                <input id="dirigido_a" type="text" class="form-control" name="dirigido_a" value="{{ old('dirigido_a') }}" >
+                                <select name="profesor_id" form="cursoform">
+                                    @foreach($profesores as $profesor)
 
-                                @if ($errors->has('dirigido_a'))
+                                        <option value="{{ $profesor->id }} ">{{ $profesor->nombres }} {{ $profesor->apellido_paterno }} {{ $profesor->apellido_materno }}</option>
+
+                                    @endforeach
+                                </select>
+                                @if ($errors->has('profesor_id'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('dirigido_a') }}</strong>
+                                        <strong>{{ $errors->first('profesor_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>      
-
-
-                        <div class="form-group{{ $errors->has('metodologia') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Metodologia</label>
+                        </div>
+                        <div class="form-group{{ $errors->has('costo') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Costo</label>
 
                             <div class="col-md-6">
-                                <input id="metodologia" type="text" class="form-control" name="metodologia" value="{{ old('metodologia') }}" >
-
-                                @if ($errors->has('metodologia'))
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input id="costo" type="number" min="1" class="form-control" name="costo" value="{{ old('costo') }}" >
+                                    <span class="input-group-addon">.00</span>
+                                </div>
+                                @if ($errors->has('costo'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('metodologia') }}</strong>
+                                        <strong>{{ $errors->first('costo') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div> 
-
-
-                        <div class="form-group{{ $errors->has('acreditacion') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Acreditacion</label>
+                        </div>
+                        <div class="form-group{{ $errors->has('orden') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Orden:</label>
 
                             <div class="col-md-6">
-                                <input id="acreditacion" type="text" class="form-control" name="acreditacion" value="{{ old('acreditacion') }}" >
+                                <input id="orden" type="text" class="form-control" name="orden" value="{{ old('orden') }}" >
 
-                                @if ($errors->has('acreditacion'))
+                                @if ($errors->has('orden'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('acreditacion') }}</strong>
+                                        <strong>{{ $errors->first('orden') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>   
+                        </div>
 
-
-                        <div class="form-group{{ $errors->has('cobro') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Cobro</label>
+                        <div class="form-group{{ $errors->has('fecha_disenio') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Fecha diseño:</label>
 
                             <div class="col-md-6">
-                                <input id="cobro" type="text" class="form-control" name="cobro" value="{{ old('cobro') }}" >
+                                <input id="fecha_disenio" type="date" class="form-control" name="fecha_disenio" value="{{ old('fecha_disenio') }}" >
 
-                                @if ($errors->has('cobro'))
+                                @if ($errors->has('fecha_disenio'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('cobro') }}</strong>
+                                        <strong>{{ $errors->first('fecha_disenio') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>   
+                        </div>
 
-
-                       
-                        <div class="form-group{{ $errors->has('bibliografia') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Semblanza Corta</label>
-
+                        <div class="form-group{{ $errors->has('cupo_maximo') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Cupo maximo:</label>
                             <div class="col-md-6">
-                                <input id="bibliografia" type="text" class="form-control" name="bibliografia" value="{{ old('bibliografia') }}" >
+                                <input id="cupo_maximo" type="number" min =1 class="form-control" name="cupo_maximo" value="{{ old('cupo_maximo') }}" >
 
-                                @if ($errors->has('bibliografia'))
+                                @if ($errors->has('cupo_maximo'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('bibliografia') }}</strong>
+                                        <strong>{{ $errors->first('cupo_maximo') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>  
+                        </div>
 
-
-                        <div class="form-group{{ $errors->has('antecedentes') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Antecedentes</label>
+                        <div class="form-group{{ $errors->has('cupo_minimo') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Cupo minimo:</label>
 
                             <div class="col-md-6">
-                                <input id="antecedentes" type="text" class="form-control" name="antecedentes" value="{{ old('antecedentes') }}" >
+                                <input id="cupo_minimo" type="number" min="1" class="form-control" name="cupo_minimo" value="{{ old('cupo_minimo') }}" >
 
-                                @if ($errors->has('antecedentes'))
+                                @if ($errors->has('cupo_minimo'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('antecedentes') }}</strong>
+                                        <strong>{{ $errors->first('cupo_minimo') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>  
+                        </div>
 
-                        
-                        <div class="form-group{{ $errors->has('consecuentes') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Consecuentes</label>
-
+                        <div class="form-group{{ $errors->has('status') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Estado del curso</label>
                             <div class="col-md-6">
-                                <input id="consecuentes" type="text" class="form-control" name="consecuentes" value="{{ old('consecuentes') }}" >
-
-                                @if ($errors->has('consecuentes'))
+                                <select name="status"  form="cursoform">
+                                    <option value="Activo">Activo </option>
+                                    <option value="Inactivo">Inactivo </option>
+                                </select>
+                                @if ($errors->has('status'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('consecuentes') }}</strong>
+                                        <strong>{{ $errors->first('status') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div>     
+                        </div>
 
-                         <div class="form-group{{ $errors->has('coordinacion_id') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Coordinación</label>
+                        <input id="catalogo_id" type="hidden" class="form-control" name="catalogo_id" value="{{ $user->id}}" >
+
+                        <div class="form-group{{ $errors->has('salon_id') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Salon:</label>
 
                             <div class="col-md-6">
-                                <select name="coordinacion_id" form="cursoform">
-                                @foreach($users as $user)
+                                <select name="salon_id" form="cursoform">
+                                @foreach($salones as $salon)
 
-                                    <option value="{{ $user->id }} "> {{ $user->nombre_coordinacion }} </option>
+                                    <option value="{{ $salon->id }} "> {{ $salon->sede}} </option>
 
                                 @endforeach
                                 </select>
-                                @if ($errors->has('coordinacion_id'))
+                                @if ($errors->has('salon_id'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('coordinacion_id') }}</strong>
+                                        <strong>{{ $errors->first('salon_id') }}</strong>
                                     </span>
                                 @endif
                             </div>

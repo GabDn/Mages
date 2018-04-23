@@ -32,7 +32,7 @@ Route::put('profesor/actualizar/{id}', "ProfesorController@update")->name('profe
 Route::get('profesor/baja/{id}', "ProfesorController@delete");
 
 /* Rutas de Curso */
-Route::get('curso/nuevo', "CursoController@nuevo")->name("curso.nuevo");
+Route::get('curso/nuevo/{id}', "CursoController@nuevo")->name("curso.nuevo");
 Route::post('curso/save', "CursoController@create")->name('curso.store');
 Route::get('curso/{id}', "CursoController@show")->name('curso.show');
 Route::get('curso', "CursoController@index")->name("curso.consulta");
@@ -44,8 +44,10 @@ Route::get('curso/baja/{id}', "CursoController@delete");
 /*Rutas de Catalogo-Curso*/
 Route::get('catalogo-cursos/nuevo', "CatalogoCursosController@nuevo")->name("catalogo-cursos.nuevo");
 Route::post('catalogo-cursos/save',"CatalogoCursosController@create")->name('catalogo-cursos.store');
-Route::get('catalogo-cursos/{id}', "CatalogoCursosController@show")->name('catalogo-curso.show');
+Route::get('catalogo-cursos/{id}', "CatalogoCursosController@show")->name('catalogo-cursos.show');
 Route::get('catalogo-cursos','CatalogoCursosController@index')->name("catalogo-cursos.consulta");
+Route::get('catalogo-cursos/actualizar/{id}', "CatalogoCursosController@edit")->name('catalogo-cursos.update');
+Route::put('catalogo-cursos/actualizar/{id}', "CatalogoCursosController@update")->name('catalogo-cursos.actualizar');
 Route::get('catalogo-cursos/baja/{id}', "CatalogoCursosController@delete");
 
 /* Rutas de Coordinacion */

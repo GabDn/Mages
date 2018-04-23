@@ -48,7 +48,8 @@
                             <td>{{$user->clave_curso}}</td>
                             <td>{{$user->nombre_curso}}</td>
                             <td>{{$user->getCoordinacion()}}</td>
-                            <td><a href="{{ URL::to('catalogo-cursos', $user->id) }}" class="btn btn-info">Detalles</a>
+                            <td><a href="{{ URL::to('curso/nuevo', $user->id) }}" class="btn btn-success">Dar de alta</a>
+                                <a href="{{ URL::to('catalogo-cursos', $user->id) }}" class="btn btn-info">Detalles</a>
                                 <a href="{{ URL::to('catalogo-cursos/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
                         </tr>
                     @endforeach

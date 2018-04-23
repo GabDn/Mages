@@ -22,9 +22,9 @@ class ProfesorController extends Controller
     }
 
 
-    public function index(Request $request)
+    public function index()
     {
-        $users = Profesor::name($request->get('pattern'));
+        $users = Profesor::all();
         return view("pages.consulta-profesores")
             ->with("users",$users);
     }

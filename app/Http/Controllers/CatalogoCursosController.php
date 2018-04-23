@@ -6,7 +6,6 @@ use App\Coordinacion;
 use App\Curso;
 use App\CatalogoCurso;
 use App\Profesor;
-use App\Salon;
 use Illuminate\Http\Request;
 
 class CatalogoCursosController extends Controller
@@ -55,7 +54,7 @@ class CatalogoCursosController extends Controller
      */
     public function show($id)
     {
-        $user = EdicionCurso::find($id);
+        $user = CatalogoCurso::find($id);
         return view("pages.ver-catalogo-cursos")
             ->with("user",$user);
     }
@@ -68,9 +67,11 @@ class CatalogoCursosController extends Controller
      */
     public function edit($id)
     {
-        $user = Curso::find($id);
-        return view("pages.update-curso")
-            ->with("user",$user);
+        $user = CatalogoCurso::find($id);
+        $coordinaciones = Coordinacion::all(['id','nombre_coordinacion']);
+        
+        return view("pages.update-catalogo-cursos")
+            ->with("user",$user)->with("coordinaciones",$coordinaciones);
     }
 
     /**
@@ -82,26 +83,32 @@ class CatalogoCursosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = Curso::find($id);
-        $user->nombre = $request->nombre;
-        $user->tipo_curso_diploma = $request->tipo_curso_diploma;
+        $user = CatalogoCurso::find($id);
+        $user->nombre_curso = $request->nombre_curso;
+        $user->duracion_curso = $request->duracion_curso;
+        //$user->coordinacion_id = $user->nombreCoordinacion($request->coordinacion_id);
         $user->tipo = $request->tipo;
-        $user->presentación = $request->presentación;
+        $user->tipo_curso_diploma_instructor = $request->tipo_curso_diploma_instructor;
+        $user->presentacion = $request->presentacion;
         $user->tipo_difusion = $request->tipo_difusion;
-        $user->dirigido_a = $request->dirigido_a;
+        $user->dirigido = $request->dirigido;
         $user->objetivo = $request->objetivo;
         $user->contenido = $request->contenido;
         $user->sintesis = $request->sintesis;
         $user->metodologia = $request->metodologia;
         $user->acreditacion = $request->acreditacion;
-        $user->cobro = $request->cobro;
+        $user->evaluacion = $request->evaluacion;
         $user->bibliografia = $request->bibliografia;
         $user->antecedentes = $request->antecedentes;
-        $user->consecuentes = $request->consecuentes;
-        $user->coordinacion_id = $request->coordinacion_id;
+        $user->consecuentes = $request->antecedentes;
+        $user->fecha_disenio = $request->fecha_disenio;
+        $user->clave_curso = $request->clave_curso;
 
         $user->save();
-        return view("pages.update-curso")
+
+
+
+        return view("pages.update-catalogo-cursos")
             ->with("user",$user);
     }
 
@@ -140,7 +147,7 @@ class CatalogoCursosController extends Controller
 
     public function delete($id)
     {
-        $user = EdicionCurso::findOrFail($id);
+        $user = CatalogoCurso::findOrFail($id);
         $user -> delete();
         return redirect('/catalogo-cursos');
     }

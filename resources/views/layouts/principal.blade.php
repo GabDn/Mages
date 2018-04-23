@@ -49,11 +49,11 @@
             <li class="nav-header">
                 <div class="link"><i class="fa fa-lg fa-book"></i>Cursos<i class="fa fa-chevron-down"></i></div>
                 <ul class="submenu">
-                    <li><a href="{{ route('curso.nuevo') }}">Alta de curso</a></li>
+                    <li><a href="{{ route('curso.consulta') }}">Cursos programados</a></li>
                     <li><a href="{{ route('catalogo-cursos.consulta') }}">Catalogo de cursos</a></li>
                     <li><a href="{{ route('catalogo-cursos.nuevo') }}">Alta Catalogo</a></li>
                     <li><a href="#">Inscripción de participantes</a></li>
-                    <li><a href="{{ route('catalogo-cursos.consulta') }}">Cursos programados</a></li>
+
                 </ul>
             </li>
 

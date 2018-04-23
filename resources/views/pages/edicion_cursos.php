@@ -243,25 +243,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group{{ $errors->has('profesor_id') ? ' has-error' : '' }}">
-                        <label for="name" class="col-md-4 control-label">Profesor</label>
-
-                        <div class="col-md-6">
-                            <select name="profesor_id" form="edicioncursoform">
-                                @foreach($profesores as $profesor)
-
-                                    <option value="{{ $profesor->id }} ">{{ $profesor->nombres }} {{ $profesor->apellido_paterno }} {{ $profesor->apellido_materno }}</option>
-
-                                @endforeach
-                            </select>
-                            @if ($errors->has('profesor_id'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('profesor_id') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-                    </div>
-
+                    
                     <div class="form-group{{ $errors->has('salon_id') ? ' has-error' : '' }}">
                         <label for="name" class="col-md-4 control-label">Salon</label>
 

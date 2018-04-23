@@ -34,7 +34,7 @@
                 <table class="col-md-12">
      <tr>
         <th>Nombre</th>
-        <th>Objetivo</th>
+        <th>Correo</th>
         <th></th>
      </tr>
     @foreach($users as $user)

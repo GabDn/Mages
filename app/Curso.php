@@ -14,9 +14,19 @@ class Curso extends Model
      * @var array
      */
     protected $fillable = [
-        'nombre','tipo_curso_diploma','tipo','presentacion','tipo_difusion','dirigido_a','objetivo','contenido','sintesis','metodologia','acreditacion','cobro','bibliografia','antecedentes','consecuentes','coordinacion_id'
+        'nombre','semestre_imparticion','fecha_inicio','fecha_fin','hora_inicio','hora_fin','dias_semana',
+        'numero_sesiones','texto_diploma','profesor_id','costo','orden','fecha_disenio','cupo_maximo',
+        'cupo_minimo','status','catalogo_id','salon_id'
     ];
+    public function getSalon(){
+        $salon = Salon::findOrFail($this->salon_id)->sede;
+        return $salon;
+    }
+    public function getProfesor(){
+        $nombre = Profesor::findOrFail($this->profesor_id)->nombres;
+        $ap_pat = Profesor::findOrFail($this->profesor_id)->apellido_paterno;
+        $ap_mat = Profesor::findOrFail($this->profesor_id)->apellido_materno;
 
-
-
+        return $nombre." ".$ap_pat." ".$ap_mat;
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\CatalogoCurso;
 use App\Coordinacion;
 use App\Curso;
 use App\Profesor;
@@ -33,11 +34,15 @@ class CursoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function nuevo()
+    public function nuevo($id)
     {
-        $users = Coordinacion::all();
-
-        return view("pages.alta-curso")->with("users",$users);
+        $user = CatalogoCurso::find($id);
+        $salones = Salon::all();
+        $profesores = Profesor::all();
+        return view("pages.alta-curso")
+            ->with("salones",$salones)
+            ->with("profesores",$profesores)
+            ->with("user",$user);
 
     }
 
@@ -78,21 +83,20 @@ class CursoController extends Controller
     {
         $user = Curso::find($id);
         $user->nombre = $request->nombre;
-        $user->tipo_curso_diploma = $request->tipo_curso_diploma;
-        $user->tipo = $request->tipo;
-        $user->presentación = $request->presentación;
-        $user->tipo_difusion = $request->tipo_difusion;
-        $user->dirigido_a = $request->dirigido_a;
-        $user->objetivo = $request->objetivo;
-        $user->contenido = $request->contenido;
-        $user->sintesis = $request->sintesis;
-        $user->metodologia = $request->metodologia;
-        $user->acreditacion = $request->acreditacion;
-        $user->cobro = $request->cobro;
-        $user->bibliografia = $request->bibliografia;
-        $user->antecedentes = $request->antecedentes;
-        $user->consecuentes = $request->consecuentes;
-        $user->coordinacion_id = $request->coordinacion_id;
+        $user->semestre_imparticion = $request->semestre_imparticion;
+        $user->fecha_inicio = $request->fecha_inicio;
+        $user->fecha_fin = $request->fecha_fin;
+        $user->hora_inicio = $request->hora_inicio;
+        $user->hora_fin = $request->hora_fin;
+        $user->dias_semana = $request->dias_semana;
+        $user->numero_sesiones = $request->numero_sesiones;
+        $user->texto_diploma = $request->texto_diploma;
+        $user->costo = $request->costo;
+        $user->orden = $request->orden;
+        $user->fecha_disenio = $request->fecha_disenio;
+        $user->cupo_maximo = $request->cupo_maximo;
+        $user->cupo_minimo = $request->cupo_minimo;
+        $user->status = $request->status;
 
         $user->save();
         return view("pages.update-curso")
@@ -157,22 +161,24 @@ class CursoController extends Controller
     {
         $user = new Curso;
         $user->nombre = $request->nombre;
-        $user->tipo_curso_diploma = $request->tipo_curso_diploma;
-        $user->tipo = $request->tipo;
-        $user->presentación = $request->presentación;
-        $user->tipo_difusion = $request->tipo_difusion;
-        $user->dirigido_a = $request->dirigido_a;
-        $user->objetivo = $request->objetivo;
-        $user->contenido = $request->contenido;
-        $user->sintesis = $request->sintesis;
-        $user->metodologia = $request->metodologia;
-        $user->acreditacion = $request->acreditacion;
-        $user->cobro = $request->cobro;
-        $user->bibliografia = $request->bibliografia;
-        $user->antecedentes = $request->antecedentes;
-        $user->consecuentes = $request->consecuentes;
-        $user->coordinacion_id = $request->coordinacion_id;
-       
+        $user->semestre_imparticion = $request->semestre_imparticion;
+        $user->fecha_inicio = $request->fecha_inicio;
+        $user->fecha_fin = $request->fecha_fin;
+        $user->hora_inicio = $request->hora_inicio;
+        $user->hora_fin = $request->hora_fin;
+        $user->dias_semana = $request->dias_semana;
+        $user->numero_sesiones = $request->numero_sesiones;
+        $user->texto_diploma = $request->texto_diploma;
+        $user->profesor_id = $request->profesor_id;
+        $user->costo = $request->costo;
+        $user->orden = $request->orden;
+        $user->fecha_disenio = $request->fecha_disenio;
+        $user->cupo_maximo = $request->cupo_maximo;
+        $user->cupo_minimo = $request->cupo_minimo;
+        $user->status = $request->status;
+        $user->catalogo_id = $request->catalogo_id;
+        $user->salon_id = $request->salon_id;
+
         $user->save();
         /*Session::flash('flash_message', 'Usuario agregado!');*/
         return redirect()->back();

@@ -25,89 +25,90 @@
 <div class="row">
   <div class="row col-md-12 ">
     <div class="form-group col-md-4">
-      {!!Form::label("nombre", "Nombre")!!}
+      {!!Form::label("nombre", "Nombre:")!!}
       {!!Form::text("nombre", $user->nombre, [ "class" => "form-control", "placeholder" => "Nombre", "required","disabled"])!!}
     </div>
 
     <div class="form-group col-md-4">
-      {!!Form::label("ap_pat", "Tipo de diploma")!!}
-      {!!Form::text("ap_pat", $user->apellido_paterno, [ "class" => "form-control", "placeholder" => "Tipo en diploma", "required","disabled"])!!}
+      {!!Form::label("semestre_imparticion", "Semestre:")!!}
+      {!!Form::text("semestre_imparticion", $user->semestre_imparticion, [ "class" => "form-control", "placeholder" => "Semestre", "required","disabled"])!!}
     </div>
-
     <div class="form-group col-md-4">
-      {!!Form::label("ap_mat", "Tipo")!!}
-      {!!Form::text("ap_mat", $user->tipo, [ "class" => "form-control", "placeholder" => "tipo", "required","disabled"])!!}
+      {!!Form::label("fecha_inicio", "Fecha de inicio:")!!}
+      {!!Form::text("fecha_inicio", $user->fecha_inicio, [ "class" => "form-control", "placeholder" => "Fecha de inicio", "required","disabled"])!!}
     </div>
   </div>
 
   <div class="form-group col-md-6">
-    {!!Form::label("presentación", "Presentación")!!}
-    {!!Form::text("presentación", $user->presentación, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
+    {!!Form::label("fecha_fin", "Fecha de fin:")!!}
+    {!!Form::text("fecha_fin", $user->fecha_fin, [ "class" => "form-control", "placeholder" => "Fecha de fin", "required","disabled"])!!}
   </div>
 
     <div class="form-group col-md-6">
-    {!!Form::label("tipo_difusion", "Tipo de difusion")!!}
-    {!!Form::text("tipo_difusion", $user->tipo_difusion, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
+    {!!Form::label("hora_inicio", "Hora de inicio:")!!}
+    {!!Form::text("hora_inicio", $user->hora_inicio, [ "class" => "form-control", "placeholder" => "Hora de inicio", "required","disabled"])!!}
   </div>
-
       <div class="form-group col-md-6">
-    {!!Form::label("dirigido_a", "Dirigido a")!!}
-    {!!Form::text("dirigido_a", $user->dirigido_a, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
+    {!!Form::label("hora_fin", "Hora de fin:")!!}
+    {!!Form::text("hora_fin", $user->hora_fin, [ "class" => "form-control", "placeholder" => "Hora de fin", "required","disabled"])!!}
   </div>
+
+
  <div class="form-group col-md-6">
-    {!!Form::label("objetivo", "Objetivo")!!}
-    {!!Form::text("objetivo", $user->objetivo, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
+    {!!Form::label("dias_semana", "Dias a la semana:")!!}
+    {!!Form::text("dias_semana", $user->dias_semana, [ "class" => "form-control", "placeholder" => "Dias a la semana", "required","disabled"])!!}
   </div>
 
    <div class="form-group col-md-6">
-    {!!Form::label("contenido", "Contenido")!!}
-    {!!Form::text("contenido", $user->contenido, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
+    {!!Form::label("numero_sesiones", "Numero de sesiones")!!}
+    {!!Form::text("numero_sesiones", $user->numero_sesiones, [ "class" => "form-control", "placeholder" => "Sesiones", "required","disabled"])!!}
   </div>
-
-
   <div class="form-group col-md-6 ">
-    {!!Form::label("sintesis", "Sintesis")!!}
-    {!!Form::text("sintesis", $user->sintesis, [ "class" => "form-control", "placeholder" => "Número de Teléfono", "required","disabled"])!!}
+    {!!Form::label("texto_diploma", "Texto para diploma:")!!}
+    {!!Form::text("texto_diploma", $user->texto_diploma, [ "class" => "form-control", "placeholder" => "Texto diploma", "required","disabled"])!!}
+  </div>
+
+    <div class="form-group col-md-6">
+    {!!Form::label("profesor_id", "Profesor:")!!}
+    {!!Form::text("profesor_id", $user->getProfesor(), [ "class" => "form-control", "placeholder" => "Profesor", "required","disabled"])!!}
   </div>
 
 
     <div class="form-group col-md-6">
-    {!!Form::label("metodologia", "Metodologia")!!}
-    {!!Form::text("metodologia", $user->metodologia, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
+    {!!Form::label("costo", "Costo:")!!}
+    {!!Form::text("costo", $user->costo, [ "class" => "form-control", "placeholder" => "Costo", "required","disabled"])!!}
+  </div>
+
+   <div class="form-group col-md-6">
+    {!!Form::label("orden", "Orden")!!}
+    {!!Form::text("orden", $user->orden, [ "class" => "form-control", "placeholder" => "Orden", "required","disabled"])!!}
+  </div>
+
+   <div class="form-group col-md-6">
+    {!!Form::label("fecha_disenio", "Fecha de diseño")!!}
+    {!!Form::text("fecha_disenio", $user->fecha_disenio, [ "class" => "form-control", "placeholder" => "Fecha de diseño", "required","disabled"])!!}
+  </div>
+
+   <div class="form-group col-md-6">
+    {!!Form::label("cupo_maximo", "Cupo maximo:")!!}
+    {!!Form::text("cupo_maximo", $user->cupo_maximo, [ "class" => "form-control", "placeholder" => "Cupo maximo", "required","disabled"])!!}
   </div>
 
     <div class="form-group col-md-6">
-    {!!Form::label("acreditacion", "Acreditacion")!!}
-    {!!Form::text("acreditacion", $user->acreditacion, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
+    {!!Form::label("cupo_minimo", "Cupo minimo")!!}
+    {!!Form::text("cupo_minimo", $user->cupo_minimo, [ "class" => "form-control", "placeholder" => "Cupo minimo", "required","disabled"])!!}
   </div>
-
-
-
    <div class="form-group col-md-6">
-    {!!Form::label("cobro", "Presentacion")!!}
-    {!!Form::text("cobro", $user->cobro, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
-  </div>
+        {!!Form::label("status", "Estado:")!!}
+        {!!Form::text("status", $user->status, [ "class" => "form-control", "placeholder" => "Estado", "required","disabled"])!!}
+   </div>
 
-   <div class="form-group col-md-6">
-    {!!Form::label("bibliografia", "Bibliografia")!!}
-    {!!Form::text("bibliografia", $user->bibliografia, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
-  </div>
+    <div class="form-group col-md-6">
+        {!!Form::label("salon_id", "Salon:")!!}
+        {!!Form::text("salon_id", $user->getSalon(), [ "class" => "form-control", "placeholder" => "Salon", "required","disabled"])!!}
+    </div>
 
-   <div class="form-group col-md-6">
-    {!!Form::label("antecedentes", "Antecedentes")!!}
-    {!!Form::text("antecedentes", $user->antecedentes, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
-  </div>
 
-   <div class="form-group col-md-6">
-    {!!Form::label("consecuentes", "Consecuentes")!!}
-    {!!Form::text("consecuentes", $user->consecuentes, [ "class" => "form-control", "placeholder" => "presentación", "required","disabled"])!!}
-  </div>
-
-   <div class="form-group col-md-6">
-    <?php $coord_nom = DB::table('coordinacions')->where('id','=',$user->coordinacion_id)->value('nombre_coordinacion');?>
-    {!!Form::label("coordinacion_id", "Coordinación")!!}
-    {!!Form::text("coordinacion id", $coord_nom, [ "class" => "form-control", "placeholder" => "Coordinacion", "required","disabled"])!!}
-  </div>
 
  
 
