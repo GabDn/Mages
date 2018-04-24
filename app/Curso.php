@@ -29,4 +29,22 @@ class Curso extends Model
 
         return $nombre." ".$ap_pat." ".$ap_mat;
     }
+    
+    public function getIdProfesor(){
+        return  $this->profesor_id;
+    }
+    
+    public function getIdSalon(){
+        
+        return $this->salon_id;
+    }
+    public function allProfesor(){
+        $coordinacion = Profesor::all();
+        return $coordinacion;
+    }
+    public function allSalon(){
+        $coordinacion = Salon::all();
+        return $coordinacion;
+    }
+
 }

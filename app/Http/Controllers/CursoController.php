@@ -97,6 +97,8 @@ class CursoController extends Controller
         $user->cupo_maximo = $request->cupo_maximo;
         $user->cupo_minimo = $request->cupo_minimo;
         $user->status = $request->status;
+        $user->profesor_id = $request->profesor_id;
+        $user->salon_id = $request->salon_id;
 
         $user->save();
         return view("pages.update-curso")

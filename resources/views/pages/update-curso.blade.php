@@ -74,7 +74,7 @@
 
     <div class="form-group col-md-6">
         {!!Form::label("profesor_id", "Profesor:")!!}
-        {!!Form::text("profesor_id", $user->getProfesor(), [ "class" => "form-control", "placeholder" => "Profesor", "required",""])!!}
+        {!!Form::select("profesor_id", $user->allProfesor()->pluck('nombres','id'),$user->getIdProfesor(),['class'=>'form-control'])!!}
     </div>
 
 
@@ -104,12 +104,12 @@
     </div>
     <div class="form-group col-md-6">
         {!!Form::label("status", "Estado:")!!}
-        {!!Form::select("status", ['Activo' => 'Activo','Inactivo' => 'Inactivo'], [ "class" => "form-control", "placeholder" => "Estado", "required",""])!!}
+        {!!Form::select("status", ['Activo' => 'Activo','Inactivo' => 'Inactivo'], $user->status,[ "class" => "form-control", null, "required",""])!!}
     </div>
 
     <div class="form-group col-md-6">
         {!!Form::label("salon_id", "Salon:")!!}
-        {!!Form::text("salon_id", $user->getSalon(), [ "class" => "form-control", "placeholder" => "Salon", "required",""])!!}
+        {!!Form::select("salon_id", $user->allSalon()->pluck('sede','id'),$user->getIdSalon(),['class'=>'form-control'])!!}
     </div>
 
 

@@ -6,6 +6,7 @@ use App\Coordinacion;
 use App\Curso;
 use App\CatalogoCurso;
 use App\Profesor;
+use App\Http\Controllers\DB;
 use Illuminate\Http\Request;
 
 class CatalogoCursosController extends Controller
@@ -59,12 +60,7 @@ class CatalogoCursosController extends Controller
             ->with("user",$user);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         $user = CatalogoCurso::find($id);
@@ -86,7 +82,9 @@ class CatalogoCursosController extends Controller
         $user = CatalogoCurso::find($id);
         $user->nombre_curso = $request->nombre_curso;
         $user->duracion_curso = $request->duracion_curso;
-        //$user->coordinacion_id = $user->nombreCoordinacion($request->coordinacion_id);
+        $user->coordinacion_id = $request->coordinacion_id;
+        //$user->coordinacion_id = $user->coordinacionID($request->coordinacion_id);
+        //$coord_nom = DB::table('coordinacions')->where('id','=',$user->coordinacion_id)->value('nombre_coordinacion');
         $user->tipo = $request->tipo;
         $user->tipo_curso_diploma_instructor = $request->tipo_curso_diploma_instructor;
         $user->presentacion = $request->presentacion;

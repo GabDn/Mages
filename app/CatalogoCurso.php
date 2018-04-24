@@ -22,15 +22,15 @@ protected $fillable = [
         $coordinacion = Coordinacion::findOrFail($this->coordinacion_id)->nombre_coordinacion;
         return $coordinacion;
     }
-    public function nombreCoordinacion($nombre){
-        $coordinacion = Coordinacion::findOrFail($this->$nombre)->id;
+    
+    public function allCoordinacion(){
+        $coordinacion = Coordinacion::all();
         return $coordinacion;
     }
 
-    public function todasCoordinacion(){
-        $coordinacion = Coordinacion::all(['nombre_coordinacion'])->toArray();
-        return $coordinacion;
+    public function getIdCoordinacion()
+    {
+        return $this->coordinacion_id;
     }
-
 
 }

@@ -37,11 +37,11 @@
           {!!Form::text("duracion_curso", $user->duracion_curso, [ "class" => "form-control", "placeholder" => "Duracion_curso", "required"])!!}
       </div>
 
-      <!--<div class="form-group col-md-4">
-          Pendiente como actualizar este tipo de campos.
+      <div class="form-group col-md-4">
+
           {!!Form::label("coordinacion_id", "Coordinacion:")!!}
-          {!!Form::select("coordinacion_id",  $user->todasCoordinacion() ,null,['class'=>'form-control'])!!}
-      </div>-->
+          {!!Form::select("coordinacion_id", $user->allCoordinacion()->pluck('nombre_coordinacion','id'),$user->getIdCoordinacion(),['class'=>'form-control'])!!}
+      </div>
   </div>
 
     <div class="form-group col-md-6">
