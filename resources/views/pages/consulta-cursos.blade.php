@@ -45,7 +45,7 @@
      </tr>
     @foreach($users as $user)
         <tr>
-        <td>{{ $user->nombre }} </td>
+        <td>{{ $user->getNombreCurso() }} </td>
         <td>{{$user->getProfesor()}}</td>
         <td>{{ $user->getSalon()}}</td>
         <td><a href="{{ URL::to('curso', $user->id) }}" class="btn btn-info">Detalles</a>

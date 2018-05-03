@@ -17,7 +17,7 @@
     <br>
       <div class="panel panel-default">
                 <div class="panel-heading">
-                      <h1>{{ $user->nombre }} </h1>
+                      <h1>{{ $user->getNombreCurso() }} </h1>
                 </div>
                 <div class="panel-body">
  
@@ -26,7 +26,7 @@
   <div class="row col-md-12 ">
     <div class="form-group col-md-4">
       {!!Form::label("nombre", "Nombre:")!!}
-      {!!Form::text("nombre", $user->nombre, [ "class" => "form-control", "placeholder" => "Nombre", "required","disabled"])!!}
+      {!!Form::text("nombre", $user->getNombreCurso(), [ "class" => "form-control", "placeholder" => "Nombre", "required","disabled"])!!}
     </div>
 
     <div class="form-group col-md-4">

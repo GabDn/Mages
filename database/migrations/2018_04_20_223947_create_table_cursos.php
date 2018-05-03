@@ -10,8 +10,7 @@ class CreateTableCursos extends Migration
     {
         Schema::create('cursos', function (Blueprint $table) {
             $table->increments('id')->unique();
-            $table->string('nombre');
-            $table->integer('semestre_imparticion');
+                        $table->integer('semestre_imparticion');
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->string('hora_inicio');

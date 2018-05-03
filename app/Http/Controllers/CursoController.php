@@ -82,8 +82,8 @@ class CursoController extends Controller
     public function update(Request $request, $id)
     {
         $user = Curso::find($id);
-        $user->nombre = $request->nombre;
         $user->semestre_imparticion = $request->semestre_imparticion;
+        $user->catalogo_id = $request->catalogo_id;
         $user->fecha_inicio = $request->fecha_inicio;
         $user->fecha_fin = $request->fecha_fin;
         $user->hora_inicio = $request->hora_inicio;
@@ -162,7 +162,7 @@ class CursoController extends Controller
     public function create(Request $request)
     {
         $user = new Curso;
-        $user->nombre = $request->nombre;
+
         $user->semestre_imparticion = $request->semestre_imparticion;
         $user->fecha_inicio = $request->fecha_inicio;
         $user->fecha_fin = $request->fecha_fin;

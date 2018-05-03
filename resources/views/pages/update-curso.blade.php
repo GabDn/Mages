@@ -17,7 +17,7 @@
     <br>
       <div class="panel panel-default">
                 <div class="panel-heading">
-                      <h1>{{ $user->nombre }}</h1>
+                      <h1>{{ $user->getNombreCurso() }}</h1>
                 </div>
                 <div class="panel-body">
 
@@ -28,9 +28,9 @@
 <div class="row">
   <div class="row col-md-12 ">{!! Form::open(['route' => array('curso.actualizar', $user->id), "method" => "PUT"]) !!}
 
-      <div class="form-group col-md-4">
-          {!!Form::label("nombre", "Nombre:")!!}
-          {!!Form::text("nombre", $user->nombre, [ "class" => "form-control", "placeholder" => "Nombre", "required",""])!!}
+      <div class="form-group col-md-6">
+          {!!Form::label("catalogo_id", "Nombre:")!!}
+          {!!Form::select("catalogo_id", $user->allNombreCurso()->pluck('nombre_curso','id'),$user->getNombreCurso(),['class'=>'form-control'])!!}
       </div>
 
       <div class="form-group col-md-4">
@@ -111,12 +111,6 @@
         {!!Form::label("salon_id", "Salon:")!!}
         {!!Form::select("salon_id", $user->allSalon()->pluck('sede','id'),$user->getIdSalon(),['class'=>'form-control'])!!}
     </div>
-
-
-
-
-
-
 
     <div>
     <button type="submit" class="btn btn-primary col-md-offset-1">Actualizar</button>

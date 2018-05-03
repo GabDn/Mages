@@ -25,19 +25,6 @@
                     <form id="cursoform" class="form-horizontal" method="POST" action="{{ route('curso.store') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
-                            <label for="nombre" class="col-md-4 control-label">Nombre</label>
-
-                            <div class="col-md-6">
-                                <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}"  >
-
-                                @if ($errors->has('nombre'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('nombre') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                          <div class="form-group{{ $errors->has('semestre_imparticion') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Semestre:</label>
