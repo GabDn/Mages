@@ -17,21 +17,9 @@
     <br>
       <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>Catalogo de cursos</h3>
-                      
- {!! Form::open(["route" => "profesor.busqueda", "method" => "GET"]) !!}
-  <div class="input-group">
-      {!!Form::text("pattern", null, [ "class" => "form-control", "placeholder" => "Buscar Usuario"])!!}
-      {!! Form::select('type', array(
-        'nombre' => 'Por nombre', 
-        'rfc' => 'Por RFC', 
-        'email' => 'Por e-mail',
-        'telefono' => 'Por núm. telefónico'), 
-        null,['class' => 'btn dropdown-toggle pull-left'] ) !!}
-{!! Form::close() !!}
-<span class="input-group-btn col-md-2">
-        <button class="btn btn-search " type="submit">Buscar</button>
-      </span>
+                    <h3>Cursos programados</h3>
+
+
 </div>
                 </div>
                 <div class="panel-body">
@@ -48,7 +36,8 @@
         <td>{{ $user->getNombreCurso() }} </td>
         <td>{{$user->getProfesor()}}</td>
         <td>{{ $user->getSalon()}}</td>
-        <td><a href="{{ URL::to('curso', $user->id) }}" class="btn btn-info">Detalles</a>
+        <td><a href="{{ URL::to('curso', $user->id) }}" class="btn btn-success">Inscribir</a>
+            <a href="{{ URL::to('curso', $user->id) }}" class="btn btn-info">Detalles</a>
             <a href="{{ URL::to('curso/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
       </tr>
     @endforeach

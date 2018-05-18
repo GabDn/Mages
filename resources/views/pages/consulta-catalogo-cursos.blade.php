@@ -17,7 +17,7 @@
         <br>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3>Cursos programados</h3>
+                <h3>Catalogo de cursos</h3>
 
                 {!! Form::open(["route" => "profesor.busqueda", "method" => "GET"]) !!}
                 <div class="input-group">

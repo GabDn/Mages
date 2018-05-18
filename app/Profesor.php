@@ -30,6 +30,10 @@ class Profesor extends Authenticatable
     ];
 
     public function scopeName($query, $name){
-        $query->where('nombres','LIKE',"%$name%");
+
+        if($name != ''){
+            $query->where('nombres',$name);
+        }
+
     }
 }

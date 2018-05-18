@@ -18,16 +18,14 @@
       <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3>Lista de profesores</h3>
-                      
- {!! Form::open(["route" => "profesor.consulta", "method" => "GET"]) !!}
-  <div class="input-group">
-      {!!Form::text("pattern", null, [ "class" => "form-control", "placeholder" => "Buscar Usuario"])!!}
-
-{!! Form::close() !!}
-<span class="input-group-btn col-md-2">
-        <button class="btn btn-search " type="submit">Buscar</button>
-      </span>
-</div>
+                    {!! Form::open(["route" => 'profesor.busqueda', "method" => "GET"]) !!}
+                    <div class="input-group">
+                        {!!Form::text("name", null, [ "class" => "form-control", "placeholder" => "Buscar Usuario"])!!}
+                        <span class="input-group-btn col-md-2">
+                            <button class="btn btn-search " type="submit">Buscar</button>
+                        </span>
+                        {!! Form::close() !!}
+                    </div>
                 </div>
                 <div class="panel-body">
 

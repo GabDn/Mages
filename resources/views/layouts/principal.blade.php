@@ -92,7 +92,6 @@
                 <div class="link"><i class="fa fa-lg fa-suitcase"></i>Divisiones<i class="fa fa-chevron-down"></i></div>
                 <ul class="submenu">
                     <li><a href="{{route('division.nuevo')}}">Alta de División</a></li>
-                    <li><a href="#">Baja de División</a></li>
                     <li><a href="{{route('division.consulta')}}">Modificar División</a></li>
                 </ul>
             </li>

@@ -35,7 +35,7 @@
                         <tr>
                             <td>{{ $user->nombre }} </td>
 
-                            <td><a href="{{ URL::to('division/actualizar', $user->id) }}" class="btn btn-info">Modificar dato</a>
+                            <td><a href="{{ URL::to('division/actualizar', $user->id) }}" class="btn btn-info">Modificar</a>
                                 <a href="{{ URL::to('division/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
                         </tr>
                     @endforeach

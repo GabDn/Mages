@@ -36,21 +36,22 @@
                 </div>
                 <div class="panel-body">
 
-                <table class="col-md-12">
-     <tr>
-        <th>Sede</th>
-        <th>Ubicacion</th>
-        <th></th>
-     </tr>
-    @foreach($users as $user)
-        <tr>
-        <td>{{ $user->sede }}</td>
-        <td>{{ $user->ubicacion}}</td>
-        <td><a href="{{ URL::to('salon', $user->id) }}" class="btn btn-info">Detalles</a>
-            <a href="{{ URL::to('salon/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
-      </tr>
-    @endforeach
-</table>
+                    <table class="col-md-12">
+                        <tr>
+                            <th>Sede</th>
+                            <th>Capacidad</th>
+                            <th>Ubicación</th>
+                        </tr>
+                        @foreach($users as $user)
+                            <tr>
+                                <td>{{ $user->sede }} </td>
+                                <td>{{ $user->capacidad}}</td>
+                                <td>{{ $user->ubicacion}}</td>
+                                <td><a href="{{ URL::to('salon', $user->id) }}" class="btn btn-info">Detalles</a>
+                                    <a href="{{ URL::to('salon/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
+                            </tr>
+                        @endforeach
+                    </table>
 
                 
       
