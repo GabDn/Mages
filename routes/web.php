@@ -45,7 +45,7 @@ Route::get('curso/baja/{id}', "CursoController@delete");
 Route::get('catalogo-cursos/nuevo', "CatalogoCursosController@nuevo")->name("catalogo-cursos.nuevo");
 Route::post('catalogo-cursos/save',"CatalogoCursosController@create")->name('catalogo-cursos.store');
 Route::get('catalogo-cursos/{id}', "CatalogoCursosController@show")->name('catalogo-cursos.show');
-Route::get('catalogo-cursos','CatalogoCursosController@index')->name("catalogo-cursos.consulta");
+Route::get('catalogo-cursos','CatalogoCursosController@search')->name("catalogo-cursos.consulta");
 Route::get('catalogo-cursos/actualizar/{id}', "CatalogoCursosController@edit")->name('catalogo-cursos.update');
 Route::put('catalogo-cursos/actualizar/{id}', "CatalogoCursosController@update")->name('catalogo-cursos.actualizar');
 Route::get('catalogo-cursos/baja/{id}', "CatalogoCursosController@delete");

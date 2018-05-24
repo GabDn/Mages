@@ -122,25 +122,44 @@ class CatalogoCursosController extends Controller
         {
             $words=explode(" ", $request->pattern);
             foreach($words as $word){
-                $users = Curso::where('nombre','LIKE','%'.$word.'%')
+                $users = CatalogoCurso::where('nombre_curso','LIKE','%'.$word.'%')
                     -> get();
             }
-            return view('display')->with("users",$users);
-        }elseif($request->type == "rfc")
-        {
-            $users = Profesor::where('rfc','LIKE','%'.$request->pattern.'%')
-                ->get();
-            return view('display')->with("users",$users);
-        }elseif($request->type == "email"){
-            $users = Profesor::where('email','LIKE','%'.$request->pattern.'%')
-                ->get();
-            return view('display')->with("users",$users);
-        }elseif($request->type == "telefono"){
-            $users = Profesor::where('telefono','LIKE','%'.$request->pattern.'%')
-                ->get();
-            return view('pages.consulta-cursos')->with("users",$users);
-        }
+            return view("pages.consulta-catalogo-cursos")
+            ->with("users",$users);
 
+        $coordinaciones = Coordinacion::all();
+        $users = CatalogoCurso::all();
+        return view("pages.consulta-catalogo-cursos")
+            ->with("coordinaciones",$coordinaciones)
+            ->with("users",$users);
+
+         }elseif($request->type == "clave"){
+
+            $words=explode(" ", $request->pattern);
+            foreach($words as $word){
+                $users = CatalogoCurso::where('clave_curso','LIKE','%'.$word.'%')
+                    -> get();
+            }
+            return view("pages.consulta-catalogo-cursos")
+            ->with("users",$users);
+        }
+        /*elseif($request->type == "coordinacion"){
+
+            $words=explode(" ", $request->pattern);
+            foreach($words as $word){
+                $users = CatalogoCurso::where('coordinacion_id','LIKE','%'.$word.'%')
+                    -> get();
+            }
+            return view("pages.consulta-catalogo-cursos")
+            ->with("users",$users);
+        }*/
+
+        $coordinaciones = Coordinacion::all();
+        $users = CatalogoCurso::all();
+        return view("pages.consulta-catalogo-cursos")
+            ->with("coordinaciones",$coordinaciones)
+            ->with("users",$users);
     }
 
     public function delete($id)

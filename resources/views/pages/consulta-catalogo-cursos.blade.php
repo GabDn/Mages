@@ -19,13 +19,13 @@
             <div class="panel-heading">
                 <h3>Catalogo de cursos</h3>
 
-                {!! Form::open(["route" => "profesor.busqueda", "method" => "GET"]) !!}
+                {!! Form::open(["route" => "catalogo-cursos.consulta", "method" => "GET"]) !!}
                 <div class="input-group">
                     {!!Form::text("pattern", null, [ "class" => "form-control", "placeholder" => "Buscar Usuario"])!!}
                     {!! Form::select('type', array(
                       'nombre' => 'Por nombre',
-                      'rfc' => 'Por RFC',
-                      'email' => 'Por e-mail',
+                      'clave' => 'Por clave',
+                      'coordinacion' => 'Por coordinacion',
                       'telefono' => 'Por núm. telefónico'),
                       null,['class' => 'btn dropdown-toggle pull-left'] ) !!}
                     {!! Form::close() !!}
