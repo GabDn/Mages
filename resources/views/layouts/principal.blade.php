@@ -63,7 +63,7 @@
                     <li><a href="{{ route('profesor.nuevo') }}">Alta Profesor</a></li>
                     <li><a href="{{ route('profesor.consulta') }}">Consulta de profesores</a></li>
                     <li><a href="#">Altas, Bajas y Cambios(Tutores)</a></li>
-                    <li><a href="#">Categoria y Nivel</a></li>
+                    <li><a href="{{route('categoria.consulta')}}">Categoria y Nivel</a></li>
                     <li><a href="#">Curriculum</a></li>
 
                 </ul>

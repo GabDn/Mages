@@ -100,3 +100,14 @@ Route::get('salon/busqueda', "SalonController@search")->name('salon.busqueda');
 Route::get('salon/actualizar/{id}', "SalonController@edit")->name('salon.update');
 Route::put('salon/actualizar/{id}', "SalonController@update")->name('salon.actualizar');
 Route::get('salon/baja/{id}', "SalonController@delete");
+
+
+/* Rutas de CategoriaNivel */
+Route::get('categoria-nivel/nuevo', "CategoriaNivelController@nuevo")->name("categoria.nuevo");
+Route::post('categoria-nivel/save', "CategoriaNivelController@create")->name('categoria.store');
+Route::get('categoria-nivel/{id}', "CategoriaNivelController@show")->name('categoria.show');
+Route::get('categoria-nivel', "CategoriaNivelController@index")->name("categoria.consulta");
+Route::get('categoria-nivel/busqueda', "CategoriaNivelController@search")->name('categoria.busqueda');
+Route::get('categoria-nivel/actualizar/{id}', "CategoriaNivelController@edit")->name('categoria.update');
+Route::put('categoria-nivel/actualizar/{id}', "CategoriaNivelController@update")->name('categoria.actualizar');
+Route::get('categoria-nivel/baja/{id}', "CategoriaNivelController@delete");

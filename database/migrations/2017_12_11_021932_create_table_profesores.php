@@ -20,7 +20,7 @@ class CreateTableProfesores extends Migration
             $table->string('apellido_materno')->nullable();
             $table->string('rfc')->unique();
             $table->string('curp');
-            $table->String('fecha_nacimiento');
+            $table->date('fecha_nacimiento');
             $table->string('telefono');
             $table->string('grado');
             $table->string('email');
