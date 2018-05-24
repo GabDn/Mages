@@ -21,7 +21,7 @@
 
                 {!! Form::open(["route" => "catalogo-cursos.consulta", "method" => "GET"]) !!}
                 <div class="input-group">
-                    {!!Form::text("pattern", null, [ "class" => "form-control", "placeholder" => "Buscar Usuario"])!!}
+                    {!!Form::text("pattern", null, [ "class" => "form-control", "placeholder" => "Buscar Curso"])!!}
                     {!! Form::select('type', array(
                       'nombre' => 'Por nombre',
                       'clave' => 'Por clave',
@@ -30,8 +30,8 @@
                       null,['class' => 'btn dropdown-toggle pull-left'] ) !!}
                     {!! Form::close() !!}
                     <span class="input-group-btn col-md-2">
-        <button class="btn btn-search " type="submit">Buscar</button>
-      </span>
+                         <button class="btn btn-search " type="submit">Buscar</button>
+                    </span>
                 </div>
             </div>
             <div class="panel-body">

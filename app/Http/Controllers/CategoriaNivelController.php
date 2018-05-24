@@ -25,13 +25,7 @@ class CategoriaNivelController extends Controller
     {
         return view("pages.alta-categoria-nivel");
     }
-
-    public function show($id)
-    {
-        $user = Division::find($id);
-        return view("pages.ver-categoria-nivel")
-            ->with("user",$user);
-    }
+    
 
     public function edit($id)
     {
@@ -55,7 +49,7 @@ class CategoriaNivelController extends Controller
     {
         $user = CategoriaNivel::findOrFail($id);
         $user -> delete();
-        return redirect('/division');
+        return redirect('/categoria-nivel');
     }
 
 

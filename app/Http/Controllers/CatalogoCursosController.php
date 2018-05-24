@@ -143,12 +143,12 @@ class CatalogoCursosController extends Controller
             }
             return view("pages.consulta-catalogo-cursos")
             ->with("users",$users);
-        }
-        /*elseif($request->type == "coordinacion"){
+        }/*
+        elseif($request->type == "coordinacion"){
 
             $words=explode(" ", $request->pattern);
             foreach($words as $word){
-                $users = CatalogoCurso::where('coordinacion_id','LIKE','%'.$word.'%')
+                $users = CatalogoCurso::where('coordinacion','LIKE','%'.$word.'%')
                     -> get();
             }
             return view("pages.consulta-catalogo-cursos")

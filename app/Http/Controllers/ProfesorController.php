@@ -127,11 +127,42 @@ class ProfesorController extends Controller
      */
     public function search(Request $request)
     {
-        $users = Profesor::name($request->get('name'));
-        
+        if($request->type == "nombre")
+        {
+            $words=explode(" ", $request->pattern);
+            foreach($words as $word){
+                $users = Profesor::where('nombres','LIKE','%'.$word.'%')
+                    -> get();
+            }
+            return view("pages.consulta-profesores")
+                ->with("users",$users);
+
+            $users = Profesor::all();
+            return view("pages.consulta-profesores")
+                ->with("users",$users);
+
+        }elseif($request->type == "correo"){
+
+            $words=explode(" ", $request->pattern);
+            foreach($words as $word){
+                $users = Profesor::where('email','LIKE','%'.$word.'%')
+                    -> get();
+            }
+            return view("pages.consulta-profesores")
+                ->with("users",$users);
+        }elseif($request->type == "rfc"){
+
+            $words=explode(" ", $request->pattern);
+            foreach($words as $word){
+                $users = Profesor::where('rfc','LIKE','%'.$word.'%')
+                    -> get();
+            }
+            return view("pages.consulta-profesores")
+                ->with("users",$users);
+        }
+        $users = Profesor::all();
         return view("pages.consulta-profesores")
             ->with("users",$users);
-
 
     }
 

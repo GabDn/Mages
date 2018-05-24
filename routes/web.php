@@ -25,8 +25,9 @@ Route::get('/admin', 'HomeController@index')->name('home');
 Route::get('profesor/nuevo', "ProfesorController@nuevo")->name("profesor.nuevo");
 Route::post('profesor/save', "ProfesorController@create")->name('profesor.store');
 Route::get('profesor/{id}', "ProfesorController@show")->name('profesor.show');
-Route::get('profesor', "ProfesorController@index")->name("profesor.consulta");
-Route::get('profesor/busqueda', "ProfesorController@search")->name('profesor.busqueda');
+//Route::get('profesor', "ProfesorController@index")->name("profesor.consulta");
+Route::get('profesor/', "ProfesorController@search")->name('profesor.consulta');
+//Route::get('catalogo-cursos','CatalogoCursosController@search')->name("catalogo-cursos.consulta");
 Route::get('profesor/actualizar/{id}', "ProfesorController@edit")->name('profesor.update');
 Route::put('profesor/actualizar/{id}', "ProfesorController@update")->name('profesor.actualizar');
 Route::get('profesor/baja/{id}', "ProfesorController@delete");
@@ -105,9 +106,17 @@ Route::get('salon/baja/{id}', "SalonController@delete");
 /* Rutas de CategoriaNivel */
 Route::get('categoria-nivel/nuevo', "CategoriaNivelController@nuevo")->name("categoria.nuevo");
 Route::post('categoria-nivel/save', "CategoriaNivelController@create")->name('categoria.store');
-Route::get('categoria-nivel/{id}', "CategoriaNivelController@show")->name('categoria.show');
 Route::get('categoria-nivel', "CategoriaNivelController@index")->name("categoria.consulta");
 Route::get('categoria-nivel/busqueda', "CategoriaNivelController@search")->name('categoria.busqueda');
 Route::get('categoria-nivel/actualizar/{id}', "CategoriaNivelController@edit")->name('categoria.update');
 Route::put('categoria-nivel/actualizar/{id}', "CategoriaNivelController@update")->name('categoria.actualizar');
 Route::get('categoria-nivel/baja/{id}', "CategoriaNivelController@delete");
+
+/* Rutas de CoordinadorGeneral */
+Route::get('coordinador-general/nuevo', "CoordinadorGeneralController@nuevo")->name("coordinador-general.nuevo");
+Route::post('coordinador-general/save', "CoordinadorGeneralController@create")->name('coordinador-general.store');
+Route::get('coordinador-general', "CoordinadorGeneralController@index")->name("coordinador-general.consulta");
+Route::get('coordinador-general/busqueda', "CoordinadorGeneralController@search")->name('coordinador-general.busqueda');
+Route::get('coordinador-general/actualizar/{id}', "CoordinadorGeneralController@edit")->name('coordinador-general.update');
+Route::put('coordinador-general/actualizar/{id}', "CoordinadorGeneralController@update")->name('coordinador-general.actualizar');
+Route::get('coordinador-general/baja/{id}', "CoordinadorGeneralController@delete");

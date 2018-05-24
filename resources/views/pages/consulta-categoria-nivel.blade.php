@@ -17,7 +17,7 @@
         <br>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3>Lista de salones</h3>
+                <h3>Categoria y Nivel</h3>
 
             </div>
         </div>
