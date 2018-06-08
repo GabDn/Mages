@@ -53,11 +53,7 @@
     @endforeach
 </table>
 
-                
-      
-
       </div>
-
      </section>
      
 @endsection

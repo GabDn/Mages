@@ -31,32 +31,21 @@
                 <hr>
                 <h2>Cumpleaños <span class="fa fa-birthday-cake""></span></h2>
 
-                <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Procedencia</th>
-        <th>Cumpleaños</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Luis Ignacio</td>
-        <td>DIE</td>
-        <td>15-06</td>
-      </tr>
-      <tr>
-        <td>María</td>
-        <td>DCSYH</td>
-        <td>15-06</td>
-      </tr>
-      <tr>
-        <td>Julio</td>
-        <td>SECRETARIAS</td>
-        <td>15-06</td>
-      </tr>
-    </tbody>
-  </table>
+
+                    <table class="table table-hover">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Correo</th>
+                            <th>Fecha de nacimiento</th>
+                        </tr>
+                        @foreach($profesors as $profesor)
+                            <tr>
+                                <td>{{ $profesor->nombres }} {{ $profesor->apellido_paterno }} {{ $profesor->apellido_materno }}</td>
+                                <td>{{ $profesor->email}}</td>
+                                <td>{{ $profesor->fechaFormato()}}</td>
+                            </tr>
+                        @endforeach
+                    </table>
       </div>
 
      </section>

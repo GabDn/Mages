@@ -39,6 +39,10 @@ Route::get('curso/{id}', "CursoController@show")->name('curso.show');
 Route::get('curso', "CursoController@index")->name("curso.consulta");
 Route::get('curso/busqueda', "CursoController@search")->name('curso.busqueda');
 Route::get('curso/actualizar/{id}', "CursoController@edit")->name('curso.update');
+Route::get('curso/inscripcion/{id}', "CursoController@inscripcion")->name('curso.inscripcion');
+Route::get('curso/ver-profesores/{curso}', "CursoController@verProfesores")->name('curso.ver-profesores');
+//aqui se registran ambos parametros en la tabla intermedia
+Route::get('curso/registrar/{id}/{curso_id}', "CursoController@registrar")->name('curso.registrar');
 Route::put('curso/actualizar/{id}', "CursoController@update")->name('curso.actualizar');
 Route::get('curso/baja/{id}', "CursoController@delete");
 

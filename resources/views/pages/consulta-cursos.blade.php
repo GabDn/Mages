@@ -36,7 +36,8 @@
         <td>{{ $user->getNombreCurso() }} </td>
         <td>{{$user->getProfesor()}}</td>
         <td>{{ $user->getSalon()}}</td>
-        <td><a href="{{ URL::to('curso', $user->id) }}" class="btn btn-success">Inscribir</a>
+        <td><a href="{{ URL::to('curso/ver-profesores',$user->id) }}" class="btn btn-warning">Ver Curso</a>
+            <a href="{{ URL::to('curso/inscripcion',$user->id)}}" class="btn btn-success">Inscribir</a>
             <a href="{{ URL::to('curso', $user->id) }}" class="btn btn-info">Detalles</a>
             <a href="{{ URL::to('curso/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
       </tr>

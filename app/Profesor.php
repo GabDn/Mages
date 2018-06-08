@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -29,5 +30,9 @@ class Profesor extends Authenticatable
         'password', 'remember_token',
     ];
 
-    
+    public function fechaFormato(){
+        $fecha = Carbon::parse($this->fecha_nacimiento)->format('d-m-Y');
+        return $fecha;
+        
+    }
 }

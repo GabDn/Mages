@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Profesor;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.admin');
+      //  User::whereDate('created_at', '=', Carbon::now()->format('Y-m-d'))->get();
+        $profesors = Profesor::whereDay('fecha_nacimiento','=',Carbon::now()->format('d'))
+                ->whereMonth('fecha_nacimiento','=',Carbon::now()->format('m'))->get();
+        return view('pages.admin')->with('profesors',$profesors);
     }
 }

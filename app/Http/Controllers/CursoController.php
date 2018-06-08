@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\CatalogoCurso;
 use App\Coordinacion;
 use App\Curso;
+use App\ParticipantesCurso;
 use App\Profesor;
 use App\Salon;
+use App\Http\Controllers\DB;
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
@@ -185,5 +187,37 @@ class CursoController extends Controller
         /*Session::flash('flash_message', 'Usuario agregado!');*/
         return redirect()->back();
     }
+    public function inscripcion($id)
+    {
+        $users = Profesor::leftJoin('participante_curso','participante_curso.profesor_id', 'profesors.id')
+         ->where('participante_curso.curso_id','<>',$id)
+         ->orWhere('participante_curso.curso_id',null)
+                ->select('profesors.*')->get();
 
+        $curso_id = $id;
+        return view("pages.curso-inscripcion")
+            ->with("users",$users)
+            ->with("curso_id",$curso_id);
+    }
+    public function verProfesores($id)
+    {
+        $users = Profesor::Join('participante_curso','profesors.id','=','participante_curso.profesor_id')
+            ->where('participante_curso.curso_id',$id)
+            ->select('profesors.*')->get();
+
+        $curso = Curso::findOrFail($id);
+
+        return view("pages.curso-ver-profesores")
+            ->with("users",$users)
+            ->with("curso",$curso);
+    }
+
+    public function registrar(Request $request){
+        $user = new ParticipantesCurso;
+        $user->curso_id = $request->curso_id;
+        $user->profesor_id = $request->id;
+        $user->save();
+        return redirect()->back();
+
+    }
 }

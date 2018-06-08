@@ -90,6 +90,28 @@ class StartSeeder extends Seeder
             'carrera_id' =>1,
 
         ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Marta',
+            'apellido_paterno' => 'Suarez',
+            'apellido_materno' => 'Prados',
+            'rfc' => 'MSRS125623ASD343',
+            'curp' =>'MASRIPS26556',
+            'fecha_nacimiento' => '1979-01-01',
+            'telefono' => '557458963',
+            'grado' => 'Maestro',
+            'email' => 'MSP@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Administracion',
+            'comentarios' => 'Comentario',
+            'genero' => 'femenino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza',
+            'facebook' => 'MyFace',
+            'unam' => true,
+            'facultad_id' =>1,
+            'carrera_id' =>2,
+
+        ]);
 
         DB::table('catalogo_cursos')->insert([
             'nombre_curso' =>'Curso de programacion',
@@ -113,6 +135,28 @@ class StartSeeder extends Seeder
             'clave_curso' => 'ADFVJ'
 
         ]);
+        DB::table('catalogo_cursos')->insert([
+            'nombre_curso' =>'Administracion',
+            'duracion_curso' => '20',
+            'coordinacion_id' => 1,
+            'tipo' => 'Actualizacion',
+            'tipo_curso_diploma_instructor' => 'Tipo',
+            'presentacion' => 'Presentacion',
+            'tipo_difusion' =>'Tipo difusion',
+            'dirigido' => 'Dirigido',
+            'objetivo' => 'Objetivo',
+            'contenido' => 'Contentido',
+            'sintesis' => 'Sintesis',
+            'metodologia' => 'Metodologia',
+            'acreditacion' => 'Acreditacion',
+            'evaluacion' => 'Examen',
+            'bibliografia' => 'Bibliogragia',
+            'antecedentes' => 'Ninguno',
+            'consecuentes' =>'Ninguno',
+            'fecha_disenio' => '2018-05-18',
+            'clave_curso' => 'FJHCZ'
+
+        ]);
 
         DB::table('cursos')->insert([
             'semestre_imparticion' => 1,
@@ -131,6 +175,25 @@ class StartSeeder extends Seeder
             'cupo_minimo' => 5,
             'status' => 'Activo',
             'catalogo_id' => 1,
+            'salon_id' => 1
+        ]);
+        DB::table('cursos')->insert([
+            'semestre_imparticion' => 1,
+            'fecha_inicio' => '2018-05-20',
+            'fecha_fin' => '2018-05-30',
+            'hora_inicio' => '14:00',
+            'hora_fin' => '16:00',
+            'dias_semana' => 'Lunes,Martes',
+            'numero_sesiones' => 10,
+            'texto_diploma' => 'Texto diploma',
+            'profesor_id' => 2,
+            'costo' => 2000,
+            'orden' => 'Orden',
+            'fecha_disenio' => '2018-05-18',
+            'cupo_maximo' => 20,
+            'cupo_minimo' => 5,
+            'status' => 'Activo',
+            'catalogo_id' => 2,
             'salon_id' => 1
         ]);
         DB::table('categoria_nivel')->insert(['categoria' => 'Administrativo', 'abreviatura' => 'Adm']);
