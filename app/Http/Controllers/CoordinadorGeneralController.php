@@ -15,10 +15,23 @@ class CoordinadorGeneralController extends Controller
 
     public function index()
     {
-        $users = CoordinadorGeneral::all();
-        $user = $users->last();
-        return view("pages.consulta-coordinador-general")
-            ->with("user",$user);
+        $user = CoordinadorGeneral::all()->last();
+        if($user == null){
+            $user = new CoordinadorGeneral();
+            $user->clave = '';
+            $user->coordinacion_abrev = '';
+            $user->coordinacion = '';
+            $user->coordinador = '';
+            $user->cargo = '';
+            $user->comentarios = '';
+
+            return view("pages.consulta-coordinador-general")
+                ->with("user",$user);
+        }else{
+            return view("pages.consulta-coordinador-general")
+                ->with("user",$user);
+        }
+
     }
 
     public function nuevo()

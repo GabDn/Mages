@@ -25,7 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-      //  User::whereDate('created_at', '=', Carbon::now()->format('Y-m-d'))->get();
         $profesors = Profesor::whereDay('fecha_nacimiento','=',Carbon::now()->format('d'))
                 ->whereMonth('fecha_nacimiento','=',Carbon::now()->format('m'))->get();
         return view('pages.admin')->with('profesors',$profesors);

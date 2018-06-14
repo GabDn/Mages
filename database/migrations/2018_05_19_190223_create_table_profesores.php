@@ -20,19 +20,20 @@ class CreateTableProfesores extends Migration
             $table->string('apellido_materno')->nullable();
             $table->string('rfc')->unique();
             $table->string('curp');
+            $table->integer('categoria_nivel_id');
             $table->date('fecha_nacimiento');
             $table->string('telefono');
             $table->string('grado');
             $table->string('email');
             $table->string('estudios');
             $table->string('area');
-             $table->string('comentarios');
-              $table->string('genero');
-              $table->string('tutor');
-              $table->string('baja')->nullable();
-              $table->string('causa_baja')->nullable();
-              $table->string('semblanza_corta');
-              $table->string('facebook')->nullable();
+            $table->string('comentarios');
+            $table->string('genero');
+            $table->string('tutor');
+            $table->string('baja')->nullable();
+            $table->string('causa_baja')->nullable();
+            $table->string('semblanza_corta');
+            $table->string('facebook')->nullable();
             $table->boolean('unam')->nullable();
             $table->string('procedencia')->nullable();
 
@@ -42,6 +43,7 @@ class CreateTableProfesores extends Migration
 
             $table->foreign('facultad_id')->references('id')->on('facultads');
             $table->foreign('carrera_id')->references('id')->on('carreras');
+            $table->foreign('categoria_nivel_id')->references('id')->on('categoria_nivel');
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();

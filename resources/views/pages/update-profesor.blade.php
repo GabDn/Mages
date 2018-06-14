@@ -52,6 +52,11 @@
     {!!Form::text("curp", $user->curp, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
   </div>
 
+    <div class="form-group col-md-4">
+        {!!Form::label("categoria_nivel_id", "Categoria y Nivel:")!!}
+        {!!Form::select("categoria_nivel_id", $user->allCategoria()->pluck('categoria','id'),$user->getIdCategoria(),['class'=>'form-control'])!!}
+    </div>
+
       <div class="form-group col-md-6">
     {!!Form::label("fecha_nacimiento", "fecha de nacimiento")!!}
     {!!Form::text("fecha_nacimiento", $user->fecha_nacimiento, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
@@ -65,14 +70,6 @@
     {!!Form::label("email", "Email")!!}
     {!!Form::text("email", $user->email, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
   </div>
-
-   <div class="form-group col-md-6">
-    {!!Form::label("created_at", "fecha de alta")!!}
-    {!!Form::text("created_at", $user->created_at, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
-  </div>
-
-
-
 
   <div class="form-group col-md-6 ">
     {!!Form::label("telefono", "Número de Teléfono")!!}

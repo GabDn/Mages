@@ -67,13 +67,22 @@ class StartSeeder extends Seeder
         DB:: table('facultads')->insert([
             'nombre' =>'Facultad de ingenieria'
         ]);
-        
+
+        DB::table('categoria_nivel')->insert(['categoria' => 'Administrativo', 'abreviatura' => 'Adm']);
+        DB::table('categoria_nivel')->insert(['categoria' => 'Funcionario', 'abreviatura' => 'FUNC']);
+        DB::table('categoria_nivel')->insert(['categoria' => 'Ayudante de profesor A', 'abreviatura' => 'AYTE PROF A']);
+        DB::table('categoria_nivel')->insert(['categoria' => 'Ayudante de profesor B', 'abreviatura' => 'AYTE PROF B']);
+        DB::table('categoria_nivel')->insert(['categoria' => 'Investigador Asociado B TC', 'abreviatura' => 'INV ASOC B TC']);
+        DB::table('categoria_nivel')->insert(['categoria' => 'Investigador titular A TC', 'abreviatura' => 'INV TIT A T C']);
+        DB::table('categoria_nivel')->insert(['categoria' => 'Investigador titular B TC', 'abreviatura' => 'INV TIT A T  C']);
+
         DB::table('profesors')->insert([
             'nombres' => 'Juan',
             'apellido_paterno' => 'Ramirez',
             'apellido_materno' => 'Gonzales',
             'rfc' => 'ASD642ASDSA',
             'curp' =>'ASDAS323asd',
+            'categoria_nivel_id'=>1,
             'fecha_nacimiento' => '1970-01-01',
             'telefono' => '55664487',
             'grado' => 'Maestro',
@@ -96,6 +105,7 @@ class StartSeeder extends Seeder
             'apellido_materno' => 'Prados',
             'rfc' => 'MSRS125623ASD343',
             'curp' =>'MASRIPS26556',
+            'categoria_nivel_id'=>1,
             'fecha_nacimiento' => '1979-01-01',
             'telefono' => '557458963',
             'grado' => 'Maestro',
@@ -196,13 +206,6 @@ class StartSeeder extends Seeder
             'catalogo_id' => 2,
             'salon_id' => 1
         ]);
-        DB::table('categoria_nivel')->insert(['categoria' => 'Administrativo', 'abreviatura' => 'Adm']);
-        DB::table('categoria_nivel')->insert(['categoria' => 'Funcionario', 'abreviatura' => 'FUNC']);
-        DB::table('categoria_nivel')->insert(['categoria' => 'Ayudante de profesor A', 'abreviatura' => 'AYTE PROF A']);
-        DB::table('categoria_nivel')->insert(['categoria' => 'Ayudante de profesor B', 'abreviatura' => 'AYTE PROF B']);
-        DB::table('categoria_nivel')->insert(['categoria' => 'Investigador Asociado B TC', 'abreviatura' => 'INV ASOC B TC']);
-        DB::table('categoria_nivel')->insert(['categoria' => 'Investigador titular A TC', 'abreviatura' => 'INV TIT A T C']);
-        DB::table('categoria_nivel')->insert(['categoria' => 'Investigador titular B TC', 'abreviatura' => 'INV TIT A T  C']);
-
+       
     }
 }

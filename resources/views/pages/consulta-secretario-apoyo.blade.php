@@ -15,12 +15,12 @@
         <br>
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3>Coordinador general</h3>
+                <h3>Secretario de Apoyo</h3>
 
             </div>
         </div>
         <div class="panel-body">
-            <table class="col-md-12 container-fluid">
+            <table class="col-md-12">
                 <tr>
                     <th>Clave</th>
                     <th>Coordinacion</th>
@@ -33,20 +33,19 @@
                     <td>{{ $user->clave }} </td>
                     <td>{{ $user->coordinacion }} </td>
                     <td>{{ $user->coordinacion_abrev}}</td>
-                    <td>{{ $user->coordinador}}</td>
+                    <td>{{ $user->secretario}}</td>
                     <td>{{ $user->cargo }} </td>
                     <td>{{ $user->comentarios}}</td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="{{route('coordinador-general.nuevo')}}" class="btn btn-success">Nuevo</a>
-
+                        <a href="{{route('secretario-apoyo.nuevo')}}" class="btn btn-success">Nuevo</a>
                     </td>
                     @if($user->id != null)
-                    <td>
-                        <a href="{{ URL::to('coordinador-general/actualizar', $user->id) }}" class="btn btn-info">Editar</a>
-                        <a href="{{ URL::to('coordinador-general/baja', $user->id) }}" class="btn btn-danger">Eliminar</a>
-                    </td>
+                        <td>
+                            <a href="{{ URL::to('secretario-apoyo/actualizar', $user->id) }}" class="btn btn-info">Editar</a>
+                            <a href="{{ URL::to('secretario-apoyo/baja', $user->id) }}" class="btn btn-danger">Eliminar</a>
+                        </td>
                     @endif
                 </tr>
 

@@ -34,7 +34,7 @@
                             <td>{{ $user->email}}</td>
                             <td>{{ $user->rfc}}</td>
                             <td>
-                                <a href="#" class="btn btn-danger">Dar de Baja</a>
+                                <a href="{{ URL::to('curso/baja-profesor', [$user->id,$curso->id]) }}" class="btn btn-danger">Dar de Baja</a>
                             </td>
                         </tr>
                     @endforeach

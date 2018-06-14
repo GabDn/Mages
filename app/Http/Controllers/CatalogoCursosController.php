@@ -103,9 +103,7 @@ class CatalogoCursosController extends Controller
         $user->clave_curso = $request->clave_curso;
 
         $user->save();
-
-
-
+        
         return view("pages.update-catalogo-cursos")
             ->with("user",$user);
     }

@@ -147,6 +147,13 @@ class CursoController extends Controller
         return redirect('/curso');
     }
 
+    public function bajaParticipante($id,$curso)
+    {
+        $user = ParticipantesCurso::where('participante_curso.profesor_id',$id)
+            ->where('participante_curso.curso_id',$curso)
+            ->delete();
+        return redirect()->back();
+    }
 
 
     /**
@@ -187,21 +194,33 @@ class CursoController extends Controller
         /*Session::flash('flash_message', 'Usuario agregado!');*/
         return redirect()->back();
     }
-    public function inscripcion($id)
+    public function inscripcionParticipante($id)
     {
-        $users = Profesor::leftJoin('participante_curso','participante_curso.profesor_id', 'profesors.id')
-         ->where('participante_curso.curso_id','<>',$id)
-         ->orWhere('participante_curso.curso_id',null)
-                ->select('profesors.*')->get();
+        
+        $count = ParticipantesCurso::select('id')
+            ->where('curso_id',$id)
+            ->count();
+
+        $cupo = Curso::findOrFail($id)->cupo_maximo;
+
+        $users = Profesor::select('*')
+            ->whereNotIn('rfc',Profesor::join('participante_curso','participante_curso.profesor_id','profesors.id')
+                ->where('participante_curso.curso_id',$id)
+                ->select('profesors.rfc')->get())
+            ->get();
+
 
         $curso_id = $id;
         return view("pages.curso-inscripcion")
             ->with("users",$users)
-            ->with("curso_id",$curso_id);
+            ->with("curso_id",$curso_id)
+            ->with("count",$count)
+            ->with("cupo",$cupo);
     }
-    public function verProfesores($id)
+    public function verParticipante($id)
     {
-        $users = Profesor::Join('participante_curso','profesors.id','=','participante_curso.profesor_id')
+
+        $users = Profesor::leftJoin('participante_curso','profesors.id','=','participante_curso.profesor_id')
             ->where('participante_curso.curso_id',$id)
             ->select('profesors.*')->get();
 
@@ -212,12 +231,23 @@ class CursoController extends Controller
             ->with("curso",$curso);
     }
 
-    public function registrar(Request $request){
-        $user = new ParticipantesCurso;
-        $user->curso_id = $request->curso_id;
-        $user->profesor_id = $request->id;
-        $user->save();
-        return redirect()->back();
+    public function registrarParticipante(Request $request){
+        $count = ParticipantesCurso::select('id')
+            ->where('curso_id',$request->id)
+            ->count();
+//Queda pendiente el registro
+        $cupo = Curso::findOrFail($request->curso_id)->cupo_maximo;
+        if($count < $cupo){
+
+            $user = new ParticipantesCurso;
+            $user->curso_id = $request->curso_id;
+            $user->profesor_id = $request->id;
+            $user->save();
+            return redirect()->back();
+
+        }else{
+            return redirect()->back();
+        }
 
     }
 }

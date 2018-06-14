@@ -84,7 +84,7 @@
                     <li><a href="{{route('coordinacion.nuevo')}}">Alta de coordinación</a></li>
                     <li><a href="{{route('coordinacion.consulta')}}">Modificar coordinación</a></li>
                     <li><a href="{{route('coordinador-general.consulta')}}">Coordinación general</a></li>
-                    <li><a href="#">Secretaria de apoyo</a></li>
+                    <li><a href="{{route('secretario-apoyo.consulta')}}">Secretaria de apoyo</a></li>
                 </ul>
             </li>
 

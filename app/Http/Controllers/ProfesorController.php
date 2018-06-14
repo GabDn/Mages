@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Carrera;
+use App\CategoriaNivel;
+use App\Curso;
 use App\Facultad;
 use App\Profesor;
 use Illuminate\Http\Request;
@@ -39,7 +41,11 @@ class ProfesorController extends Controller
 
         $facultades = Facultad::all();
         $carreras = Carrera::all();
-        return view("pages.alta-profesor")->with("facultades",$facultades)->with("carreras",$carreras);
+        $categorias = CategoriaNivel::all();
+        return view("pages.alta-profesor")
+            ->with("facultades",$facultades)
+            ->with("carreras",$carreras)
+            ->with("categorias",$categorias);
     }
 
 
@@ -85,10 +91,10 @@ class ProfesorController extends Controller
         $user->rfc = $request->rfc;
         $user->telefono = $request->telefono;
         $user->curp = $request->curp;
+        $user->categoria_nivel_id = $request->categoria_nivel_id;
         $user->fecha_nacimiento = $request->fecha_nacimiento;
         $user->telefono = $request->telefono;
         $user->grado = $request->grado;
-
         $user->estudios = $request->estudios;
         $user->area = $request->area;
         $user->comentarios = $request->comentarios;
@@ -173,7 +179,15 @@ class ProfesorController extends Controller
         return redirect('/profesor');
     }
 
+    public function cursos($id){
+        
+            $users = Curso::leftJoin('participante_curso','participante_curso.curso_id', 'cursos.id')
+                ->where('participante_curso.profesor_id',$id)
+                ->select('cursos.*')->get();
 
+            return view("pages.consulta-cursos")
+                ->with("users",$users);
+    }
 
     /**
      * Create a new user instance after a valid registration.

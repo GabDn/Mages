@@ -49,27 +49,32 @@
   </div>
 
     <div class="form-group col-md-6">
-    {!!Form::label("curp", "curp")!!}
-    {!!Form::text("curp", $user->curp, [ "class" => "form-control", "placeholder" => "RFC", "required","disabled"])!!}
-  </div>
+        {!!Form::label("curp", "curp")!!}
+        {!!Form::text("curp", $user->curp, [ "class" => "form-control", "placeholder" => "RFC", "required","disabled"])!!}
+    </div>
+
+    <div class="form-group col-md-4">
+        {!!Form::label("categoria_nivel_id", "Categoria y nivel:")!!}
+        {!!Form::text("categoria_nivel_id", $user->getCategoria(), [ "class" => "form-control", "placeholder" => "Categoria y nivel", "required","disabled"])!!}
+    </div>
 
       <div class="form-group col-md-6">
-    {!!Form::label("fecha_nacimiento", "fecha de nacimiento")!!}
+    {!!Form::label("fecha_nacimiento", "Fecha de nacimiento:")!!}
     {!!Form::text("fecha_nacimiento", $user->fecha_nacimiento, [ "class" => "form-control", "placeholder" => "RFC", "required","disabled"])!!}
   </div>
  <div class="form-group col-md-6">
     {!!Form::label("grado", "Grado")!!}
-    {!!Form::text("grado", $user->grado, [ "class" => "form-control", "placeholder" => "RFC", "required","disabled"])!!}
+    {!!Form::text("grado", $user->grado, [ "class" => "form-control", "placeholder" => "Grado", "required","disabled"])!!}
   </div>
 
    <div class="form-group col-md-6">
     {!!Form::label("email", "Email")!!}
-    {!!Form::text("email", $user->email, [ "class" => "form-control", "placeholder" => "RFC", "required","disabled"])!!}
+    {!!Form::text("email", $user->email, [ "class" => "form-control", "placeholder" => "Email", "required","disabled"])!!}
   </div>
 
    <div class="form-group col-md-6">
-    {!!Form::label("created_at", "fecha de alta")!!}
-    {!!Form::text("created_at", $user->created_at, [ "class" => "form-control", "placeholder" => "RFC", "required","disabled"])!!}
+    {!!Form::label("created_at", "Fecha de alta")!!}
+    {!!Form::text("created_at", $user->created_at, [ "class" => "form-control", "placeholder" => "Fecha de alta", "required","disabled"])!!}
   </div>
 
 

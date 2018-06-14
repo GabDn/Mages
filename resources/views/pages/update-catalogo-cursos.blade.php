@@ -38,7 +38,6 @@
       </div>
 
       <div class="form-group col-md-4">
-
           {!!Form::label("coordinacion_id", "Coordinacion:")!!}
           {!!Form::select("coordinacion_id", $user->allCoordinacion()->pluck('nombre_coordinacion','id'),$user->getIdCoordinacion(),['class'=>'form-control'])!!}
       </div>

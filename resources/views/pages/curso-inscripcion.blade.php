@@ -18,6 +18,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3>Lista de profesores</h3>
+                <h3>Cupo maximo: {{$count}}/{{$cupo}}</h3>
                 {!! Form::open(["route" => "profesor.consulta", "method" => "GET"]) !!}
                 <div class="input-group">
                     {!!Form::text("pattern", null, [ "class" => "form-control", "placeholder" => "Buscar Profesor"])!!}

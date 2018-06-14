@@ -27,6 +27,7 @@ Route::post('profesor/save', "ProfesorController@create")->name('profesor.store'
 Route::get('profesor/{id}', "ProfesorController@show")->name('profesor.show');
 //Route::get('profesor', "ProfesorController@index")->name("profesor.consulta");
 Route::get('profesor/', "ProfesorController@search")->name('profesor.consulta');
+Route::get('profesor/cursos/{id}', "ProfesorController@cursos")->name('profesor.cursos');
 //Route::get('catalogo-cursos','CatalogoCursosController@search')->name("catalogo-cursos.consulta");
 Route::get('profesor/actualizar/{id}', "ProfesorController@edit")->name('profesor.update');
 Route::put('profesor/actualizar/{id}', "ProfesorController@update")->name('profesor.actualizar');
@@ -39,10 +40,11 @@ Route::get('curso/{id}', "CursoController@show")->name('curso.show');
 Route::get('curso', "CursoController@index")->name("curso.consulta");
 Route::get('curso/busqueda', "CursoController@search")->name('curso.busqueda');
 Route::get('curso/actualizar/{id}', "CursoController@edit")->name('curso.update');
-Route::get('curso/inscripcion/{id}', "CursoController@inscripcion")->name('curso.inscripcion');
-Route::get('curso/ver-profesores/{curso}', "CursoController@verProfesores")->name('curso.ver-profesores');
+Route::get('curso/inscripcion/{id}', "CursoController@inscripcionParticipante")->name('curso.inscripcion');
+Route::get('curso/ver-profesores/{curso}', "CursoController@verParticipante")->name('curso.ver-participante');
+Route::get('curso/baja-profesor/{id}/{curso_id}',"CursoController@bajaParticipante")->name('curso.baja-participante');
 //aqui se registran ambos parametros en la tabla intermedia
-Route::get('curso/registrar/{id}/{curso_id}', "CursoController@registrar")->name('curso.registrar');
+Route::get('curso/registrar/{id}/{curso_id}', "CursoController@registrarParticipante")->name('curso.registrar');
 Route::put('curso/actualizar/{id}', "CursoController@update")->name('curso.actualizar');
 Route::get('curso/baja/{id}', "CursoController@delete");
 
@@ -120,7 +122,14 @@ Route::get('categoria-nivel/baja/{id}', "CategoriaNivelController@delete");
 Route::get('coordinador-general/nuevo', "CoordinadorGeneralController@nuevo")->name("coordinador-general.nuevo");
 Route::post('coordinador-general/save', "CoordinadorGeneralController@create")->name('coordinador-general.store');
 Route::get('coordinador-general', "CoordinadorGeneralController@index")->name("coordinador-general.consulta");
-Route::get('coordinador-general/busqueda', "CoordinadorGeneralController@search")->name('coordinador-general.busqueda');
 Route::get('coordinador-general/actualizar/{id}', "CoordinadorGeneralController@edit")->name('coordinador-general.update');
 Route::put('coordinador-general/actualizar/{id}', "CoordinadorGeneralController@update")->name('coordinador-general.actualizar');
 Route::get('coordinador-general/baja/{id}', "CoordinadorGeneralController@delete");
+
+/* Rutas de SecretarioApoyo */
+Route::get('secretario-apoyo/nuevo', "SecretarioApoyoController@nuevo")->name("secretario-apoyo.nuevo");
+Route::post('secretario-apoyo/save', "SecretarioApoyoController@create")->name('secretario-apoyo.store');
+Route::get('secretario-apoyo', "SecretarioApoyoController@index")->name("secretario-apoyo.consulta");
+Route::get('secretario-apoyo/actualizar/{id}', "SecretarioApoyoController@edit")->name('secretario-apoyo.update');
+Route::put('secretario-apoyo/actualizar/{id}', "SecretarioApoyoController@update")->name('secretario-apoyo.actualizar');
+Route::get('secretario-apoyo/baja/{id}', "SecretarioApoyoController@delete");

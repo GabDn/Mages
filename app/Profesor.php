@@ -18,7 +18,7 @@ class Profesor extends Authenticatable
 
     protected $table = "profesors";
     protected $fillable = [
-        'nombres', 'apellido_paterno','apellido_materno','rfc','curp','fecha_nacimiento','telefono','grado','email','usuario', 'fecha_alta','estudios','grado','area','comentarios','genero','tutor','baja','causa_baja','semblanza_corta','facebook','unam','procedencia','facultad_id','carrera_id',
+        'nombres', 'apellido_paterno','apellido_materno','rfc','curp','categoria_nivel_id','fecha_nacimiento','telefono','grado','email','usuario', 'fecha_alta','estudios','grado','area','comentarios','genero','tutor','baja','causa_baja','semblanza_corta','facebook','unam','procedencia','facultad_id','carrera_id',
     ];
 
     /**
@@ -35,4 +35,20 @@ class Profesor extends Authenticatable
         return $fecha;
         
     }
+
+    public function getCategoria(){
+        $categoria = CategoriaNivel::findOrFail($this->categoria_nivel_id)->categoria;
+        return $categoria;
+    }
+
+    public function allCategoria(){
+        $categoria = CategoriaNivel::all();
+        return $categoria;
+    }
+
+    public function getIdCategoria()
+    {
+        return $this->categoria_nivel_id;
+    }
+
 }

@@ -25,6 +25,20 @@
                 <form id="catalogocursoform" class="form-horizontal" method="POST" action="{{ route('catalogo-cursos.store') }}">
                     {{ csrf_field() }}
 
+                    <div class="form-group{{ $errors->has('clave_curso') ? ' has-error' : '' }}">
+                        <label for="name" class="col-md-4 control-label">Clave:</label>
+
+                        <div class="col-md-6">
+                            <input id="clave_curso" type="text" class="form-control" name="clave_curso" value="{{ old('clave_curso') }}" >
+
+                            @if ($errors->has('clave_curso'))
+                                <span class="help-block">
+                                        <strong>{{ $errors->first('clave_curso') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+
                     <div class="form-group{{ $errors->has('nombre_curso') ? ' has-error' : '' }}">
                         <label for="nombre_curso" class="col-md-4 control-label">Nombre del curso:</label>
 
@@ -59,9 +73,7 @@
                         <div class="col-md-6">
                             <select name="coordinacion_id" form="catalogocursoform">
                                 @foreach($coordinaciones as $coordinacion)
-
                                     <option value="{{ $coordinacion->id }} ">{{ $coordinacion->nombre_coordinacion }}</option>
-
                                 @endforeach
                             </select>
                             @if ($errors->has('coordinacion_id'))
@@ -270,21 +282,6 @@
                             @endif
                         </div>
                     </div>
-                    <div class="form-group{{ $errors->has('clave_curso') ? ' has-error' : '' }}">
-                        <label for="name" class="col-md-4 control-label">Clave:</label>
-
-                        <div class="col-md-6">
-                            <input id="clave_curso" type="text" class="form-control" name="clave_curso" value="{{ old('clave_curso') }}" >
-
-                            @if ($errors->has('clave_curso'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('clave_curso') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-                    </div>
-
-
 
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
