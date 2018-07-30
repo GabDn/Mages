@@ -138,12 +138,10 @@ class ProfesorController extends Controller
             $words=explode(" ", $request->pattern);
             foreach($words as $word){
                 $users = Profesor::where('nombres','LIKE','%'.$word.'%')
+                    ->orWhere('apellido_paterno','LIKE','%'.$word.'%')
+                    ->orWhere('apellido_materno','LIKE','%'.$word.'%')
                     -> get();
             }
-            return view("pages.consulta-profesores")
-                ->with("users",$users);
-
-            $users = Profesor::all();
             return view("pages.consulta-profesores")
                 ->with("users",$users);
 
@@ -168,6 +166,49 @@ class ProfesorController extends Controller
         }
         $users = Profesor::all();
         return view("pages.consulta-profesores")
+            ->with("users",$users);
+
+    }
+
+    public function showTutores(Request $request)
+    {
+        if($request->type == "nombre")
+        {
+            $words=explode(" ", $request->pattern);
+            foreach($words as $word){
+                $users = Profesor::where('nombres','LIKE','%'.$word.'%')
+                    ->orWhere('apellido_paterno','LIKE','%'.$word.'%')
+                    ->orWhere('apellido_materno','LIKE','%'.$word.'%')
+                    ->where('tutor','=','true')
+                    -> get();
+            }
+
+            return view("pages.consulta-tutores")
+                ->with("users",$users);
+
+        }elseif($request->type == "correo"){
+
+            $words=explode(" ", $request->pattern);
+            foreach($words as $word){
+                $users = Profesor::where('email','LIKE','%'.$word.'%')
+                    ->where('tutor','=','true')
+                    -> get();
+            }
+            return view("pages.consulta-tutores")
+                ->with("users",$users);
+        }elseif($request->type == "rfc"){
+
+            $words=explode(" ", $request->pattern);
+            foreach($words as $word){
+                $users = Profesor::where('rfc','LIKE','%'.$word.'%')
+                    ->where('tutor','=','true')
+                    -> get();
+            }
+            return view("pages.consulta-tutores")
+                ->with("users",$users);
+        }
+        $users = Profesor::all()->where('tutor','=',"true");
+        return view("pages.consulta-tutores")
             ->with("users",$users);
 
     }
@@ -210,6 +251,7 @@ class ProfesorController extends Controller
         $user->rfc = $request->rfc;
         $user->telefono = $request->telefono;
         $user->curp = $request->curp;
+        $user->categoria_nivel_id = $request->categoria_nivel_id;
         $user->fecha_nacimiento = $request->fecha_nacimiento;
         $user->telefono = $request->telefono;
         $user->grado = $request->grado;

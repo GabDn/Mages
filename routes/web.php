@@ -24,11 +24,11 @@ Route::get('/admin', 'HomeController@index')->name('home');
 /* Rutas de Profesor */
 Route::get('profesor/nuevo', "ProfesorController@nuevo")->name("profesor.nuevo");
 Route::post('profesor/save', "ProfesorController@create")->name('profesor.store');
-Route::get('profesor/{id}', "ProfesorController@show")->name('profesor.show');
 //Route::get('profesor', "ProfesorController@index")->name("profesor.consulta");
 Route::get('profesor/', "ProfesorController@search")->name('profesor.consulta');
+Route::get('profesor/tutores', "ProfesorController@showTutores")->name('profesor.tutores');
 Route::get('profesor/cursos/{id}', "ProfesorController@cursos")->name('profesor.cursos');
-//Route::get('catalogo-cursos','CatalogoCursosController@search')->name("catalogo-cursos.consulta");
+Route::get('profesor/{id}', "ProfesorController@show")->name('profesor.show');
 Route::get('profesor/actualizar/{id}', "ProfesorController@edit")->name('profesor.update');
 Route::put('profesor/actualizar/{id}', "ProfesorController@update")->name('profesor.actualizar');
 Route::get('profesor/baja/{id}', "ProfesorController@delete");

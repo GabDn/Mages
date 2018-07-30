@@ -52,7 +52,6 @@
                     <li><a href="{{ route('curso.consulta') }}">Cursos programados</a></li>
                     <li><a href="{{ route('catalogo-cursos.consulta') }}">Catalogo de cursos</a></li>
                     <li><a href="{{ route('catalogo-cursos.nuevo') }}">Alta Catalogo</a></li>
-                    <li><a href="#">Inscripción de participantes</a></li>
 
                 </ul>
             </li>
@@ -62,9 +61,9 @@
                 <ul class="submenu">
                     <li><a href="{{ route('profesor.nuevo') }}">Alta Profesor</a></li>
                     <li><a href="{{ route('profesor.consulta') }}">Consulta de profesores</a></li>
-                    <li><a href="#">Altas, Bajas y Cambios(Tutores)</a></li>
+                    <li><a href="{{route('profesor.tutores')}}">Altas, Bajas y Cambios(Tutores)</a></li>
                     <li><a href="{{route('categoria.consulta')}}">Categoria y Nivel</a></li>
-                    <li><a href="#">Curriculum</a></li>
+                  <!--  <li><a href="#">Curriculum</a></li> -->
 
                 </ul>
             </li>

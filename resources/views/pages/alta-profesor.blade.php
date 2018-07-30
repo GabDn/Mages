@@ -192,8 +192,8 @@
                 <div class="form-group{{ $errors->has('tutor') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">Tutor</label>
                     <div class="col-md-6">
-                        Si: <input id="tutor" type="radio" class="" name="tutor" value="true" >
-                        No: <input id="tutor" type="radio" class="" name="tutor" value="false" >
+                        Si: <input id="tutor" type="radio" class="" name="tutor" value="T" >
+                        No: <input id="tutor" type="radio" class="" name="tutor" value="F" >
                         @if ($errors->has('tutor'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('tutor') }}</strong>
