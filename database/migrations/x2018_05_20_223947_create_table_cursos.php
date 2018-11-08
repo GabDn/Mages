@@ -18,7 +18,7 @@ class CreateTableCursos extends Migration
             $table->String('dias_semana')->nullable();
             $table->integer('numero_sesiones');
             $table->string('texto_diploma');
-            $table->integer('profesor_id')->unsigned();
+            $table->integer('profesor_id')->unsigned()->nullable();
             $table->integer('costo');
             $table->String('orden');
             $table->date('fecha_disenio');

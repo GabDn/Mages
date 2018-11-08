@@ -32,7 +32,7 @@ class CreateCatalogoCursos extends Migration
             $table->string('antecedentes');
             $table->string('consecuentes');
             $table->date('fecha_disenio');
-            $table->integer('coordinacion_id');
+            $table->integer('coordinacion_id')->unsigned();
             $table->string('clave_curso');
 
             $table->foreign('coordinacion_id')->references('id')->on('coordinacions');

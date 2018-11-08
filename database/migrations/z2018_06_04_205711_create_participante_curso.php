@@ -13,8 +13,8 @@ class CreateParticipanteCurso extends Migration
     {
         Schema::create('participante_curso', function (Blueprint $table) {
             $table->increments('id')->unique();
-            $table->Integer('curso_id');
-            $table->Integer('profesor_id');
+            $table->Integer('curso_id')->unsigned();
+            $table->Integer('profesor_id')->unsigned();
             
             $table->foreign('curso_id')->references('id')->on('cursos');
             $table->foreign('profesor_id')->references('id')->on('profesors');
