@@ -263,7 +263,7 @@ class ProfesorController extends Controller
         $user->tutor = $request->tutor;
         $user->semblanza_corta = $request->semblanza_corta;
         $user->facebook = $request->facebook;
-        $user ->unam = $request -> unam;
+        $user ->unam = (int)$request -> unam;
         $user->procedencia = $request->procedencia;
         $user->facultad_id = $request ->facultad_id;
         $user->carrera_id = $request ->carrera_id;

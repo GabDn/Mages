@@ -241,8 +241,8 @@
                 <div class="form-group{{ $errors->has('unam') ? ' has-error' : '' }}">
                     <label for="unam" class="col-md-4 control-label">Profesor de la UNAM </label>
                     <div class="col-md-6">
-                        Si: <input  onclick="interno()" id="unam" type="radio" class="" name="unam" value="true" >
-                        No:  <input id="unam" onclick="externo()"   type="radio" class="" name="unam" value="false" >
+                        Si: <input  onclick="interno()" id="unam" type="radio" class="" name="unam" value='1' >
+                        No:  <input id="unam" onclick="externo()"   type="radio" class="" name="unam" value='0' >
                         @if ($errors->has('unam'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('unam') }}</strong>

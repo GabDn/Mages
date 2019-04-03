@@ -98,7 +98,7 @@
                 <div class="link"><i class="fa fa-lg fa-file-image-o"></i>Gráficas, Documentos y Reportes<i class="fa fa-chevron-down"></i></div>
                 <ul class="submenu">
                     <li><a href="#">Modificaciónes en diplomas</a></li>
-                    <li><a href="#">Diplomas</a></li>
+                    <li><a href="{{url('constancias')}}">Diplomas</a></li>
                     <li><a href="#">Hojas de asistencia</a></li>
                     <li><a href="#">Cursos Solicitados</a></li>
                     <li><a href="#">Profesores, curso y Semestre</a></li>

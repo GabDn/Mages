@@ -133,3 +133,9 @@ Route::get('secretario-apoyo', "SecretarioApoyoController@index")->name("secreta
 Route::get('secretario-apoyo/actualizar/{id}', "SecretarioApoyoController@edit")->name('secretario-apoyo.update');
 Route::put('secretario-apoyo/actualizar/{id}', "SecretarioApoyoController@update")->name('secretario-apoyo.actualizar');
 Route::get('secretario-apoyo/baja/{id}', "SecretarioApoyoController@delete");
+
+/* Rutas PDF */
+Route::get('constancias','ConstanciasController@pdf');
+Route::get('constancias/generar/{id}/{tipoDeConstancia}','ConstanciasController@sendPDF')->name('constancias.generar');
+Route::post('constancias/pdf','ConstanciasController@generatePDF')->name('constancias.generatePDF');
+Route::get('directortexto','ConstanciasController@director_texto');
