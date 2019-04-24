@@ -22,8 +22,7 @@
     <br>
       <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3>Bienvenido @usuario</h3>
-                    <h4>Coordinación de Gestión y Vinculación</h4>
+                    <h3>Coordinación de Gestión y Vinculación</h3>
                 </div>
                 <div class="panel-body">
 

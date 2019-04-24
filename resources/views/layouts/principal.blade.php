@@ -21,7 +21,8 @@
             <ul class="nav navbar-nav">
 
                 <li class="dropdown movable">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span><span class="fa fa-2x fa-user-circle"></span></a>
+                    
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span>{{ auth()->user()->usuario }}           <span class="fa fa-2x fa-user-circle"></span></a>
                     <ul class="dropdown-menu" role="menu">
 
 
