@@ -155,12 +155,10 @@
                         </div>
                         <div class="form-group{{ $errors->has('costo') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Costo</label>
-
                             <div class="col-md-6">
                                 <div class="input-group">
                                     <span class="input-group-addon">$</span>
-                                    <input id="costo" type="number" min="1" class="form-control" name="costo" value="{{ old('costo') }}" >
-                                    <span class="input-group-addon">.00</span>
+                                    <input id="costo" type="number" min="1" class="form-control" name="costo" step='0.01' value="{{ old('costo') }}" >
                                 </div>
                                 @if ($errors->has('costo'))
                                     <span class="help-block">
