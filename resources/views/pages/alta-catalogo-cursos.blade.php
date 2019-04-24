@@ -29,7 +29,7 @@
                         <label for="name" class="col-md-4 control-label">Clave:</label>
 
                         <div class="col-md-6">
-                            <input id="clave_curso" type="text" class="form-control" name="clave_curso" value="{{ old('clave_curso') }}" >
+                            <input id="clave_curso" type="text" class="form-control" name="clave_curso" value="{{ old('clave_curso') }}" maxlength="8" minlength="8">
 
                             @if ($errors->has('clave_curso'))
                                 <span class="help-block">

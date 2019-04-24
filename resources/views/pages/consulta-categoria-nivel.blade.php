@@ -21,6 +21,49 @@
 
             </div>
         </div>
+        <form id="cursoform" class="form-horizontal" method="POST" action="{{ route('categoria.store') }}">
+                        {{ csrf_field() }}
+
+
+
+                        <div class="form-group{{ $errors->has('categoria') ? ' has-error' : '' }}">
+                            <label for="categoria" class="col-md-4 control-label">Nombre de la Categoria o Nivel</label>
+
+                            <div class="col-md-6">
+                                <input id="categoria" type="text" class="form-control" name="categoria" value="{{ old('catgeoria') }}"  >
+
+                                @if ($errors->has('categoria'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('categoria') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('abreviatura') ? ' has-error' : '' }}">
+                            <label for="abreviatura" class="col-md-4 control-label">Abreviatura de la Categoria o Nivel</label>
+
+                            <div class="col-md-6">
+                                <input id="abreviatura" type="text" class="form-control" name="abreviatura" value="{{ old('abreviatura') }}"  >
+
+                                @if ($errors->has('abreviatura'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('abreviatura') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Crear Categoria
+                                </button>
+                            </div>
+                        </div>
+                    </form>
             <div class="panel-body">
                 <table class="col-md-12">
                     <tr>
