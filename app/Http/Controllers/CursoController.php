@@ -217,6 +217,20 @@ class CursoController extends Controller
             ->with("count",$count)
             ->with("cupo",$cupo);
     }
+    
+    public function GenerarFormatos($id)
+    {
+        $users = Profesor::leftJoin('participante_curso','profesors.id','=','participante_curso.profesor_id')
+            ->where('participante_curso.curso_id',$id)
+            ->select('profesors.*')->get();
+
+        $curso = Curso::findOrFail($id);
+
+        return view("pages.curso-generarformatos")
+            ->with("users",$users)
+            ->with("curso",$curso);
+    }
+    
     public function verParticipante($id)
     {
 
