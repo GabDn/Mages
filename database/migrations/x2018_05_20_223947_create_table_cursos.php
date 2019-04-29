@@ -19,7 +19,7 @@ class CreateTableCursos extends Migration
             $table->integer('numero_sesiones');
             $table->string('texto_diploma');
             $table->integer('profesor_id')->unsigned()->nullable();
-            $table->integer('costo');
+            $table->double('costo');
             $table->String('orden');
             $table->date('fecha_disenio');
             $table->integer('cupo_maximo');
