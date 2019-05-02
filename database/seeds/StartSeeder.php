@@ -11,7 +11,7 @@ class StartSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        /*DB::table('users')->insert([
             'nombres' => 'Jose',
             'apellido_paterno' => 'Suarez',
             'apellido_materno' => 'Hernandez',
@@ -62,12 +62,70 @@ class StartSeeder extends Seeder
             'nombre' => 'Administracion',
             'clave' => 1231,
             'id_division' => 1,
-        ]);
+        ]);*/
 
         DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de ingenieria'
+            'nombre' =>'Facultad de Ingeniería'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Arquitectura'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Artes y Diseño'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Ciencias'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Ciencias Políticas y Sociales'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Contaduría y Administración'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Derecho'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Economía'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Estudios Superiores (FES) Acatlán'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Estudios Superiores (FES) Aragón'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Estudios Superiores (FES) Cuautitlán'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Estudios Superiores (FES) Iztacala'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Estudios Superiores (FES) Zaragoza'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Filosofía y Letras'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Medicina'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Medicina Veterinaria y Zootecnia'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Música'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Odontología'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Psicología'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Química'
         ]);
 
+/*
         DB::table('categoria_nivel')->insert(['categoria' => 'Administrativo', 'abreviatura' => 'Adm']);
         DB::table('categoria_nivel')->insert(['categoria' => 'Funcionario', 'abreviatura' => 'FUNC']);
         DB::table('categoria_nivel')->insert(['categoria' => 'Ayudante de profesor A', 'abreviatura' => 'AYTE PROF A']);
@@ -205,7 +263,7 @@ class StartSeeder extends Seeder
             'status' => 'Activo',
             'catalogo_id' => 2,
             'salon_id' => 1
-        ]);
+        ]); */
        
     }
 }

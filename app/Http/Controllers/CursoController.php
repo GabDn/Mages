@@ -170,6 +170,8 @@ class CursoController extends Controller
      */
     public function create(Request $request)
     {
+        return $request;
+        
         $user = new Curso;
 
         $user->semestre_imparticion = $request->semestre_imparticion;
