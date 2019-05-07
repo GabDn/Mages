@@ -4,20 +4,20 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateParticipanteCurso extends Migration
+class CreateProfesorCurso extends Migration
 {
     /**
      * Es una tabla intermedia para los cursos y los participantes
      */
     public function up()
     {
-        Schema::create('participante_curso', function (Blueprint $table) {
+        Schema::create('profesor_curso', function (Blueprint $table) {
             $table->increments('id')->unique();
             $table->Integer('curso_id')->unsigned();
-            $table->Integer('participante_id')->unsigned();
+            $table->Integer('profesor_id')->unsigned();
             
             $table->foreign('curso_id')->references('id')->on('cursos');
-            $table->foreign('participante_id')->references('id')->on('profesors');
+            $table->foreign('profesor_id')->references('id')->on('profesors');
 
             $table->timestamps();
         });
@@ -31,6 +31,6 @@ class CreateParticipanteCurso extends Migration
      */
     public function down()
     {
-       Schema::dropIfExist('participante_curso');
+       Schema::dropIfExist('profesor_curso');
     }
 }
