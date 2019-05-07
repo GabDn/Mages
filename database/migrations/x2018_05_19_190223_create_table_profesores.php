@@ -45,6 +45,8 @@ class CreateTableProfesores extends Migration
             $table->foreign('carrera_id')->references('id')->on('carreras');
             $table->foreign('categoria_nivel_id')->references('id')->on('categoria_nivel');
             $table->timestamps();
+            
+
         });
         Schema::enableForeignKeyConstraints();
     }

@@ -6,6 +6,7 @@ use App\CatalogoCurso;
 use App\Coordinacion;
 use App\Curso;
 use App\ParticipantesCurso;
+use App\ProfesorCurso;
 use App\Profesor;
 use App\Salon;
 use App\Http\Controllers\DB;
@@ -170,29 +171,48 @@ class CursoController extends Controller
      */
     public function create(Request $request)
     {
-        return $request;
+        //return $request;
         
-        $user = new Curso;
+        $curso = new Curso;
+        $profesorCurso = new ProfesorCurso;
 
-        $user->semestre_imparticion = $request->semestre_imparticion;
-        $user->fecha_inicio = $request->fecha_inicio;
-        $user->fecha_fin = $request->fecha_fin;
-        $user->hora_inicio = $request->hora_inicio;
-        $user->hora_fin = $request->hora_fin;
-        $user->dias_semana = $request->dias_semana;
-        $user->numero_sesiones = $request->numero_sesiones;
-        $user->texto_diploma = $request->texto_diploma;
-        $user->profesor_id = $request->profesor_id;
-        $user->costo = $request->costo;
-        $user->orden = $request->orden;
-        $user->fecha_disenio = $request->fecha_disenio;
-        $user->cupo_maximo = $request->cupo_maximo;
-        $user->cupo_minimo = $request->cupo_minimo;
-        $user->status = $request->status;
-        $user->catalogo_id = $request->catalogo_id;
-        $user->salon_id = $request->salon_id;
+        $curso->semestre_imparticion = $request->semestre_imparticion;
+        $curso->fecha_inicio = $request->fecha_inicio;
+        $curso->fecha_fin = $request->fecha_fin;
+        $curso->hora_inicio = $request->hora_inicio;
+        $curso->hora_fin = $request->hora_fin;
+        $curso->dias_semana = $request->dias_semana;
+        $curso->numero_sesiones = $request->numero_sesiones;
+        $curso->texto_diploma = $request->texto_diploma;
+        $curso->costo = $request->costo;
+        $curso->orden = $request->orden;
+        $curso->profesor_id = 1;
+        $curso->fecha_disenio = $request->fecha_disenio;
+        $curso->cupo_maximo = $request->cupo_maximo;
+        $curso->cupo_minimo = $request->cupo_minimo;
+        $curso->status = $request->status;
+        $curso->catalogo_id = $request->catalogo_id;
+        $curso->salon_id = $request->salon_id;
 
-        $user->save();
+        $curso->save();
+
+        //Determinar el id del curso que se acaba de inscribir
+        $newCurso = Curso::where('salon_id',$request->salon_id)
+        ->where('catalogo_id',$request->catalogo_id)
+        ->where('fecha_inicio',$request->fecha_inicio)
+        ->where('fecha_fin',$request->fecha_fin)
+        ->where('semestre_imparticion',$request->semestre_imparticion)
+        ->get();
+
+        return $newCurso;
+        
+        foreach($request->profesor_id as $profesor_id){
+            $profesorCurso = new ProfesorCurso;
+            $profesorCurso->curso_id = $newCurso[0]->id;
+            $profesorCurso->profesor_id = $profesor_id;
+            $profesorCurso->save();
+        }
+
         /*Session::flash('flash_message', 'Usuario agregado!');*/
         return redirect()->back();
     }
