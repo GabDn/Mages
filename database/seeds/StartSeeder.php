@@ -725,9 +725,7 @@ class StartSeeder extends Seeder
         ]);
 
 
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Ingeniería'
-        ]);
+        
         DB:: table('facultads')->insert([
             'nombre' =>'Facultad de Arquitectura'
         ]);
@@ -766,6 +764,9 @@ class StartSeeder extends Seeder
         ]);
         DB:: table('facultads')->insert([
             'nombre' =>'Facultad de Filosofía y Letras'
+        ]);
+        DB:: table('facultads')->insert([
+            'nombre' =>'Facultad de Ingeniería'
         ]);
         DB:: table('facultads')->insert([
             'nombre' =>'Facultad de Medicina'
