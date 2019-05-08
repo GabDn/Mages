@@ -41,6 +41,7 @@ Route::get('curso', "CursoController@index")->name("curso.consulta");
 Route::get('curso/busqueda', "CursoController@search")->name('curso.busqueda');
 Route::get('curso/actualizar/{id}', "CursoController@edit")->name('curso.update');
 Route::get('curso/inscripcion/{id}', "CursoController@inscripcionParticipante")->name('curso.inscripcion');
+Route::get('curso/generar-formatos/{curso}', "CursoController@GenerarFormatos")->name('curso.generar-formatos');
 Route::get('curso/ver-profesores/{curso}', "CursoController@verParticipante")->name('curso.ver-participante');
 Route::get('curso/baja-profesor/{id}/{curso_id}',"CursoController@bajaParticipante")->name('curso.baja-participante');
 //aqui se registran ambos parametros en la tabla intermedia
@@ -139,3 +140,6 @@ Route::get('constancias','ConstanciasController@pdf');
 Route::get('constancias/generar/{id}/{tipoDeConstancia}','ConstanciasController@sendPDF')->name('constancias.generar');
 Route::post('constancias/pdf','ConstanciasController@generatePDF')->name('constancias.generatePDF');
 Route::get('directortexto','ConstanciasController@director_texto');
+
+/**Rutas de Formatos */
+Route::get('formatos/generar/{id}/{tipoDeConstancia}','FormatosController@sendPDF')->name('formatos.generar');

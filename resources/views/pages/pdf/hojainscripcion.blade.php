@@ -56,7 +56,7 @@ body {
 			</tr>
 			<tr id="normal">
 				<td align="center" width="15%" id="normal">Emision de formato<br/>
-					21/2/2018
+					{{$fecha}}
 				</td>
 			</tr>
 		</table>
@@ -65,26 +65,26 @@ body {
 <div width="80%" id="h4">
 	
 	Coordinación &nbsp;&nbsp;&nbsp;&nbsp; 
-	<u>Bases de datos</u><br/>
+	<u>{{$coordinacion->nombre_coordinacion}}</u><br/>
 	<table id="renglonDoble" style="width: 85%">
 		<tr >
-			<td id="renglonDoble" width="10%">Instructor</td>
-			<td id="mayusculas" width="30%">bases de datos</td>
-			<td id="renglonDoble">CURSO&nbsp;&nbsp;&nbsp;&nbsp; <u>Bases de datos</u></td>
+			<td id="renglonDoble" width="10%">Instructor: </td>
+			<td id="mayusculas" width="30%">{{ $profesor->apellido_paterno}} {{ $profesor->apellido_materno}} {{$profesor->nombres  }}</td>
+			<td id="renglonDoble">CURSO&nbsp;&nbsp;&nbsp;&nbsp; <u>{{ $cursoCatalogo->nombre_curso}}</u></td>
 		</tr>
 	</table> 
 	<!--bases de datos-->
 	<br>
 	Fechas 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<u>Bases de datos</u><br>
+	<u>{{$curso->fecha_inicio}} {{$curso->fecha_fin}}</u><br>
 	Sede&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-	<u>Bases de datos</u>
+	<u>{{$salon->sede}} - {{$salon->ubicacion}}</u>
 	<br>
 	<table id="renglonDoble" style="width: 85%">
 		<tr >
 			<td id="renglonDoble" width="40%">Horario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	<u>Bases de datos</u></td>
-			<td id="renglonDoble">Fechas de impartición</td>
+	<u>{{$curso->hora_inicio}} - {{$curso->hora_fin}}</u></td>
+			<td id="renglonDoble">Fechas de impartición: {{$curso->dias_semana}}</td>
 		</tr>
 	</table>
 	
