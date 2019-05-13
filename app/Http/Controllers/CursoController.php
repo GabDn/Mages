@@ -6,7 +6,7 @@ use App\CatalogoCurso;
 use App\Coordinacion;
 use App\Curso;
 use App\ParticipantesCurso;
-use App\ProfesorCurso;
+use App\ProfesoresCurso;
 use App\Profesor;
 use App\Salon;
 use App\Http\Controllers\DB;
@@ -174,7 +174,7 @@ class CursoController extends Controller
         //return $request;
         
         $curso = new Curso;
-        $profesorCurso = new ProfesorCurso;
+        $profesorCurso = new ProfesoresCurso;
 
         $curso->semestre_imparticion = $request->semestre_imparticion;
         $curso->fecha_inicio = $request->fecha_inicio;
@@ -207,7 +207,7 @@ class CursoController extends Controller
         return $newCurso;
         
         foreach($request->profesor_id as $profesor_id){
-            $profesorCurso = new ProfesorCurso;
+            $profesorCurso = new ProfesoresCurso;
             $profesorCurso->curso_id = $newCurso[0]->id;
             $profesorCurso->profesor_id = $profesor_id;
             $profesorCurso->save();
