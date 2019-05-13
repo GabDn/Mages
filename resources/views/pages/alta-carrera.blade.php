@@ -21,9 +21,6 @@
                     <h4>Cordinación de Gestión y Vinculación</h4>
                 </div>
                 <div class="panel-body">
-
-
-
                     <form id="cursoform" class="form-horizontal" method="POST" action="{{ route('carrera.store') }}">
                         {{ csrf_field() }}
 
@@ -33,7 +30,7 @@
                             <label for="nombre" class="col-md-4 control-label">Nombre de la carrera</label>
 
                             <div class="col-md-6">
-                                <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}"  >
+                                <input id="nombre" type="text" class="form-control" name="nombre" value="{{ old('nombre') }}"  required>
 
                                 @if ($errors->has('nombre'))
                                     <span class="help-block">
@@ -44,10 +41,27 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('clave') ? ' has-error' : '' }}">
-                            <label for="clave" class="col-md-4 control-label">clave</label>
+                            <label for="clave" class="col-md-4 control-label">Clave</label>
 
                             <div class="col-md-6">
-                                <input id="clave" type="text" class="form-control" name="clave" value="{{ old('clave') }}"  >
+                                <input id="clave" type="text" class="form-control" name="clave" value="{{ old('clave') }}"  required>
+
+                                @if ($errors->has('clave'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('clave') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('clave') ? ' has-error' : '' }}">
+                            <label for="clave" class="col-md-4 control-label">Facultad: </label>
+
+                            <div class="col-md-6">
+                                <select name="id_facultad" form="cursoform" required>
+                                    @foreach($facultades as $facultad)
+                                        <option value="{{ $facultad->id }} "> {{ $facultad->nombre }} </option>
+                                    @endforeach
+                                </select>
 
                                 @if ($errors->has('clave'))
                                     <span class="help-block">
@@ -63,9 +77,7 @@
                             <div class="col-md-6">
                                 <select name="id_division" form="cursoform">
                                     @foreach($users as $user)
-
                                         <option value="{{ $user->id }} "> {{ $user->nombre }} </option>
-
                                     @endforeach
                                 </select>
 
@@ -86,7 +98,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Crear Division
+                                    Crear Carrera
                                 </button>
                             </div>
                         </div>

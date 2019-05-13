@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Carrera;
+use App\Facultad;
 use App\Division;
 use Illuminate\Http\Request;
 
@@ -19,13 +20,16 @@ class CarreraController extends Controller
         $users = Carrera::all();
         return view("pages.consulta-carrera")
             ->with("users",$users);
+
     }
 
     public function nuevo()
     {
         $users = Division::all();
+        $facultades = Facultad::all();
 
-        return view("pages.alta-carrera")->with("users",$users);
+        return view("pages.alta-carrera")->with("users",$users)->with("facultades",$facultades);
+;
     }
 
     public function show($id)
@@ -74,44 +78,14 @@ class CarreraController extends Controller
         $user->nombre = $request->nombre;
         $user->clave = $request->clave;
         $user->id_division= $request->id_division;
+        $user->id_facultad = $request->id_facultad;
+
         $user->save();
         /*Session::flash('flash_message', 'Usuario agregado!');*/
         return redirect()->back();
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Carrera  $carrera
-     * @return \Illuminate\Http\Response
-     */
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Carrera  $carrera
-     * @return \Illuminate\Http\Response
-     */
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Carrera  $carrera
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Carrera $carrera)
     {
         //

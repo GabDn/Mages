@@ -23,7 +23,7 @@ class Carrera extends Authenticatable
 
     protected $table = "carreras";
     protected $fillable = [
-        'nombre','clave','id_division','id_facultad'
+        'clave','nombre','id_division','id_facultad'
     ];
 
     /**

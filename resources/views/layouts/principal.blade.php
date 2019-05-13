@@ -77,7 +77,14 @@
                     <!--<li><a href="#">Baja de Salon</a></li>-->
                 </ul>
             </li>
-
+            <li class="nav-header">
+                <div class="link"><i class="fa fa-graduation-cap"></i>Carreras<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                    <li><a href="{{ route('carrera.consulta') }}">Consulta Carreras</a></li>
+                    <li><a href="{{ route('carrera.nuevo') }}">Alta de Carreras</a></li>
+                    <!--<li><a href="#">Baja de Salon</a></li>-->
+                </ul>
+            </li>
             <li class="nav-header">
                 <div class="link"><i class="fa fa-lg fa-map-marker"></i>Coordinaciones<i class="fa fa-chevron-down"></i></div>
                 <ul class="submenu">
