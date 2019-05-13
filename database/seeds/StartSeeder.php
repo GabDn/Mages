@@ -75,110 +75,218 @@ class StartSeeder extends Seeder
         DB::table('divisions')->insert([
             'nombre' => 'Division 4',
         ]);
+
+        DB:: table('facultads')->insert([
+            'id' => 1,
+            'nombre' =>'Facultad de Arquitectura'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 2,
+            'nombre' =>'Facultad de Artes y Diseño'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 3,
+            'nombre' =>'Facultad de Ciencias'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 4,
+            'nombre' =>'Facultad de Ciencias Políticas y Sociales'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 5,
+            'nombre' =>'Facultad de Contaduría y Administración'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 6,
+            'nombre' =>'Facultad de Derecho'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 7,
+            'nombre' =>'Facultad de Economía'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 8,
+            'nombre' =>'Facultad de Estudios Superiores (FES) Acatlán'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 9,
+            'nombre' =>'Facultad de Estudios Superiores (FES) Aragón'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 10,
+            'nombre' =>'Facultad de Estudios Superiores (FES) Cuautitlán'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 11,
+            'nombre' =>'Facultad de Estudios Superiores (FES) Iztacala'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 12,
+            'nombre' =>'Facultad de Estudios Superiores (FES) Zaragoza'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 13,
+            'nombre' =>'Facultad de Filosofía y Letras'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 14,
+            'nombre' =>'Facultad de Ingeniería'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 15,
+            'nombre' =>'Facultad de Medicina'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 16,
+            'nombre' =>'Facultad de Medicina Veterinaria y Zootecnia'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 17,
+            'nombre' =>'Facultad de Música'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 18,
+            'nombre' =>'Facultad de Odontología'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 19,
+            'nombre' =>'Facultad de Psicología'
+        ]);
+        DB:: table('facultads')->insert([
+            'id' => 20,
+            'nombre' =>'Facultad de Química'
+        ]);
+
+        
         DB::table('carreras')->insert([
             'nombre' => 'Actuaría',
             'clave' => 101,
             'id_division' => 1,
+            'id_facultad' => 3,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Arquitectura',
             'clave' => 102,
             'id_division' => 1,
+            'id_facultad' => 1,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Arquitectura del paisaje',
             'clave' => 103,
             'id_division' => 1,
+            'id_facultad' => 1,
+
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Ciencias de la Computación',
             'clave' => 104,
             'id_division' => 1,
+            'id_facultad' => 3,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Diseño Industrial',
             'clave' => 105,
             'id_division' => 1,
+            'id_facultad' => 1,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Física',
             'clave' => 106,
             'id_division' => 1,
+            'id_facultad' => 3,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Ingeniería Civil',
             'clave' => 107,
             'id_division' => 1,
+            'id_facultad' => 14,
+
         ]);
         DB::table('carreras')->insert([
-            'nombre' => 'Ingeniería de minas y metalurgía',
+            'nombre' => 'Ingeniería de Minas y Metalurgía',
             'clave' => 108,
             'id_division' => 1,
+            'id_facultad' => 14,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Ingeniería Eléctrica y Eletrónica',
             'clave' => 109,
             'id_division' => 1,
+            'id_facultad' => 14,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Ingeniería en Computación',
             'clave' => 110,
             'id_division' => 1,
+            'id_facultad' => 14,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Ingeniería en Telecomunicaciones',
             'clave' => 111,
             'id_division' => 1,
+            'id_facultad' => 14,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Ingeniería Geofísica',
             'clave' => 112,
             'id_division' => 1,
+            'id_facultad' => 14,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Ingeniería Geológica',
             'clave' => 113,
             'id_division' => 1,
+            'id_facultad' => 14,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Ingeniería Industrial',
             'clave' => 114,
             'id_division' => 1,
+            'id_facultad' => 14,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Ingeniería Mecánica',
             'clave' => 115,
             'id_division' => 1,
+            'id_facultad' => 14,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Ingeniería Mecánica Eléctrica',
             'clave' => 116,
             'id_division' => 1,
+            'id_facultad' => 14,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Ingeniería Petrolera',
             'clave' => 117,
             'id_division' => 1,
+            'id_facultad' => 14,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Ingeniería Química',
             'clave' => 118,
             'id_division' => 1,
+            'id_facultad' => 20,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Ingeniería Química Metalurgia',
             'clave' => 119,
             'id_division' => 1,
+            'id_facultad' => 20,
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Ingeniería Topográfica y Geodesica',
             'clave' => 120,
             'id_division' => 1,
+            'id_facultad' => 14,
+
         ]);
+        /*
         DB::table('carreras')->insert([
             'nombre' => 'Matemáticas Aplicadas y Computación',
             'clave' => 121,
             'id_division' => 1,
+
         ]);
         DB::table('carreras')->insert([
             'nombre' => 'Matemáticas',
@@ -722,70 +830,11 @@ class StartSeeder extends Seeder
             'nombre' => 'Traducción',
             'clave' => 440,
             'id_division' => 4,
-        ]);
+        ]);*/
 
 
         
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Arquitectura'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Artes y Diseño'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Ciencias'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Ciencias Políticas y Sociales'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Contaduría y Administración'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Derecho'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Economía'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Estudios Superiores (FES) Acatlán'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Estudios Superiores (FES) Aragón'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Estudios Superiores (FES) Cuautitlán'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Estudios Superiores (FES) Iztacala'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Estudios Superiores (FES) Zaragoza'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Filosofía y Letras'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Ingeniería'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Medicina'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Medicina Veterinaria y Zootecnia'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Música'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Odontología'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Psicología'
-        ]);
-        DB:: table('facultads')->insert([
-            'nombre' =>'Facultad de Química'
-        ]);
+
         DB::table('categoria_nivel')->insert(['categoria' => 'Administrativo', 'abreviatura' => 'Adm']);
         DB::table('categoria_nivel')->insert(['categoria' => 'Ayudante de profesor A', 'abreviatura' => 'AYTE PROF A']);
         DB::table('categoria_nivel')->insert(['categoria' => 'Ayudante de profesor B', 'abreviatura' => 'AYTE PROF B']);

@@ -1,3 +1,4 @@
+
 <!-- Guardado en resources/views/pages/admin.blade.php -->
 
 @extends('layouts.principal')
@@ -19,7 +20,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3>Alta de profesor</h3>
-                <h3 id="dependeFac">{{ $fac_id }}<h3>
+                <h3 id="">{{ $fac_id }}<h3>
                 <h4>Cordinación de Gestión y Vinculación</h4>
             </div>
         </div>
@@ -269,9 +270,10 @@
                     <label for="name" class="col-md-4 control-label">Facultad</label>
                     <div class="col-md-6">
                         <select name="facultad_id" form="cursoform">
+                            <option onclick="fi() <?php $fac_id = 14?>" value="14"> Facultad de Ingeniería</option>
                             @foreach($facultades as $user)
                                 @if($user->id!==1)
-                                    <option onclick="reload()" value="{{ $user->id }} "> {{ $user->nombre }} </option>
+                                    <option onclick="nofi() <?php $fac_id = $user->id?>" value="{{ $user->id }} "> {{ $user->nombre }} </option>
                                 @endif
                             @endforeach
                         </select>
@@ -327,13 +329,21 @@
             document.getElementById("facultad").style.display = "initial";
             document.getElementById("carreras").style.display = "initial";
         }
-        function reload(){
-            <?php $fac_id = $user->id ?>
-            var container = document.getElementById("dependeFac");
-            var content = container.innerHTML;
-            container.innerHTML= content; 
-            
+        function fi() {
+            document.getElementById("externo").style.display = "none";
+            document.getElementById("facultad").style.display = "initial";
+            document.getElementById("carreras").style.display = "initial";
+        }
+        function nofi() {
+            document.getElementById("externo").style.display = "none";
+            document.getElementById("facultad").style.display = "initial";
+            document.getElementById("carreras").style.display = "none";
         }
     </script>
 
 @endsection
+
+
+
+
+

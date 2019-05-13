@@ -15,6 +15,20 @@ class CreateParticipanteCurso extends Migration
             $table->increments('id')->unique();
             $table->Integer('curso_id')->unsigned();
             $table->Integer('participante_id')->unsigned();
+            $table->boolean('confirmacion')->nullable();
+            $table->boolean('asistencia')->nullable();
+            $table->boolean('pago_curso')->nullable();
+            $table->Double('monto_pago')->nullable();
+            $table->boolean('cancelación')->nullable();
+            $table->Integer('evaluacion_mobilirario')->nullable();
+            $table->Integer('evaluacion_limpieza')->nullable();
+            $table->boolean('estuvo_en_lista')->nullable();
+            $table->boolean('contesto_hoja_evaluacion')->nullable();
+            $table->boolean('acreditacion')->nullable();
+            $table->string('causa_no_acreditacion')->nullable();
+            $table->Integer('calificacion')->nullable();
+            $table->boolean('inscrito')->nullable();
+            $table->string('comentario')->nullable();
             
             $table->foreign('curso_id')->references('id')->on('cursos');
             $table->foreign('participante_id')->references('id')->on('profesors');
