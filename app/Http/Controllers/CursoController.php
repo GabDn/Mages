@@ -186,7 +186,7 @@ class CursoController extends Controller
         $curso->texto_diploma = $request->texto_diploma;
         $curso->costo = $request->costo;
         $curso->orden = $request->orden;
-        $curso->profesor_id = 1;
+        $curso->profesor_id = 1; //Error xd
         $curso->fecha_disenio = $request->fecha_disenio;
         $curso->cupo_maximo = $request->cupo_maximo;
         $curso->cupo_minimo = $request->cupo_minimo;
@@ -204,11 +204,11 @@ class CursoController extends Controller
         ->where('semestre_imparticion',$request->semestre_imparticion)
         ->get();
 
-        return $newCurso;
+        //return $newCurso;
         
         foreach($request->profesor_id as $profesor_id){
             $profesorCurso = new ProfesoresCurso;
-            $profesorCurso->curso_id = $newCurso[0]->id;
+            $profesorCurso->curso_id = $newCurso[0]["id"];
             $profesorCurso->profesor_id = $profesor_id;
             $profesorCurso->save();
         }
