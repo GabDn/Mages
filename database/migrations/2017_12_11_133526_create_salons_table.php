@@ -18,7 +18,6 @@ class CreateSalonsTable extends Migration
             $table->String('sede');
             $table->string('capacidad');
             $table->string('ubicacion');
-            $table->string('sigla');
             $table->timestamps();
         });
     }

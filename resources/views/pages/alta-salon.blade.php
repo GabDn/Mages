@@ -72,19 +72,7 @@
                             </div>
                         </div>     
 
-                         <div class="form-group{{ $errors->has('sigla') ? ' has-error' : '' }}">
-                            <label for="sigla" class="col-md-4 control-label">Sigla</label>
-
-                            <div class="col-md-6">
-                                <input id="sigla" type="text" class="form-control" name="sigla" value="{{ old('sigla') }}" >
-
-                                @if ($errors->has('sigla'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('sigla') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+                    
 
     <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

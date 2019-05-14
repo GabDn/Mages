@@ -41,7 +41,6 @@ class SalonController extends Controller
         $user->sede = $request->sede;
         $user->capacidad= $request->capacidad;
         $user->ubicacion= $request->ubicacion;
-        $user->sigla = $request->sigla;
         $user->save();
         return view("pages.update-salon")
             ->with("user",$user);
@@ -58,7 +57,6 @@ class SalonController extends Controller
         $user->sede = $request->sede;
         $user->capacidad= $request->capacidad;
         $user->ubicacion= $request->ubicacion;
-        $user->sigla = $request->sigla;
         $user->save();
         /*Session::flash('flash_message', 'Usuario agregado!');*/
         return redirect()->back();

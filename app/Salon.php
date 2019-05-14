@@ -10,7 +10,7 @@ class Salon extends Model
 
 
     protected $fillable = [
-     'sede','capacidad','ubicacion','sigla'
+     'sede','capacidad','ubicacion'
     ];
     
 

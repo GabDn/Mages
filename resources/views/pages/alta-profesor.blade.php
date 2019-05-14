@@ -271,7 +271,7 @@
                         <select name="facultad_id" form="cursoform">
                             @foreach($facultades as $user)
                                 @if($user->id!==1)
-                                    <option onclick="reload()" value="{{ $user->id }} "> {{ $user->nombre }} </option>
+                                    <option onclick="<?php $fac_id = $user->id ?> reload()" value="{{ $user->id }} "> {{ $user->nombre }} </option>
                                 @endif
                             @endforeach
                         </select>
@@ -328,7 +328,7 @@
             document.getElementById("carreras").style.display = "initial";
         }
         function reload(){
-            <?php $fac_id = $user->id ?>
+            
             var container = document.getElementById("dependeFac");
             var content = container.innerHTML;
             container.innerHTML= content; 
