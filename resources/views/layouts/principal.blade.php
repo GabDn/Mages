@@ -58,7 +58,7 @@
             </li>
 
             <li class="nav-header">
-                <div class="link"><i class="fa fa-lg fa-graduation-cap"></i>Profesores<i class="fa fa-chevron-down"></i></div>
+                <div class="link"><i class="fa fa-users"></i>Profesores<i class="fa fa-chevron-down"></i></div>
                 <ul class="submenu">
                     <li><a href="{{ route('profesor.nuevo') }}">Alta Profesor</a></li>
                     <li><a href="{{ route('profesor.consulta') }}">Consulta de profesores</a></li>
@@ -103,6 +103,17 @@
                 </ul>
             </li>
             <li class="nav-header">
+                <div class="link"><i class="fa fa-file-text"></i>Documentos<i class="fa fa-chevron-down"></i></div>
+                <ul class="submenu">
+                    <li><a href="#">Constancias</a></li>
+                    <li><a href="#">Reconocimientos</a></li>
+                    <li><a href="#">Diplomas</a></li>
+                    <li><a href="#">Agradecimiento</a></li>
+                    <li><a href="#">Otros</a></li>
+                </ul>
+            </li>
+            <!--
+            <li class="nav-header">
                 <div class="link"><i class="fa fa-lg fa-file-image-o"></i>Gráficas, Documentos y Reportes<i class="fa fa-chevron-down"></i></div>
                 <ul class="submenu">
                     <li><a href="#">Modificaciónes en diplomas</a></li>
@@ -116,7 +127,7 @@
                     <li><a href="#">Memoria estadistíca de instructores</a></li>
                     <li><a href="#">Ambiente en cursos</a></li>
                 </ul>
-            </li>
+            </li>-->
 
         </ul>
     </aside>

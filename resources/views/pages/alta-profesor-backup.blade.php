@@ -5,6 +5,7 @@
 @section('contenido')
         <!--Body content-->
 
+<?php $fac_id = 500 ?>
 <div class="content">
     <div class="top-bar">
         <a href="#menu" class="side-menu-link burger">
@@ -18,6 +19,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3>Alta de profesor</h3>
+                <h3 id="dependeFac">{{ $fac_id }}<h3>
                 <h4>Coordinación de Gestión y Vinculación</h4>
             </div>
         </div>
@@ -28,7 +30,7 @@
                 <div class="form-group{{ $errors->has('nombres') ? ' has-error' : '' }}">
                     <label for="nombres" class="col-md-4 control-label">Nombre</label>
                     <div class="col-md-6">
-                        <input id="nombres" type="text" class="form-control" name="nombres" value="{{ old('nombres') }}"  >
+                        <input id="nombres" type="text" class="form-control" name="nombres" value="{{ old('nombres') }}"  required>
                         @if ($errors->has('nombres'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('nombres') }}</strong>
@@ -40,7 +42,7 @@
                 <div class="form-group{{ $errors->has('apellido_paterno') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">Apellido Paterno</label>
                     <div class="col-md-6">
-                        <input id="apellido_paterno" type="text" class="form-control" name="apellido_paterno" value="{{ old('apellido_paterno') }}" >
+                        <input id="apellido_paterno" type="text" class="form-control" name="apellido_paterno" value="{{ old('apellido_paterno') }}" required>
                         @if ($errors->has('apellido_paterno'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('apellido_paterno') }}</strong>
@@ -52,7 +54,7 @@
                 <div class="form-group{{ $errors->has('apellido_materno') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">Apellido Materno</label>
                     <div class="col-md-6">
-                        <input id="apellido_materno" type="text" class="form-control" name="apellido_materno" value="{{ old('apellido_materno') }}" >
+                        <input id="apellido_materno" type="text" class="form-control" name="apellido_materno" value="{{ old('apellido_materno') }}" required>
                         @if ($errors->has('apellido_materno'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('apellido_materno') }}</strong>
@@ -63,9 +65,9 @@
 
                 <div class="form-group{{ $errors->has('rfc') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">RFC</label>
-                    <div class="col-md-6">
 
-                        <input minlength="13" maxlength= "13" id="rfc" type="text" class="form-control" name="rfc" value="{{ old('rfc') }}" >
+                    <div class="col-md-6">
+                        <input minlength="12" maxlength= "13" id="rfc" type="text" class="form-control" name="rfc" value="{{ old('rfc') }}" required>
                         @if ($errors->has('rfc'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('rfc') }}</strong>
@@ -77,7 +79,7 @@
                 <div class="form-group{{ $errors->has('curp') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">CURP</label>
                     <div class="col-md-6">
-                        <input minlength="18" maxlength= "18" id="curp" type="text" class="form-control" name="curp" value="{{ old('curp') }}" >
+                        <input minlength="18" maxlength= "18" id="curp" type="text" class="form-control" name="curp" value="{{ old('curp') }}" required>
                         @if ($errors->has('curp'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('curp') }}</strong>
@@ -105,7 +107,7 @@
                 <div class="form-group{{ $errors->has('fecha_nacimiento') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">Fecha de nacimiento</label>
                     <div class="col-md-6">
-                        <input id="fecha_nacimiento" type="date" class="form-control" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" >
+                        <input id="fecha_nacimiento" type="date" class="form-control" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" required>
                         @if ($errors->has('fecha_nacimiento'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('fecha_nacimiento') }}</strong>
@@ -117,7 +119,7 @@
                 <div class="form-group{{ $errors->has('telefono') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">Telefono</label>
                     <div class="col-md-6">
-                        <input id="telefono" type="text" class="form-control" name="telefono" value="{{ old('telefono') }}" >
+                        <input id="telefono" type="text" class="form-control" name="telefono" value="{{ old('telefono') }}" required>
                         @if ($errors->has('telefono'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('telefono') }}</strong>
@@ -130,7 +132,7 @@
                     <label for="name" class="col-md-4 control-label">Grado</label>
 
                     <div class="col-md-6">
-                        <input id="grado" type="text" class="form-control" name="grado" value="{{ old('grado') }}" >
+                        <input id="grado" type="text" class="form-control" name="grado" value="{{ old('grado') }}" required>
 
                         @if ($errors->has('grado'))
                             <span class="help-block">
@@ -155,7 +157,7 @@
                 <div class="form-group{{ $errors->has('estudios') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">Estudios</label>
                     <div class="col-md-6">
-                        <input id="estudios" type="text" class="form-control" name="estudios" value="{{ old('estudios') }}" >
+                        <input id="estudios" type="text" class="form-control" name="estudios" value="{{ old('estudios') }}" required>
                         @if ($errors->has('estudios'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('estudios') }}</strong>
@@ -167,7 +169,7 @@
                 <div class="form-group{{ $errors->has('area') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">Area</label>
                     <div class="col-md-6">
-                        <input id="area" type="text" class="form-control" name="area" value="{{ old('area') }}" >
+                        <input id="area" type="text" class="form-control" name="area" value="{{ old('area') }}" required>
                         @if ($errors->has('area'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('area') }}</strong>
@@ -205,7 +207,7 @@
                 <div class="form-group{{ $errors->has('semblanza_corta') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">Semblanza Corta</label>
                     <div class="col-md-6">
-                        <input id="semblanza_corta" type="text" class="form-control" name="semblanza_corta" value="{{ old('semblanza_corta') }}" >
+                        <input id="semblanza_corta" type="text" class="form-control" name="semblanza_corta" value="{{ old('semblanza_corta') }}" required>
                         @if ($errors->has('semblanza_corta'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('semblanza_corta') }}</strong>
@@ -217,7 +219,7 @@
                 <div class="form-group{{ $errors->has('facebook') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">Facebook</label>
                     <div class="col-md-6">
-                        <input id="facebook" type="text" class="form-control" name="facebook" value="{{ old('facebook') }}" >
+                        <input id="facebook" type="text" class="form-control" name="facebook" value="{{ old('facebook') }}" required>
                         @if ($errors->has('facebook'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('facebook') }}</strong>
@@ -229,7 +231,7 @@
                 <div class="form-group{{ $errors->has('comentarios') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">Comentarios</label>
                     <div class="col-md-6">
-                        <input id="comentarios" type="text" class="form-control" name="comentarios" value="{{ old('comentarios') }}" >
+                        <input id="comentarios" type="text" class="form-control" name="comentarios" value="{{ old('comentarios') }}" required>
                         @if ($errors->has('comentarios'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('comentarios') }}</strong>
@@ -241,7 +243,6 @@
                 <div class="form-group{{ $errors->has('unam') ? ' has-error' : '' }}">
                     <label for="unam" class="col-md-4 control-label">Profesor de la UNAM </label>
                     <div class="col-md-6">
-                    
                         Si: <input  onclick="interno()" id="unam" type="radio" class="" name="unam" value='1' >
                         No:  <input id="unam" onclick="externo()"   type="radio" class="" name="unam" value='0' >
                         @if ($errors->has('unam'))
@@ -255,7 +256,7 @@
                 <div style="display:none;" id="externo" class="form-group{{ $errors->has('procedencia') ? ' has-error' : '' }}">
                     <label for="procedencia" class="col-md-4 control-label">Procedencia</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" name="procedencia" value="{{ old('procedencia') }}" >
+                        <input type="text" class="form-control" name="procedencia" value="{{ old('procedencia') }}" required>
                         @if ($errors->has('procedencia'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('procedencia') }}</strong>
@@ -268,7 +269,6 @@
                     <label for="name" class="col-md-4 control-label">Facultad</label>
                     <div class="col-md-6">
                         <select name="facultad_id" form="cursoform">
-                            
                             @foreach($facultades as $user)
                                 @if($user->id!==1)
                                     <option onclick="<?php $fac_id = $user->id ?> " value="{{ $user->id }} "> {{ $user->nombre }} </option>
@@ -288,11 +288,13 @@
                     <div class="col-md-6">
                         <select name="carrera_id" form="cursoform">
                             @foreach($carreras as $carrera)
-                                <option value="{{ $carrera->id }} "> {{ $carrera->nombre }} </option>
+                                @if ($carrera->id_facultad == $fac_id and $fac_id !== 500)
+                                     <option value="{{ $carrera->id }} "> {{ $carrera->nombre }} </option>
+                                @endif
                             @endforeach
                         </select>
 
-                        
+                        -
 
                         @if ($errors->has('carrera_id'))
                             <span class="help-block">
@@ -325,7 +327,6 @@
             document.getElementById("facultad").style.display = "initial";
             document.getElementById("carreras").style.display = "initial";
         }
-        
     </script>
 
 @endsection
