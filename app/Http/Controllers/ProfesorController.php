@@ -169,6 +169,45 @@ class ProfesorController extends Controller
             ->with("users",$users);
 
     }
+    /* Consulta-Alta */
+    public function search1(Request $request)
+    {
+        if($request->type == "nombre")
+        {
+            $words=explode(" ", $request->pattern);
+            foreach($words as $word){
+                $users = Profesor::where('nombres','LIKE','%'.$word.'%')
+                    ->orWhere('apellido_paterno','LIKE','%'.$word.'%')
+                    ->orWhere('apellido_materno','LIKE','%'.$word.'%')
+                    -> get();
+            }
+            return view("pages.consulta-profa")
+                ->with("users",$users);
+
+        }elseif($request->type == "correo"){
+
+            $words=explode(" ", $request->pattern);
+            foreach($words as $word){
+                $users = Profesor::where('email','LIKE','%'.$word.'%')
+                    -> get();
+            }
+            return view("pages.consulta-profa")
+                ->with("users",$users);
+        }elseif($request->type == "rfc"){
+
+            $words=explode(" ", $request->pattern);
+            foreach($words as $word){
+                $users = Profesor::where('rfc','LIKE','%'.$word.'%')
+                    -> get();
+            }
+            return view("pages.consulta-profa")
+                ->with("users",$users);
+        }
+        $users = Profesor::all();
+        return view("pages.consulta-profesores")
+            ->with("users",$users);
+
+    }
 
     public function showTutores(Request $request)
     {

@@ -24,15 +24,32 @@ class StartSeeder extends Seeder
             'usuario' => 'usuario',
             'password' => bcrypt(123)
 
-        ]);
+        ]);*/
         DB::table('salons')->insert([
             'sede'=> 'Salon 123',
-            'capacidad' => 22,
+            'capacidad' => 50,
             'ubicacion' => 'FI',
-            'sigla' => 'S123'
-
         ]);
-
+        DB::table('salons')->insert([
+            'sede'=> 'Salon 213',
+            'capacidad' => 50,
+            'ubicacion' => 'FI',
+        ]);
+        DB::table('salons')->insert([
+            'sede'=> 'Salon 321',
+            'capacidad' => 50,
+            'ubicacion' => 'FI',
+        ]);
+        DB::table('salons')->insert([
+            'sede'=> 'Salon J102',
+            'capacidad' => 50,
+            'ubicacion' => 'FI',
+        ]);
+        DB::table('salons')->insert([
+            'sede'=> 'Salon Y001',
+            'capacidad' => 50,
+            'ubicacion' => 'FI',
+        ]);
         DB::table('coordinacions')->insert([
             'nombre_coordinacion' => 'Coordinacion 1',
             'abreviatura' => 'C1',
@@ -45,24 +62,7 @@ class StartSeeder extends Seeder
             'abreviatura' => 'C2',
             'coordinador' => 'Alan Rodriguez Ramirez',
             'comentarios' => 'Comentarios'
-        ]);
-
-        DB::table('divisions')->insert([
-            'nombre' => 'Division 1',
-
-        ]);
-
-        DB::table('carreras')->insert([
-            'nombre' => 'Ingenieria electrica',
-            'clave' => 1231,
-            'id_division' => 1,
-        ]);
-
-        DB::table('carreras')->insert([
-            'nombre' => 'Administracion',
-            'clave' => 1231,
-            'id_division' => 1,
-        ]);*/
+        ]);   
         DB::table('divisions')->insert([
             'nombre' => 'Division 1',
         ]);
@@ -281,7 +281,19 @@ class StartSeeder extends Seeder
             'id_facultad' => 14,
 
         ]);
+
         /*
+        DB::table('carreras')->insert([
+            'nombre' => 'Ingenieria electrica',
+            'clave' => 1231,
+            'id_division' => 1,
+        ]);
+
+        DB::table('carreras')->insert([
+            'nombre' => 'Administracion',
+            'clave' => 1231,
+            'id_division' => 1,
+        ]);
         DB::table('carreras')->insert([
             'nombre' => 'Matemáticas Aplicadas y Computación',
             'clave' => 121,
@@ -831,10 +843,6 @@ class StartSeeder extends Seeder
             'clave' => 440,
             'id_division' => 4,
         ]);*/
-
-
-        
-
         DB::table('categoria_nivel')->insert(['categoria' => 'Administrativo', 'abreviatura' => 'Adm']);
         DB::table('categoria_nivel')->insert(['categoria' => 'Ayudante de profesor A', 'abreviatura' => 'AYTE PROF A']);
         DB::table('categoria_nivel')->insert(['categoria' => 'Ayudante de profesor B', 'abreviatura' => 'AYTE PROF B']);
@@ -859,22 +867,15 @@ class StartSeeder extends Seeder
         DB::table('categoria_nivel')->insert(['categoria' => 'Técnico Titular A TC', 'abreviatura' => 'TEC TIT A T C']);
         DB::table('categoria_nivel')->insert(['categoria' => 'Técnico Titular B TC', 'abreviatura' => 'TEC TIT B T C']);
         DB::table('categoria_nivel')->insert(['categoria' => 'Técnico Titular C TC', 'abreviatura' => 'TEC TIT C T C']);
-        /*  
-        DB::table('categoria_nivel')->insert(['categoria' => '', 'abreviatura' => '']);
-
         
-        
-        
-        
-
         DB::table('profesors')->insert([
             'nombres' => 'Juan',
             'apellido_paterno' => 'Ramirez',
             'apellido_materno' => 'Gonzales',
-            'rfc' => 'ASD642ASDSA',
-            'curp' =>'ASDAS323asd',
+            'rfc' => 'RAGJ720101T72',
+            'curp' =>'RAGJ720101HMCMNN08',
             'categoria_nivel_id'=>1,
-            'fecha_nacimiento' => '1970-01-01',
+            'fecha_nacimiento' => '1972-01-01',
             'telefono' => '55664487',
             'grado' => 'Maestro',
             'email' => 'prof@gmail.com',
@@ -887,17 +888,17 @@ class StartSeeder extends Seeder
             'facebook' => 'face',
             'unam' => true,
             'facultad_id' =>1,
-            'carrera_id' =>1,
+            'carrera_id' =>11,
 
         ]);
         DB::table('profesors')->insert([
             'nombres' => 'Marta',
             'apellido_paterno' => 'Suarez',
             'apellido_materno' => 'Prados',
-            'rfc' => 'MSRS125623ASD343',
-            'curp' =>'MASRIPS26556',
+            'rfc' => 'SUPM720101D11',
+            'curp' =>'SUPM720101MMCRRR03',
             'categoria_nivel_id'=>1,
-            'fecha_nacimiento' => '1979-01-01',
+            'fecha_nacimiento' => '1972-01-01',
             'telefono' => '557458963',
             'grado' => 'Maestro',
             'email' => 'MSP@gmail.com',
@@ -910,9 +911,422 @@ class StartSeeder extends Seeder
             'facebook' => 'MyFace',
             'unam' => true,
             'facultad_id' =>1,
-            'carrera_id' =>2,
+            'carrera_id' =>1,
 
         ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Santiago',
+            'apellido_paterno' => 'Hernández',
+            'apellido_materno' => 'Gonzales',
+            'rfc' => 'HEGS720517RJ3',
+            'curp' =>'HEGS720517HMCRNN00',
+            'categoria_nivel_id'=>1,
+            'fecha_nacimiento' => '1972-05-17',
+            'telefono' => '55664487',
+            'grado' => 'Maestro',
+            'email' => 'prof2@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Ingenieria',
+            'comentarios' => 'Comentarios0',
+            'genero' => 'masculino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza corta',
+            'facebook' => 'face',
+            'unam' => true,
+            'facultad_id' =>14,
+            'carrera_id' =>12,
+
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Melina',
+            'apellido_paterno' => 'Pelcastre',
+            'apellido_materno' => 'Prados',
+            'rfc' => 'PEPM720517IW2',
+            'curp' =>'PEPM720517MMCLRL04',
+            'categoria_nivel_id'=>1,
+            'fecha_nacimiento' => '1972-05-017',
+            'telefono' => '557458963',
+            'grado' => 'Maestro',
+            'email' => 'MSP2@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Contaduría',
+            'comentarios' => 'Comentario',
+            'genero' => 'femenino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza',
+            'facebook' => 'MyFace',
+            'unam' => true,
+            'facultad_id' =>5,
+            'carrera_id' =>1,
+
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Mateo',
+            'apellido_paterno' => 'Juarez',
+            'apellido_materno' => 'Fernández',
+            'rfc' => 'JUFM720101M74',
+            'curp' =>'JUFM720101HMCRRT03',
+            'categoria_nivel_id'=>5,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '55664487',
+            'grado' => 'Maestro',
+            'email' => 'prof3@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Ingenieria',
+            'comentarios' => 'Comentarios0',
+            'genero' => 'masculino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza corta',
+            'facebook' => 'face',
+            'unam' => true,
+            'facultad_id' =>14,
+            'carrera_id' =>7,
+
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Gabriela',
+            'apellido_paterno' => 'González',
+            'apellido_materno' => 'Velázquez',
+            'rfc' => 'GOVG720101FZ6',
+            'curp' =>'GOVG720101MMCNLB07',
+            'categoria_nivel_id'=>1,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '557458963',
+            'grado' => 'Maestro',
+            'email' => 'MSP3@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Ingeniería',
+            'comentarios' => 'Comentario',
+            'genero' => 'femenino',
+            'tutor' => 'false',
+            'semblanza_corta' => 'Semblanza',
+            'facebook' => 'MyFace',
+            'unam' => true,
+            'facultad_id' =>14,
+            'carrera_id' =>13,
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Luis Daniel',
+            'apellido_paterno' => 'Velásquez',
+            'apellido_materno' => 'Velázquez',
+            'rfc' => 'VEVL720101T65',
+            'curp' =>'VEVL720101HMCLLS07',
+            'categoria_nivel_id'=>7,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '55664487',
+            'grado' => 'Maestro',
+            'email' => 'prof4@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Ingenieria',
+            'comentarios' => 'Comentarios0',
+            'genero' => 'masculino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza corta',
+            'facebook' => 'face',
+            'unam' => true,
+            'facultad_id' =>14,
+            'carrera_id' =>9,
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Fernanda',
+            'apellido_paterno' => 'Núñez',
+            'apellido_materno' => 'Sandoval',
+            'rfc' => 'NUSF720101I63',
+            'curp' =>'NUSF720101MMCXNR08',
+            'categoria_nivel_id'=>1,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '557458963',
+            'grado' => 'Maestro',
+            'email' => 'MSP4@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Ingeniería',
+            'comentarios' => 'Comentario',
+            'genero' => 'femenino',
+            'tutor' => 'false',
+            'semblanza_corta' => 'Semblanza',
+            'facebook' => 'MyFace',
+            'unam' => true,
+            'facultad_id' =>14,
+            'carrera_id' =>11,
+
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Ángel',
+            'apellido_paterno' => 'García',
+            'apellido_materno' => 'Casares',
+            'rfc' => 'GACA720101EL4',
+            'curp' =>'GACA720101HMCRSN09',
+            'categoria_nivel_id'=>11,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '55664487',
+            'grado' => 'Maestro',
+            'email' => 'prof5@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Ingenieria',
+            'comentarios' => 'Comentarios0',
+            'genero' => 'masculino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza corta',
+            'facebook' => 'face',
+            'unam' => true,
+            'facultad_id' =>14,
+            'carrera_id' =>10,
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Vivian',
+            'apellido_paterno' => 'Salcedo',
+            'apellido_materno' => 'Víquez',
+            'rfc' => 'SAVV720101RV2',
+            'curp' =>'SAVV720101MMCLQV01',
+            'categoria_nivel_id'=>4,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '557458963',
+            'grado' => 'Maestro',
+            'email' => 'MSP5@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Administracion',
+            'comentarios' => 'Comentario',
+            'genero' => 'femenino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza',
+            'facebook' => 'MyFace',
+            'unam' => true,
+            'facultad_id' =>5,
+            'carrera_id' =>10,
+        ]);
+
+
+        DB::table('profesors')->insert([
+            'nombres' => 'Arturo',
+            'apellido_paterno' => 'Galván',
+            'apellido_materno' => 'Argote',
+            'rfc' => 'GAAA720101HY0',
+            'curp' =>'GAAA720101HMCLRR05',
+            'categoria_nivel_id'=>5,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '55664487',
+            'grado' => 'Maestro',
+            'email' => 'prof6@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Ingenieria',
+            'comentarios' => 'Comentarios0',
+            'genero' => 'masculino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza corta',
+            'facebook' => 'face',
+            'unam' => true,
+            'facultad_id' =>1,
+            'carrera_id' =>11,
+
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Melissa',
+            'apellido_paterno' => 'Valles',
+            'apellido_materno' => 'Hernández',
+            'rfc' => 'VAHM720101Q41',
+            'curp' =>'VAHM720101MMCLRL06',
+            'categoria_nivel_id'=>1,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '557458963',
+            'grado' => 'Maestro',
+            'email' => 'MSP6@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Administracion',
+            'comentarios' => 'Comentario',
+            'genero' => 'femenino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza',
+            'facebook' => 'MyFace',
+            'unam' => true,
+            'facultad_id' =>1,
+            'carrera_id' =>1,
+
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Roberto',
+            'apellido_paterno' => 'Sánchez',
+            'apellido_materno' => 'Gonzales',
+            'rfc' => 'SAGR720101JR0',
+            'curp' =>'SAGR720101HMCNNB06',
+            'categoria_nivel_id'=>1,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '55664487',
+            'grado' => 'Maestro',
+            'email' => 'prof7@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Ingenieria',
+            'comentarios' => 'Comentarios0',
+            'genero' => 'masculino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza corta',
+            'facebook' => 'face',
+            'unam' => true,
+            'facultad_id' =>14,
+            'carrera_id' =>12,
+
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Daniela',
+            'apellido_paterno' => 'Arjona',
+            'apellido_materno' => 'Valle',
+            'rfc' => 'AOVD720101DQ6',
+            'curp' =>'AOVD720101MMCRLN09',
+            'categoria_nivel_id'=>1,
+            'fecha_nacimiento' => '1972-05-017',
+            'telefono' => '557458963',
+            'grado' => 'Maestro',
+            'email' => 'MSP7@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Contaduría',
+            'comentarios' => 'Comentario',
+            'genero' => 'femenino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza',
+            'facebook' => 'MyFace',
+            'unam' => true,
+            'facultad_id' =>5,
+            'carrera_id' =>1,
+
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Alejandro',
+            'apellido_paterno' => 'López',
+            'apellido_materno' => 'Mateos',
+            'rfc' => 'LOMA720101EU3',
+            'curp' =>'LOMA720101HMCPTL06',
+            'categoria_nivel_id'=>5,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '55664487',
+            'grado' => 'Maestro',
+            'email' => 'prof8@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Ingenieria',
+            'comentarios' => 'Comentarios0',
+            'genero' => 'masculino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza corta',
+            'facebook' => 'face',
+            'unam' => true,
+            'facultad_id' =>14,
+            'carrera_id' =>7,
+
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Julia',
+            'apellido_paterno' => 'Domínguez',
+            'apellido_materno' => 'Méndez',
+            'rfc' => 'DOMJ7201011Q9',
+            'curp' =>'DOMJ720101MMCMNL03',
+            'categoria_nivel_id'=>1,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '557458963',
+            'grado' => 'Maestro',
+            'email' => 'MSP8@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Ingeniería',
+            'comentarios' => 'Comentario',
+            'genero' => 'femenino',
+            'tutor' => 'false',
+            'semblanza_corta' => 'Semblanza',
+            'facebook' => 'MyFace',
+            'unam' => true,
+            'facultad_id' =>14,
+            'carrera_id' =>13,
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Luis Fernando',
+            'apellido_paterno' => 'Méndez',
+            'apellido_materno' => 'Vallesteros',
+            'rfc' => 'MEVL720101GV4',
+            'curp' =>'MEVL720101HMCNLS07',
+            'categoria_nivel_id'=>7,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '55664487',
+            'grado' => 'Maestro',
+            'email' => 'prof9@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Ingenieria',
+            'comentarios' => 'Comentarios0',
+            'genero' => 'masculino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza corta',
+            'facebook' => 'face',
+            'unam' => true,
+            'facultad_id' =>14,
+            'carrera_id' =>9,
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Hilda',
+            'apellido_paterno' => 'Ramírez',
+            'apellido_materno' => 'Ramírez',
+            'rfc' => 'RARH720101DMA',
+            'curp' =>'RARH720101MMCMML06',
+            'categoria_nivel_id'=>1,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '557458963',
+            'grado' => 'Maestro',
+            'email' => 'MSP9@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Ingeniería',
+            'comentarios' => 'Comentario',
+            'genero' => 'femenino',
+            'tutor' => 'false',
+            'semblanza_corta' => 'Semblanza',
+            'facebook' => 'MyFace',
+            'unam' => true,
+            'facultad_id' =>14,
+            'carrera_id' =>11,
+
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Juan',
+            'apellido_paterno' => 'Macedo',
+            'apellido_materno' => 'Jiménez',
+            'rfc' => 'MAJJ720101GF7',
+            'curp' =>'MAJJ720101HMCCMN02',
+            'categoria_nivel_id'=>11,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '55664487',
+            'grado' => 'Maestro',
+            'email' => 'prof10@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Ingenieria',
+            'comentarios' => 'Comentarios0',
+            'genero' => 'masculino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza corta',
+            'facebook' => 'face',
+            'unam' => true,
+            'facultad_id' =>14,
+            'carrera_id' =>10,
+        ]);
+        DB::table('profesors')->insert([
+            'nombres' => 'Viridiana',
+            'apellido_paterno' => 'Valencia',
+            'apellido_materno' => 'Manso',
+            'rfc' => 'VAMV720101HZA',
+            'curp' =>'VAMV720101MMCLNR05',
+            'categoria_nivel_id'=>4,
+            'fecha_nacimiento' => '1972-01-01',
+            'telefono' => '557458963',
+            'grado' => 'Maestro',
+            'email' => 'MSP10@gmail.com',
+            'estudios' => 'Maestro',
+            'area' => 'Administracion',
+            'comentarios' => 'Comentario',
+            'genero' => 'femenino',
+            'tutor' => 'true',
+            'semblanza_corta' => 'Semblanza',
+            'facebook' => 'MyFace',
+            'unam' => true,
+            'facultad_id' =>5,
+            'carrera_id' =>10,
+        ]);
+
+
+
+
+
 
         DB::table('catalogo_cursos')->insert([
             'nombre_curso' =>'Curso de programacion',
@@ -996,7 +1410,313 @@ class StartSeeder extends Seeder
             'status' => 'Activo',
             'catalogo_id' => 2,
             'salon_id' => 1
-        ]); */
-       
+        ]);
+
+
+        DB::table('catalogo_cursos')->insert([
+            'nombre_curso' =>'Curso de programacion',
+            'duracion_curso' => '10',
+            'coordinacion_id' => 1,
+            'tipo' => 'Actualizacion',
+            'tipo_curso_diploma_instructor' => 'Tipo',
+            'presentacion' => 'Presentacion',
+            'tipo_difusion' =>'Tipo difusion',
+            'dirigido' => 'Dirigido',
+            'objetivo' => 'Objetivo',
+            'contenido' => 'Contentido',
+            'sintesis' => 'Sintesis',
+            'metodologia' => 'Metodologia',
+            'acreditacion' => 'Acreditacion',
+            'evaluacion' => 'Examen',
+            'bibliografia' => 'Bibliogragia',
+            'antecedentes' => 'Ninguno',
+            'consecuentes' =>'Ninguno',
+            'fecha_disenio' => '2018-05-18',
+            'clave_curso' => 'ADFVJ'
+
+        ]);
+        DB::table('catalogo_cursos')->insert([
+            'nombre_curso' =>'Administracion',
+            'duracion_curso' => '20',
+            'coordinacion_id' => 1,
+            'tipo' => 'Actualizacion',
+            'tipo_curso_diploma_instructor' => 'Tipo',
+            'presentacion' => 'Presentacion',
+            'tipo_difusion' =>'Tipo difusion',
+            'dirigido' => 'Dirigido',
+            'objetivo' => 'Objetivo',
+            'contenido' => 'Contentido',
+            'sintesis' => 'Sintesis',
+            'metodologia' => 'Metodologia',
+            'acreditacion' => 'Acreditacion',
+            'evaluacion' => 'Examen',
+            'bibliografia' => 'Bibliogragia',
+            'antecedentes' => 'Ninguno',
+            'consecuentes' =>'Ninguno',
+            'fecha_disenio' => '2018-05-18',
+            'clave_curso' => 'FJHCZ'
+
+        ]);
+
+        DB::table('cursos')->insert([
+            'semestre_imparticion' => 1,
+            'fecha_inicio' => '2018-05-20',
+            'fecha_fin' => '2018-05-30',
+            'hora_inicio' => '14:00',
+            'hora_fin' => '16:00',
+            'dias_semana' => 'Lunes,Martes',
+            'numero_sesiones' => 10,
+            'texto_diploma' => 'Texto diploma',
+            'profesor_id' => 1,
+            'costo' => 2000,
+            'orden' => 'Orden',
+            'fecha_disenio' => '2018-05-18',
+            'cupo_maximo' => 20,
+            'cupo_minimo' => 5,
+            'status' => 'Activo',
+            'catalogo_id' => 1,
+            'salon_id' => 1
+        ]);
+        DB::table('cursos')->insert([
+            'semestre_imparticion' => 1,
+            'fecha_inicio' => '2018-05-20',
+            'fecha_fin' => '2018-05-30',
+            'hora_inicio' => '14:00',
+            'hora_fin' => '16:00',
+            'dias_semana' => 'Lunes,Martes',
+            'numero_sesiones' => 10,
+            'texto_diploma' => 'Texto diploma',
+            'profesor_id' => 2,
+            'costo' => 2000,
+            'orden' => 'Orden',
+            'fecha_disenio' => '2018-05-18',
+            'cupo_maximo' => 20,
+            'cupo_minimo' => 5,
+            'status' => 'Activo',
+            'catalogo_id' => 2,
+            'salon_id' => 1
+        ]); 
+        DB::table('catalogo_cursos')->insert([
+            'nombre_curso' =>'Administracion',
+            'duracion_curso' => '20',
+            'coordinacion_id' => 1,
+            'tipo' => 'Actualizacion',
+            'tipo_curso_diploma_instructor' => 'Tipo',
+            'presentacion' => 'Presentacion',
+            'tipo_difusion' =>'Tipo difusion',
+            'dirigido' => 'Dirigido',
+            'objetivo' => 'Objetivo',
+            'contenido' => 'Contentido',
+            'sintesis' => 'Sintesis',
+            'metodologia' => 'Metodologia',
+            'acreditacion' => 'Acreditacion',
+            'evaluacion' => 'Examen',
+            'bibliografia' => 'Bibliogragia',
+            'antecedentes' => 'Ninguno',
+            'consecuentes' =>'Ninguno',
+            'fecha_disenio' => '2018-05-18',
+            'clave_curso' => 'FJHCZ'
+
+        ]);DB::table('catalogo_cursos')->insert([
+            'nombre_curso' =>'Ecuaciones Diferenciales',
+            'duracion_curso' => '20',
+            'coordinacion_id' => 1,
+            'tipo' => 'Actualizacion',
+            'tipo_curso_diploma_instructor' => 'Tipo',
+            'presentacion' => 'Presentacion',
+            'tipo_difusion' =>'Tipo difusion',
+            'dirigido' => 'Dirigido',
+            'objetivo' => 'Objetivo',
+            'contenido' => 'Contentido',
+            'sintesis' => 'Sintesis',
+            'metodologia' => 'Metodologia',
+            'acreditacion' => 'Acreditacion',
+            'evaluacion' => 'Examen',
+            'bibliografia' => 'Bibliogragia',
+            'antecedentes' => 'Ninguno',
+            'consecuentes' =>'Ninguno',
+            'fecha_disenio' => '2018-05-18',
+            'clave_curso' => 'ED1HCZ'
+
+        ]);DB::table('catalogo_cursos')->insert([
+            'nombre_curso' =>'Cálculo Integral',
+            'duracion_curso' => '20',
+            'coordinacion_id' => 1,
+            'tipo' => 'Actualizacion',
+            'tipo_curso_diploma_instructor' => 'Tipo',
+            'presentacion' => 'Presentacion',
+            'tipo_difusion' =>'Tipo difusion',
+            'dirigido' => 'Dirigido',
+            'objetivo' => 'Objetivo',
+            'contenido' => 'Contentido',
+            'sintesis' => 'Sintesis',
+            'metodologia' => 'Metodologia',
+            'acreditacion' => 'Acreditacion',
+            'evaluacion' => 'Examen',
+            'bibliografia' => 'Bibliogragia',
+            'antecedentes' => 'Ninguno',
+            'consecuentes' =>'Ninguno',
+            'fecha_disenio' => '2018-05-18',
+            'clave_curso' => 'CI2HCZ'
+
+        ]);DB::table('catalogo_cursos')->insert([
+            'nombre_curso' =>'Álgebra Lineal',
+            'duracion_curso' => '20',
+            'coordinacion_id' => 1,
+            'tipo' => 'Actualizacion',
+            'tipo_curso_diploma_instructor' => 'Tipo',
+            'presentacion' => 'Presentacion',
+            'tipo_difusion' =>'Tipo difusion',
+            'dirigido' => 'Dirigido',
+            'objetivo' => 'Objetivo',
+            'contenido' => 'Contentido',
+            'sintesis' => 'Sintesis',
+            'metodologia' => 'Metodologia',
+            'acreditacion' => 'Acreditacion',
+            'evaluacion' => 'Examen',
+            'bibliografia' => 'Bibliogragia',
+            'antecedentes' => 'Ninguno',
+            'consecuentes' =>'Ninguno',
+            'fecha_disenio' => '2018-05-18',
+            'clave_curso' => 'AL3HCZ'
+
+        ]);DB::table('catalogo_cursos')->insert([
+            'nombre_curso' =>'Álgebra',
+            'duracion_curso' => '20',
+            'coordinacion_id' => 1,
+            'tipo' => 'Actualizacion',
+            'tipo_curso_diploma_instructor' => 'Tipo',
+            'presentacion' => 'Presentacion',
+            'tipo_difusion' =>'Tipo difusion',
+            'dirigido' => 'Dirigido',
+            'objetivo' => 'Objetivo',
+            'contenido' => 'Contentido',
+            'sintesis' => 'Sintesis',
+            'metodologia' => 'Metodologia',
+            'acreditacion' => 'Acreditacion',
+            'evaluacion' => 'Examen',
+            'bibliografia' => 'Bibliogragia',
+            'antecedentes' => 'Ninguno',
+            'consecuentes' =>'Ninguno',
+            'fecha_disenio' => '2018-05-18',
+            'clave_curso' => 'A127HCZ'
+
+        ]);DB::table('catalogo_cursos')->insert([
+            'nombre_curso' =>'Análisis Numérico',
+            'duracion_curso' => '20',
+            'coordinacion_id' => 1,
+            'tipo' => 'Actualizacion',
+            'tipo_curso_diploma_instructor' => 'Tipo',
+            'presentacion' => 'Presentacion',
+            'tipo_difusion' =>'Tipo difusion',
+            'dirigido' => 'Dirigido',
+            'objetivo' => 'Objetivo',
+            'contenido' => 'Contentido',
+            'sintesis' => 'Sintesis',
+            'metodologia' => 'Metodologia',
+            'acreditacion' => 'Acreditacion',
+            'evaluacion' => 'Examen',
+            'bibliografia' => 'Bibliogragia',
+            'antecedentes' => 'Ninguno',
+            'consecuentes' =>'Ninguno',
+            'fecha_disenio' => '2018-05-18',
+            'clave_curso' => 'AN412HCZ'
+
+        ]);
+        DB::table('cursos')->insert([
+            'semestre_imparticion' => 1,
+            'fecha_inicio' => '2018-05-20',
+            'fecha_fin' => '2018-05-30',
+            'hora_inicio' => '14:00',
+            'hora_fin' => '16:00',
+            'dias_semana' => 'Lunes,Martes',
+            'numero_sesiones' => 10,
+            'texto_diploma' => 'Texto diploma',
+            'profesor_id' => 4,
+            'costo' => 2000,
+            'orden' => 'Orden',
+            'fecha_disenio' => '2018-05-18',
+            'cupo_maximo' => 20,
+            'cupo_minimo' => 5,
+            'status' => 'Activo',
+            'catalogo_id' => 5,
+            'salon_id' => 2
+        ]);
+        DB::table('cursos')->insert([
+            'semestre_imparticion' => 1,
+            'fecha_inicio' => '2018-05-20',
+            'fecha_fin' => '2018-05-30',
+            'hora_inicio' => '14:00',
+            'hora_fin' => '16:00',
+            'dias_semana' => 'Lunes,Miércoles',
+            'numero_sesiones' => 10,
+            'texto_diploma' => 'Texto diploma',
+            'profesor_id' => 6,
+            'costo' => 2000,
+            'orden' => 'Orden',
+            'fecha_disenio' => '2018-05-18',
+            'cupo_maximo' => 20,
+            'cupo_minimo' => 5,
+            'status' => 'Activo',
+            'catalogo_id' => 6,
+            'salon_id' => 3
+        ]);
+        DB::table('cursos')->insert([
+            'semestre_imparticion' => 1,
+            'fecha_inicio' => '2018-05-20',
+            'fecha_fin' => '2018-05-30',
+            'hora_inicio' => '14:00',
+            'hora_fin' => '16:00',
+            'dias_semana' => 'Lunes,Miércoles',
+            'numero_sesiones' => 10,
+            'texto_diploma' => 'Texto diploma',
+            'profesor_id' => 17,
+            'costo' => 2000,
+            'orden' => 'Orden',
+            'fecha_disenio' => '2018-05-18',
+            'cupo_maximo' => 20,
+            'cupo_minimo' => 5,
+            'status' => 'Activo',
+            'catalogo_id' => 8,
+            'salon_id' => 3
+        ]);
+        DB::table('cursos')->insert([
+            'semestre_imparticion' => 1,
+            'fecha_inicio' => '2018-05-20',
+            'fecha_fin' => '2018-05-30',
+            'hora_inicio' => '14:00',
+            'hora_fin' => '16:00',
+            'dias_semana' => 'Lunes,Miércoles',
+            'numero_sesiones' => 10,
+            'texto_diploma' => 'Texto diploma',
+            'profesor_id' => 13,
+            'costo' => 2000,
+            'orden' => 'Orden',
+            'fecha_disenio' => '2018-05-18',
+            'cupo_maximo' => 20,
+            'cupo_minimo' => 5,
+            'status' => 'Activo',
+            'catalogo_id' => 3,
+            'salon_id' => 2
+        ]);
+        DB::table('cursos')->insert([
+            'semestre_imparticion' => 1,
+            'fecha_inicio' => '2018-05-20',
+            'fecha_fin' => '2018-05-30',
+            'hora_inicio' => '14:00',
+            'hora_fin' => '16:00',
+            'dias_semana' => 'Lunes,Miércoles',
+            'numero_sesiones' => 10,
+            'texto_diploma' => 'Texto diploma',
+            'profesor_id' => 6,
+            'costo' => 2000,
+            'orden' => 'Orden',
+            'fecha_disenio' => '2018-05-18',
+            'cupo_maximo' => 20,
+            'cupo_minimo' => 5,
+            'status' => 'Activo',
+            'catalogo_id' => 7,
+            'salon_id' => 1
+        ]);
     }
 }
