@@ -65,6 +65,20 @@
                     <label for="name" class="col-md-4 control-label">RFC</label>
                     <div class="col-md-6">
 
+                        Con Homoclave <input name="a" onclick="ConHomoclave()" class="col-md-1 control-label" type="radio">
+                        <br>
+                        Sin Homoclave <input name="a" onclick="SinHomoclave()" class="col-md-1 control-label" type="radio">
+                        @if ($errors->has('rfc'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('rfc') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+
+                <div style="display:none;" class="form-group{{ $errors->has('rfc') ? ' has-error' : '' }}" id="rfcConHomoclave">
+                    <label for="name" class="col-md-4 control-label">RFC con homoclave:</label>
+                    <div class="col-md-6">
                         <input minlength="13" maxlength= "13" id="rfc" type="text" class="form-control" name="rfc" value="{{ old('rfc') }}" >
                         @if ($errors->has('rfc'))
                             <span class="help-block">
@@ -73,6 +87,58 @@
                         @endif
                     </div>
                 </div>
+
+                <div style="display:none;" class="form-group{{ $errors->has('rfc') ? ' has-error' : '' }}" id="rfcSinHomoclave">
+                    <label for="name" class="col-md-4 control-label">RFC sin homoclave: </label>
+                    <div class="col-md-6">
+
+                        <input minlength="10" maxlength= "10" id="rfc" type="text" class="form-control" name="rfc" value="{{ old('rfc') }}" >
+                        
+                        @if ($errors->has('rfc'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('rfc') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+<!--
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input name="a" onclick="ConHomoclave()" class="col-md-4 control-label" type="radio">Con homoclave
+                    </div>
+
+                    <div class="col-md-6">
+                        <input name="a" onclick="SinHomoclave()" class="col-md-4 control-label" type="radio">Sin homoclave
+                    </div>
+                </div>
+
+                <div style="display:none;" class="form-group{{ $errors->has('rfc') ? ' has-error' : '' }}" id="rfcConHomoclave">
+                    <label for="name" class="col-md-4 control-label">RFC con homoclave:</label>
+                    <div class="col-md-6">
+                        <input minlength="13" maxlength= "13" id="rfc" type="text" class="form-control" name="rfc" value="{{ old('rfc') }}" >
+                        @if ($errors->has('rfc'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('rfc') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+
+                <div style="display:none;" class="form-group{{ $errors->has('rfc') ? ' has-error' : '' }}" id="rfcSinHomoclave">
+                    <label for="name" class="col-md-4 control-label">RFC sin homoclave: </label>
+                    <div class="col-md-6">
+
+                        <input minlength="10" maxlength= "10" id="rfc" type="text" class="form-control" name="rfc" value="{{ old('rfc') }}" >
+                        
+                        @if ($errors->has('rfc'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('rfc') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                </div>
+-->
+
 
                 <div class="form-group{{ $errors->has('curp') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">CURP</label>
@@ -241,7 +307,7 @@
                 <div class="form-group{{ $errors->has('unam') ? ' has-error' : '' }}">
                     <label for="unam" class="col-md-4 control-label">Profesor de la UNAM </label>
                     <div class="col-md-6">
-                    
+
                         Si: <input  onclick="interno()" id="unam" type="radio" class="" name="unam" value='1' >
                         No:  <input id="unam" onclick="externo()"   type="radio" class="" name="unam" value='0' >
                         @if ($errors->has('unam'))
@@ -324,6 +390,14 @@
             document.getElementById("externo").style.display = "none";
             document.getElementById("facultad").style.display = "initial";
             document.getElementById("carreras").style.display = "initial";
+        }
+        function ConHomoclave() {
+            document.getElementById("rfcConHomoclave").style.display = "initial";
+            document.getElementById("rfcSinHomoclave").style.display = "none";
+        }
+        function SinHomoclave() {
+            document.getElementById("rfcConHomoclave").style.display = "none";
+            document.getElementById("rfcSinHomoclave").style.display = "initial";
         }
         
     </script>
