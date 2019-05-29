@@ -1374,7 +1374,7 @@ class StartSeeder extends Seeder
         ]);
 
         DB::table('cursos')->insert([
-            'semestre_imparticion' => 1,
+            'semestre_imparticion' => "2017-2i",
             'fecha_inicio' => '2018-05-20',
             'fecha_fin' => '2018-05-30',
             'hora_inicio' => '14:00',
@@ -1393,7 +1393,7 @@ class StartSeeder extends Seeder
             'salon_id' => 1
         ]);
         DB::table('cursos')->insert([
-            'semestre_imparticion' => 1,
+            'semestre_imparticion' => "2019-1s",
             'fecha_inicio' => '2018-05-20',
             'fecha_fin' => '2018-05-30',
             'hora_inicio' => '14:00',
@@ -1459,7 +1459,7 @@ class StartSeeder extends Seeder
         ]);
 
         DB::table('cursos')->insert([
-            'semestre_imparticion' => 1,
+            'semestre_imparticion' => "2016-2i",
             'fecha_inicio' => '2018-05-20',
             'fecha_fin' => '2018-05-30',
             'hora_inicio' => '14:00',
@@ -1478,7 +1478,7 @@ class StartSeeder extends Seeder
             'salon_id' => 1
         ]);
         DB::table('cursos')->insert([
-            'semestre_imparticion' => 1,
+            'semestre_imparticion' => "2018-2s",
             'fecha_inicio' => '2018-05-20',
             'fecha_fin' => '2018-05-30',
             'hora_inicio' => '14:00',
@@ -1624,7 +1624,7 @@ class StartSeeder extends Seeder
 
         ]);
         DB::table('cursos')->insert([
-            'semestre_imparticion' => 1,
+            'semestre_imparticion' => "2016-2s",
             'fecha_inicio' => '2018-05-20',
             'fecha_fin' => '2018-05-30',
             'hora_inicio' => '14:00',
@@ -1643,7 +1643,7 @@ class StartSeeder extends Seeder
             'salon_id' => 2
         ]);
         DB::table('cursos')->insert([
-            'semestre_imparticion' => 1,
+            'semestre_imparticion' => "2017-2s",
             'fecha_inicio' => '2018-05-20',
             'fecha_fin' => '2018-05-30',
             'hora_inicio' => '14:00',
@@ -1662,7 +1662,7 @@ class StartSeeder extends Seeder
             'salon_id' => 3
         ]);
         DB::table('cursos')->insert([
-            'semestre_imparticion' => 1,
+            'semestre_imparticion' => "2015-1s",
             'fecha_inicio' => '2018-05-20',
             'fecha_fin' => '2018-05-30',
             'hora_inicio' => '14:00',
@@ -1681,7 +1681,7 @@ class StartSeeder extends Seeder
             'salon_id' => 3
         ]);
         DB::table('cursos')->insert([
-            'semestre_imparticion' => 1,
+            'semestre_imparticion' => "2019-2s",
             'fecha_inicio' => '2018-05-20',
             'fecha_fin' => '2018-05-30',
             'hora_inicio' => '14:00',
@@ -1700,7 +1700,7 @@ class StartSeeder extends Seeder
             'salon_id' => 2
         ]);
         DB::table('cursos')->insert([
-            'semestre_imparticion' => 1,
+            'semestre_imparticion' => "2019-2",
             'fecha_inicio' => '2018-05-20',
             'fecha_fin' => '2018-05-30',
             'hora_inicio' => '14:00',
