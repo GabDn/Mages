@@ -41,6 +41,7 @@ Route::get('curso', "CursoController@index")->name("curso.consulta");
 Route::get('curso/busqueda', "CursoController@search")->name('curso.busqueda');
 Route::get('curso/actualizar/{id}', "CursoController@edit")->name('curso.update');
 Route::get('curso/inscripcion/{id}', "CursoController@inscripcionParticipante")->name('curso.inscripcion');
+Route::post('curso/inscripcion/{curso_id}/busqueda', "ProfesorController@search1")->name('profesor.consulta1');
 Route::get('curso/generar-formatos/{curso}', "CursoController@GenerarFormatos")->name('curso.generar-formatos');
 Route::get('curso/ver-profesores/{curso}', "CursoController@verParticipante")->name('curso.ver-participante');
 Route::get('curso/baja-profesor/{id}/{curso_id}',"CursoController@bajaParticipante")->name('curso.baja-participante');

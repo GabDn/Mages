@@ -181,8 +181,8 @@ class ProfesorController extends Controller
                     ->orWhere('apellido_materno','LIKE','%'.$word.'%')
                     -> get();
             }
-            return view("pages.consulta-profa")
-                ->with("users",$users);
+            return view("pages.curso-inscripcion")
+                ->with("users",$users)->with("count", $request->count)->with("cupo", $request->cupo)->with("curso_id", $request->curso_id);
 
         }elseif($request->type == "correo"){
 
@@ -191,8 +191,8 @@ class ProfesorController extends Controller
                 $users = Profesor::where('email','LIKE','%'.$word.'%')
                     -> get();
             }
-            return view("pages.consulta-profa")
-                ->with("users",$users);
+            return view("pages.curso-inscripcion")
+                ->with("users",$users)->with("count", $request->count)->with("cupo", $request->cupo)->with("curso_id", $request->curso_id);
         }elseif($request->type == "rfc"){
 
             $words=explode(" ", $request->pattern);
@@ -200,12 +200,12 @@ class ProfesorController extends Controller
                 $users = Profesor::where('rfc','LIKE','%'.$word.'%')
                     -> get();
             }
-            return view("pages.consulta-profa")
-                ->with("users",$users);
+            return view("pages.curso-inscripcion")
+                ->with("users",$users)->with("count", $request->count)->with("cupo", $request->cupo)->with("curso_id", $request->curso_id);
         }
         $users = Profesor::all();
-        return view("pages.consulta-profesores")
-            ->with("users",$users);
+        return view("pages.curso-inscripcion")
+            ->with("users",$users)->with("count", $request->count)->with("cupo", $request->cupo)->with("curso_id", $request->curso_id);
 
     }
 

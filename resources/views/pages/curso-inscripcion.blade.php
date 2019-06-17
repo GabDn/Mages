@@ -19,7 +19,7 @@
             <div class="panel-heading">
                 <h3>Lista de profesores</h3>
                 <h3>Cupo maximo: {{$count}}/{{$cupo}}</h3>
-                {!! Form::open(["route" => "profesor.consulta", "method" => "GET"]) !!}
+                {!! Form::open(["route" => ["profesor.consulta1", $curso_id], "method" => "POST"]) !!}
                 <div class="input-group">
                     {!!Form::text("pattern", null, [ "class" => "form-control", "placeholder" => "Buscar Profesor"])!!}
                     {!! Form::select('type', array(
@@ -27,6 +27,8 @@
                       'correo' => 'Por correo',
                       'rfc' => 'Por RFC'),
                       null,['class' => 'btn dropdown-toggle pull-left'] ) !!}
+                    {!!Form::hidden('count',$count)!!}
+                    {!!Form::hidden('cupo',$cupo)!!}
                     {!! Form::close() !!}
                     <span class="input-group-btn col-md-2">
                          <button class="btn btn-search " type="submit">Buscar</button>
