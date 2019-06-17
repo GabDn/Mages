@@ -6,11 +6,67 @@ use Illuminate\Http\Request;
 use PDF;
 use App\Curso;
 use App\CatalogoCurso;
+use App\ProfesoresCurso;
+use App\ParticipantesCurso;
 use App\Profesor;
 use Carbon\Carbon;
 class ConstanciasController extends Controller
 {
-    public function pdf(){
+    public function selectType()
+    {
+        $cursosCatalogo = CatalogoCurso::all();
+        $cursos = Curso::all();
+        return view("pages.constancias-elegirTipoConstancia")
+                ->with('cursosCatalogo',$cursosCatalogo)
+                ->with('cursos',$cursos);
+    }
+    public function generar(Request $request)
+    {
+        //return $request;
+
+        //retorna el número de profesores que imparten el curso
+        $count = ProfesoresCurso::select('id')
+        ->where('curso_id',$request->id)
+        ->count();
+        $tipoDeConstancia = $request->type;
+        $curso = Curso::findOrFail($request->id);
+        $cursoCatalogo = CatalogoCurso::findOrFail($curso->catalogo_id);
+        $profesores = ProfesoresCurso::where('curso_id',$request->id)->get();
+        $participantes = ParticipantesCurso::where('curso_id',$request->id)->get();        
+        $fecha = Carbon::now();
+        $fecha = $fecha->format('d-m-Y');         
+        if ($tipoDeConstancia == "A"){
+        // El tipo de constancia es instructores y Coordinador
+            if($count == 1){
+            //La constancia es para cuando sólo hay un instructor
+              foreach($participantes as $participante){
+                $profesor = Profesor::findOrFail($participante->profesor_id);
+                $pdf = PDF::loadView('pages.pdf.consinstructor', array('curso' => $curso,'profesor'=>$profesor,'cursoCatalogo' => $cursoCatalogo,'fecha'=>$fecha))->setPaper('a4', 'landscape');
+                $pdf->download('a' . $profesor->nombres . '.pdf'); 
+              }
+              
+            }if($count == 1){
+                //La constancia es para cuando sólo hay un instructor
+                $pdf = PDF::loadView('pages.pdf.consinstructor', array('curso' => $curso,'profesores'=>$profesores,'cursoCatalogo' => $cursoCatalogo,'fecha'=>$fecha))->setPaper('a4', 'landscape');
+                return $pdf->download('Un instructor.pdf'); 
+            }
+        
+        }elseif ($tipoDeConstancia == "B")
+        {
+            $pdf = PDF::loadView('pages.pdf.consdosinstructor', array('curso' => $curso,'profesor'=>$profesor,'cursoCatalogo' => $cursoCatalogo,'fecha'=>$fecha))->setPaper('a4', 'landscape');
+            return $pdf->download('Dos instructores.pdf');
+        }elseif ($tipoDeConstancia == "C")
+        {
+            $pdf = PDF::loadView('pages.pdf.constresinstructor', array('curso' => $curso,'profesor'=>$profesor,'cursoCatalogo' => $cursoCatalogo,'fecha'=>$fecha))->setPaper('a4', 'landscape');
+            return $pdf->download('Tres instructores.pdf');
+        }elseif ($tipoDeConstancia == "D")
+        {
+            $pdf = PDF::loadView('pages.pdf.consuninstructor', array('curso' => $curso,'profesor'=>$profesor,'cursoCatalogo' => $cursoCatalogo,'fecha'=>$fecha))->setPaper('a4', 'landscape');
+            return $pdf->download('Un instructor.pdf');
+        }
+    }
+    
+    /*public function pdf(){
         $cursillos = CatalogoCurso::all();
         $cursosCatalogo = array();
         foreach ($cursillos as $cursillo) {
@@ -106,5 +162,5 @@ class ConstanciasController extends Controller
             return $pdf->download('Director Texto.pdf');
         }
 
-    }
+    }*/
 }

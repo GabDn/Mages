@@ -105,7 +105,7 @@
             <li class="nav-header">
                 <div class="link"><i class="fa fa-file-text"></i>Documentos<i class="fa fa-chevron-down"></i></div>
                 <ul class="submenu">
-                    <li><a href="#">Constancias</a></li>
+                    <li><a href="{{ route('constancias.elegirTipoConstancia') }}">Constancias</a></li>
                     <li><a href="#">Reconocimientos</a></li>
                     <li><a href="#">Diplomas</a></li>
                     <li><a href="#">Agradecimiento</a></li>
