@@ -17,6 +17,7 @@
         <br>
         <div class="panel panel-default">
             <div class="panel-heading">
+                <h2>{{$nombre_curso}}</h2>
                 <h3>Lista de profesores</h3>
                 <h3>Cupo maximo: {{$count}}/{{$cupo}}</h3>
                 {!! Form::open(["route" => ["profesor.consulta1", $curso_id], "method" => "POST"]) !!}
@@ -29,6 +30,7 @@
                       null,['class' => 'btn dropdown-toggle pull-left'] ) !!}
                     {!!Form::hidden('count',$count)!!}
                     {!!Form::hidden('cupo',$cupo)!!}
+                    {!!Form::hidden('nombre_curso',$nombre_curso)!!}
                     {!! Form::close() !!}
                     <span class="input-group-btn col-md-2">
                          <button class="btn btn-search " type="submit">Buscar</button>
@@ -44,14 +46,16 @@
                         <th>RFC</th>
                     </tr>
                     @foreach($users as $user)
+                    {!! Form::open(array('class' => 'form-horizontal', 'role' =>'form', 'route'=> ['curso.registrar', $user->id,$curso_id] ,'files' => true, 'method' => 'POST' )) !!}
                         <tr>
                             <td>{{ $user->nombres }} {{ $user->apellido_paterno }} {{ $user->apellido_materno }}</td>
                             <td>{{ $user->email}}</td>
                             <td>{{ $user->rfc}}</td>
                             <td>
-                                <a href="{{ URL::to('curso/registrar', [$user->id,$curso_id]) }}" class="btn btn-success">Dar de Alta</a>
+                                <button class="btn btn-success" type="submit">Dar de Alta</button>
                             </td>
                         </tr>
+                    {!! Form::close() !!}
                     @endforeach
                 </table>
             </div>

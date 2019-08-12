@@ -172,40 +172,54 @@ class ProfesorController extends Controller
     /* Consulta-Alta */
     public function search1(Request $request)
     {
+        
+        $inscritos = Profesor::join('participante_curso','participante_curso.profesor_id','profesors.id')
+                ->where('participante_curso.curso_id', '=', $request->curso_id)
+                ->select('profesors.rfc')->get();
+
         if($request->type == "nombre")
         {
             $words=explode(" ", $request->pattern);
             foreach($words as $word){
-                $users = Profesor::where('nombres','LIKE','%'.$word.'%')
-                    ->orWhere('apellido_paterno','LIKE','%'.$word.'%')
-                    ->orWhere('apellido_materno','LIKE','%'.$word.'%')
-                    -> get();
+                $users = Profesor::select('*')->whereNotIn('rfc',$inscritos)->where('nombres','ILIKE','%'.$word.'%')
+                ->whereNotIn('rfc',$inscritos)->orWhere('apellido_paterno','ILIKE','%'.$word.'%')
+                ->whereNotIn('rfc',$inscritos)->orWhere('apellido_materno','ILIKE','%'.$word.'%')
+                ->whereNotIn('rfc',$inscritos)->get();
+
             }
             return view("pages.curso-inscripcion")
-                ->with("users",$users)->with("count", $request->count)->with("cupo", $request->cupo)->with("curso_id", $request->curso_id);
+                ->with("users",$users)->with("count", $request->count)->with("cupo", $request->cupo)->with("curso_id", $request->curso_id)
+                ->with("nombre_curso", $request->nombre_curso);
 
         }elseif($request->type == "correo"){
 
             $words=explode(" ", $request->pattern);
             foreach($words as $word){
-                $users = Profesor::where('email','LIKE','%'.$word.'%')
-                    -> get();
+                $users = Profesor::select('*')->whereNotIn('rfc',Profesor::join('participante_curso','participante_curso.profesor_id','profesors.id')
+                ->where('participante_curso.curso_id',$request->curso_id)
+                ->select('profesors.rfc')->get())->where('email','ILIKE','%'.$word.'%')
+                    ->get();
             }
             return view("pages.curso-inscripcion")
-                ->with("users",$users)->with("count", $request->count)->with("cupo", $request->cupo)->with("curso_id", $request->curso_id);
+                ->with("users",$users)->with("count", $request->count)->with("cupo", $request->cupo)->with("curso_id", $request->curso_id)
+                ->with("nombre_curso", $request->nombre_curso);
         }elseif($request->type == "rfc"){
 
             $words=explode(" ", $request->pattern);
             foreach($words as $word){
-                $users = Profesor::where('rfc','LIKE','%'.$word.'%')
-                    -> get();
+                $users = Profesor::select('*')->whereNotIn('rfc',Profesor::join('participante_curso','participante_curso.profesor_id','profesors.id')
+                ->where('participante_curso.curso_id',$request->curso_id)
+                ->select('profesors.rfc')->get())->where('rfc','ILIKE','%'.$word.'%')
+                ->get();
             }
             return view("pages.curso-inscripcion")
-                ->with("users",$users)->with("count", $request->count)->with("cupo", $request->cupo)->with("curso_id", $request->curso_id);
+                ->with("users",$users)->with("count", $request->count)->with("cupo", $request->cupo)->with("curso_id", $request->curso_id)
+                ->with("nombre_curso", $request->nombre_curso);
         }
         $users = Profesor::all();
         return view("pages.curso-inscripcion")
-            ->with("users",$users)->with("count", $request->count)->with("cupo", $request->cupo)->with("curso_id", $request->curso_id);
+            ->with("users",$users)->with("count", $request->count)->with("cupo", $request->cupo)->with("curso_id", $request->curso_id)
+            ->with("nombre_curso", $request->nombre_curso);
 
     }
 

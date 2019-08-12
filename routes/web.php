@@ -46,7 +46,7 @@ Route::get('curso/generar-formatos/{curso}', "CursoController@GenerarFormatos")-
 Route::get('curso/ver-profesores/{curso}', "CursoController@verParticipante")->name('curso.ver-participante');
 Route::get('curso/baja-profesor/{id}/{curso_id}',"CursoController@bajaParticipante")->name('curso.baja-participante');
 //aqui se registran ambos parametros en la tabla intermedia
-Route::get('curso/registrar/{id}/{curso_id}', "CursoController@registrarParticipante")->name('curso.registrar');
+Route::post('curso/registrar/{id}/{curso_id}', "CursoController@registrarParticipante")->name('curso.registrar');
 Route::put('curso/actualizar/{id}', "CursoController@update")->name('curso.actualizar');
 Route::get('curso/baja/{id}', "CursoController@delete");
 

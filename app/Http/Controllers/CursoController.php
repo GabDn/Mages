@@ -230,6 +230,7 @@ class CursoController extends Controller
                 ->where('participante_curso.curso_id',$id)
                 ->select('profesors.rfc')->get())
             ->get();
+        $nombre_curso = CatalogoCurso::findOrFail($id)->nombre_curso;
 
 
         $curso_id = $id;
@@ -237,7 +238,8 @@ class CursoController extends Controller
             ->with("users",$users)
             ->with("curso_id",$curso_id)
             ->with("count",$count)
-            ->with("cupo",$cupo);
+            ->with("cupo",$cupo)
+            ->with("nombre_curso", $nombre_curso);
     }
     
     public function GenerarFormatos($id)
@@ -269,7 +271,7 @@ class CursoController extends Controller
 
     public function registrarParticipante(Request $request){
         $count = ParticipantesCurso::select('id')
-            ->where('curso_id',$request->id)
+            ->where('curso_id',$request->curso_id)
             ->count();
 //Queda pendiente el registro
         $cupo = Curso::findOrFail($request->curso_id)->cupo_maximo;
@@ -279,10 +281,10 @@ class CursoController extends Controller
             $user->curso_id = $request->curso_id;
             $user->profesor_id = $request->id;
             $user->save();
-            return redirect()->back();
+            return redirect()->route("curso.inscripcion",$request->curso_id);
 
         }else{
-            return redirect()->back();
+            return redirect()->route("curso.inscripcion",$request->curso_id);
         }
 
     }
