@@ -14,6 +14,9 @@
       </a>      
     </div>
     <section class="content-inner">
+      @if(session()->has('msj'))
+        <div class="alert alert-danger" role='alert'>{{session('msj')}}</div>
+      @endif
     <br>
       <div class="panel panel-default">
                 <div class="panel-heading">
@@ -48,9 +51,30 @@
                                 <td>{{ $user->capacidad}}</td>
                                 <td>{{ $user->ubicacion}}</td>
                                 <td><a href="{{ URL::to('salon', $user->id) }}" class="btn btn-info">Detalles</a>
-                                    <a href="{{ URL::to('salon/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Dar de baja</button></td>
                             </tr>
                         @endforeach
+
+                        <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                      <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Eliminar Salon</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>¿Está seguro de eliminar el salon?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-normal" data-dismiss="modal" aria-label="Close">Cancelar</button>
+                            <a href="{{ URL::to('salon/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     </table>
 
                 

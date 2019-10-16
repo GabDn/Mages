@@ -114,6 +114,7 @@ class CursoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    /*wut??*/
     public function search(Request $request)
     {
         if($request->type == "nombre")
@@ -140,12 +141,38 @@ class CursoController extends Controller
         }
 
     }
+    public function Csearch(Request $request){
+        if ($request->type == "nombre_curso") {
+            $catalogos_res = CatalogoCurso::select('id')->where('nombre_curso','ILIKE','%'.$request->pattern.'%')->get();
+            $res_busqueda = Curso::whereIn('catalogo_id', $catalogos_res)
+                ->get();
+            return view('pages.consulta-cursos')->with("users",$res_busqueda);
+        }elseif ($request->type=="fechas") {
+            $res_busqueda = Curso::whereBetween('fecha_inicio',[$request->Finicio,$request->Ffin])
+                ->orWhereBetween('fecha_inicio',[$request->Finicio,$request->Ffin])
+                ->get();
+            return view('pages.consulta-cursos')->with("users",$res_busqueda);
+        }elseif ($request->type=="titular") {
+            $words=explode(" ", $request->pattern);
+            foreach($words as $word){
+                $profesores = Profesor::select('id')->where('nombres','ILIKE','%'.$word.'%')
+                ->orWhere('apellido_paterno','ILIKE','%'.$word.'%')
+                ->orWhere('apellido_materno','ILIKE','%'.$word.'%')
+                ->get();
+            }
+            $res_busqueda = Curso::whereIn('profesor_id',$profesores)->get();
+            return view('pages.consulta-cursos')->with("users",$res_busqueda);
+        }
+    }
 
     public function delete($id)
     {
-        $user = Curso::findOrFail($id);
-        $user -> delete();
-        return redirect('/curso');
+        try {$user = Curso::findOrFail($id);
+                $user -> delete();
+                return redirect('/curso');
+            }catch (\Illuminate\Database\QueryException $e){
+                return redirect()->back()->with('msj', 'El curso no puede ser eliminado porque tiene alumnos inscritos.');
+            }
     }
 
     public function bajaParticipante($id,$curso)

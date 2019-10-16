@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome');///pages/login
 });
 
 
@@ -39,6 +39,7 @@ Route::post('curso/save', "CursoController@create")->name('curso.store');
 Route::get('curso/{id}', "CursoController@show")->name('curso.show');
 Route::get('curso', "CursoController@index")->name("curso.consulta");
 Route::get('curso/busqueda', "CursoController@search")->name('curso.busqueda');
+Route::post('cursos/busqueda', "CursoController@Csearch")->name('curso.Csearch');
 Route::get('curso/actualizar/{id}', "CursoController@edit")->name('curso.update');
 Route::get('curso/inscripcion/{id}', "CursoController@inscripcionParticipante")->name('curso.inscripcion');
 Route::post('curso/inscripcion/{curso_id}/busqueda', "ProfesorController@search1")->name('profesor.consulta1');

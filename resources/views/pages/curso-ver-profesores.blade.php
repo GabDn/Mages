@@ -34,10 +34,31 @@
                             <td>{{ $user->email}}</td>
                             <td>{{ $user->rfc}}</td>
                             <td>
-                                <a href="{{ URL::to('curso/baja-profesor', [$user->id,$curso->id]) }}" class="btn btn-danger">Dar de Baja</a>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Dar de baja</button>
                             </td>
                         </tr>
                     @endforeach
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                      <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Eliminar Profesor</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>¿Está seguro de eliminar al profesor?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-normal" data-dismiss="modal" aria-label="Close">Cancelar</button>
+                            <a href="{{ URL::to('curso/baja-profesor', [$user->id,$curso->id]) }}" class="btn btn-danger">Dar de baja</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                 </table>
             </div>
     </section>

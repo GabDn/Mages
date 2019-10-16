@@ -50,9 +50,29 @@
                             <td>{{$user->getCoordinacion()}}</td>
                             <td><a href="{{ URL::to('curso/nuevo', $user->id) }}" class="btn btn-success">Dar de alta</a>
                                 <a href="{{ URL::to('catalogo-cursos', $user->id) }}" class="btn btn-info">Detalles</a>
-                                <a href="{{ URL::to('catalogo-cursos/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Dar de baja</button>
+                            </td>
                         </tr>
                     @endforeach
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                      <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Eliminar Curso</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>¿Está seguro de eliminar el curso?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-normal" data-dismiss="modal" aria-label="Close">Cancelar</button>
+                            <a href="{{ URL::to('catalogo-cursos/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </table>
 
 

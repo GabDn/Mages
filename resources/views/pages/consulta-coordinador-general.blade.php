@@ -45,10 +45,30 @@
                     @if($user->id != null)
                     <td>
                         <a href="{{ URL::to('coordinador-general/actualizar', $user->id) }}" class="btn btn-info">Editar</a>
-                        <a href="{{ URL::to('coordinador-general/baja', $user->id) }}" class="btn btn-danger">Eliminar</a>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Eliminar</button>
                     </td>
                     @endif
                 </tr>
+
+                <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                      <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Eliminar Coordinador</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>¿Está seguro de eliminar al coordinador?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-normal" data-dismiss="modal" aria-label="Close">Cancelar</button>
+                            <a href="{{ URL::to('coordinador-general/baja', $user->id) }}" class="btn btn-danger">Eliminar</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
             </table>
         </div>

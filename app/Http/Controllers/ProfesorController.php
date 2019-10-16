@@ -268,9 +268,12 @@ class ProfesorController extends Controller
 
     public function delete($id)
     {
-        $user = Profesor::findOrFail($id);
-        $user -> delete();
-        return redirect('/profesor');
+        try{$user = Profesor::findOrFail($id);
+                $user -> delete();
+                return redirect('/profesor');
+            }catch (\Illuminate\Database\QueryException $e){
+                return redirect()->back()->with('msj', 'El profesor no puede ser eliminado porque tiene cursos asignados.');
+            }
     }
 
     public function cursos($id){

@@ -47,9 +47,12 @@ class SalonController extends Controller
     }
     public function delete($id)
     {
-        $user = Salon::findOrFail($id);
-        $user -> delete();
-        return redirect('/salon');
+        try{$user = Salon::findOrFail($id);
+            $user -> delete();
+            return redirect('/salon');
+        }catch (\Illuminate\Database\QueryException $e){
+                return redirect()->back()->with('msj', 'El salon no puede ser eliminado porque tiene cursos asignados.');
+            }
     }
     public function create(Request $request)
     {

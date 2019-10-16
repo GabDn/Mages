@@ -36,9 +36,30 @@
                                 <td>{{ $user->nombre }} </td>
 
                                 <td><a href="{{ URL::to('facultad/actualizar', $user->id) }}" class="btn btn-info">Modificar dato</a>
-                                    <a href="{{ URL::to('facultad/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a></td>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Dar de baja</button></td>
                             </tr>
                         @endforeach
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                      <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Eliminar Facultad</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>¿Está seguro de eliminar la Facultad?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-normal" data-dismiss="modal" aria-label="Close">Cancelar</button>
+                            <a href="{{ URL::to('facultad/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     </table>
 
 
