@@ -142,6 +142,7 @@ class CursoController extends Controller
 
     }
     public function Csearch(Request $request){
+        #dd($request);
         if ($request->type == "nombre_curso") {
             $catalogos_res = CatalogoCurso::select('id')->where('nombre_curso','ILIKE','%'.$request->pattern.'%')->get();
             $res_busqueda = Curso::whereIn('catalogo_id', $catalogos_res)

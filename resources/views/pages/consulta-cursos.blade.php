@@ -29,39 +29,41 @@
                     <div class="row row-eq-height align-items-center">
 
                       <div class="row">
+                        <div class="col-md-12">
                           {!!Form::text("pattern", null, [ "class" => "form-control", "placeholder" => "Buscar Curso", "id"=>"entrada"])!!}
+                        </div>
                       </div>
 
-                      <div class="row">
+                      <div class="row row-eq-height align-items-center">
+                        <div class="col-md-4">
                         <label id="AnioP" for="name" class="col-md-6 control-label">Año:</label>
-                        <div class="col-md-6">
+                        <br>
                             <input id="Anio" type="year"  class="form-control" name="anio" placeholder="Año">
                         </div>
-                      </div>
+                        <div class="col-md-4">
+                        <div class="row">
                         <label id="SemP" for="name" class="col-md-6 control-label">Semestre:</label>
-                        <div class="col-md-6">
-                          <select id='Sem' class = 'btn dropdown-toggle pull-left' placeholder='S/I'>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                          </select> 
                         </div>
+                        <div class="row">
+                          {!!Form::select('Sem', array('1' => '1', '2' => '2'), null, ["id" => "Sem", "class" => "btn dropdown-toggle"]);!!}
+
+                        </div>
+                        </div>
+                        <div class="col-md-4">
                         <label id="IOP" for="name" class="col-md-6 control-label">Tipo:</label>
-                        <div class="col-md-6">
-                          <select id='IO' class = 'btn dropdown-toggle pull-left' placeholder='S/I'>
-                            <option value="Intersemestral">Intersemestral</option>
-                            <option value="Smestral">Smestral</option>
-                          </select> 
+                          {!!Form::select('IO', array('Intersemestral' => 'Intersemestral', 'Semestral' => 'Semestral'), null, ["id" => "IO", "class" => "btn dropdown-toggle"]);!!}
+
                         </div>
+                      </div>
                       <hr id="hr">
                       <div class="row">
-                          <select class = 'btn dropdown-toggle pull-left' id='myselect'>
-                            <option value="nombre_curso" onclick='esconder();'>Por nombre</option>
-                            <option value="fechas" onclick='selectCheck();'>Por fechas</option>
-                            <option value="titular" onclick='esconder();'>Por profesor titular</option>
-                          </select>
+                        <div class="col-md-12">
+                          {!!Form::select('myselect', array('nombre_curso' => ["Por nombre", "onclick" => "esconder();"], 'fechas' => ["Por fechas", "onclick" => "selectCheck();"], 'titular' => ["Por profesor", "onclick" => "esconder"]), null, ["id" => "myselect", "class" => "btn dropdown-toggle"]);!!}
+                          
                           <span class="input-group-btn col-md-2">
                                <button class="btn btn-secondary" type="submit">Buscar</button>
                           </span>
+                        </div>
                       </div>
                     </div>
                     </div>
