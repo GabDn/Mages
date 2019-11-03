@@ -149,8 +149,8 @@ class CursoController extends Controller
                 ->get();
             return view('pages.consulta-cursos')->with("users",$res_busqueda);
         }elseif ($request->type=="fechas") {
-            $res_busqueda = Curso::whereBetween('fecha_inicio',[$request->Finicio,$request->Ffin])
-                ->orWhereBetween('fecha_inicio',[$request->Finicio,$request->Ffin])
+            $res_busqueda = Curso::where('semestre_imparticion', '=', $request->anio.'-'.$request->Sem.$request->IO)
+                ->orWhere('semestre_imparticion', '=', $request->anio.'-'.$request->Sem)
                 ->get();
             return view('pages.consulta-cursos')->with("users",$res_busqueda);
         }elseif ($request->type=="titular") {

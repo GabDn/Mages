@@ -37,7 +37,6 @@
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Dar de baja</button>
                             </td>
                         </tr>
-                    @endforeach
 
                     <!-- Modal -->
                     <div class="modal fade" id="myModal" role="dialog">
@@ -58,6 +57,7 @@
                         </div>
                       </div>
                     </div>
+                    @endforeach
 
                 </table>
             </div>

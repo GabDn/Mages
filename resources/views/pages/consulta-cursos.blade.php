@@ -40,7 +40,7 @@
                         <br>
                             <input id="Anio" type="year"  class="form-control" name="anio" placeholder="Año">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                         <div class="row">
                         <label id="SemP" for="name" class="col-md-6 control-label">Semestre:</label>
                         </div>
@@ -51,14 +51,20 @@
                         </div>
                         <div class="col-md-4">
                         <label id="IOP" for="name" class="col-md-6 control-label">Tipo:</label>
-                          {!!Form::select('IO', array('Intersemestral' => 'Intersemestral', 'Semestral' => 'Semestral'), null, ["id" => "IO", "class" => "btn dropdown-toggle"]);!!}
+                          {!!Form::select('IO', array('i' => 'Intersemestral', 's' => 'Semestral'), null, ["id" => "IO", "class" => "btn dropdown-toggle"]);!!}
 
                         </div>
                       </div>
                       <hr id="hr">
                       <div class="row">
                         <div class="col-md-12">
-                          {!!Form::select('myselect', array('nombre_curso' => ["Por nombre", "onclick" => "esconder();"], 'fechas' => ["Por fechas", "onclick" => "selectCheck();"], 'titular' => ["Por profesor", "onclick" => "esconder"]), null, ["id" => "myselect", "class" => "btn dropdown-toggle"]);!!}
+                         <!--  {!!Form::select('myselect', array('nombre_curso' => ["Por nombre", "onclick" => "esconder();"], 'fechas' => ["Por fechas", "onclick" => "selectCheck();"], 'titular' => ["Por profesor", "onclick" => "esconder"]), null, ["id" => "myselect", "class" => "btn dropdown-toggle"]);!!} -->
+
+                         <select name="type" class = 'btn dropdown-toggle pull-left' id='myselect'>
+                            <option value="nombre_curso" onclick='esconder();'>Por nombre</option>
+                            <option value="fechas" onclick='selectCheck();'>Por fechas</option>
+                            <option value="titular" onclick='esconder();'>Por profesor titular</option>
+                          </select>
                           
                           <span class="input-group-btn col-md-2">
                                <button class="btn btn-secondary" type="submit">Buscar</button>
