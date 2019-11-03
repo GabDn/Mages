@@ -19,7 +19,6 @@
     @endif
     <br>
       <div class="panel panel-default">
-      @include ('partials.messages')
                 <div class="panel-heading">
                     <div class="container">
                   <h3>Cursos programados</h3>
@@ -104,16 +103,16 @@
         <th>Salon</th>
         <th></th>
      </tr>
-    @foreach($cursos as $curso)
+    @foreach($users as $user)
         <tr>
-        <td>{{ $curso->getNombreCurso() }} </td>
-        <td>{{$curso->getProfesores() }}</td>
-        <td>{{ $curso->getSalon()}}</td>
+        <td>{{ $user->getNombreCurso() }} </td>
+        <td>{{$user->getProfesor()}}</td>
+        <td>{{ $user->getSalon()}}</td>
         <td>
-            <a href="{{ URL::to('curso/generar-formatos',$curso->id) }}" class="btn btn-primary">Generar formatos</a>
-            <a href="{{ URL::to('curso/ver-profesores',$curso->id) }}" class="btn btn-warning">Ver Curso</a>
-            <a href="{{ URL::to('curso/inscripcion',$curso->id)}}" class="btn btn-success">Inscribir</a>
-            <a href="{{ URL::to('curso', $curso->id) }}" class="btn btn-info">Detalles</a>
+            <a href="{{ URL::to('curso/generar-formatos',$user->id) }}" class="btn btn-warning">Generar formatos</a>
+            <a href="{{ URL::to('curso/ver-profesores',$user->id) }}" class="btn btn-warning">Ver Curso</a>
+            <a href="{{ URL::to('curso/inscripcion',$user->id)}}" class="btn btn-success">Inscribir</a>
+            <a href="{{ URL::to('curso', $user->id) }}" class="btn btn-info">Detalles</a>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Dar de baja</button>
         </td>
       </tr>
@@ -132,7 +131,7 @@
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-normal" data-dismiss="modal" aria-label="Close">Cancelar</button>
-                            <a href="{{ URL::to('curso/baja', $curso->id) }}" class="btn btn-danger">Dar de baja</a>
+                            <a href="{{ URL::to('curso/baja', $user->id) }}" class="btn btn-danger">Dar de baja</a>
                           </div>
                         </div>
                       </div>
@@ -152,6 +151,4 @@
      </section>
      
 @endsection
-  
-
   
