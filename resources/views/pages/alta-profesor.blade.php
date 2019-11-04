@@ -155,7 +155,7 @@
                 <div class="form-group{{ $errors->has('categoria_nivel_id') ? ' has-error' : '' }}">
                     <label for="name" class="col-md-4 control-label">Categoria y nivel:</label>
                     <div class="col-md-6">
-                        <select name="categoria_nivel_id" >
+                        <select name="categoria_nivel_id" class="btn dropdown-toggle pull-left">
                             @foreach($categorias as $categoria)
                                 <option value="{{ $categoria->id }} ">{{ $categoria->categoria }}</option>
                             @endforeach

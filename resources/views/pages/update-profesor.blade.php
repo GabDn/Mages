@@ -4,7 +4,6 @@
 
 @section('contenido')
   <!--Body content-->
-
   <div class="content">
     <div class="top-bar">       
       <a href="#menu" class="side-menu-link burger"> 
@@ -45,7 +44,7 @@
 
          <div class="form-group col-md-6">
             {!!Form::label("curp", "Curp:")!!}
-            {!!Form::text("curp", $user->curp, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
+            {!!Form::text("curp", $user->curp, [ "class" => "form-control", "placeholder" => "CURP", "required",""])!!}
          </div>
 
          <div class="form-group col-md-4">
@@ -53,14 +52,19 @@
             {!!Form::select("categoria_nivel_id", $user->allCategoria()->pluck('categoria','id'),$user->getIdCategoria(),['class'=>'form-control'])!!}
          </div>
 
-         <div class="form-group col-md-6">
-            {!!Form::label("fecha_nacimiento", "Fecha de nacimiento:")!!}
-            {!!Form::text("fecha_nacimiento", $user->fecha_nacimiento, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
-         </div>
+          <div class="form-group col-md-4">
+              <label for="name" class="control-label">Fecha de nacimiento:</label>
+                <input id="fecha_nacimiento" type="date" class="form-control" name="fecha_nacimiento" value="{{ $user->fecha_nacimiento }}" >
+          </div>
+
+        <div class="form-group col-md-6">
+            {!!Form::label("area", "Area:")!!}
+            {!!Form::text("area", $user->area, [ "class" => "form-control", "placeholder" => "Area", "required",""])!!}
+        </div>
 
         <div class="form-group col-md-6">
             {!!Form::label("grado", "Grado:")!!}
-            {!!Form::text("grado", $user->grado, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
+            {!!Form::text("grado", $user->grado, [ "class" => "form-control", "placeholder" => "Grado", "required",""])!!}
         </div>
 
         <div class="form-group col-md-6 ">
@@ -69,52 +73,87 @@
         </div>
 
         <div class="form-group col-md-6 ">
-            {!!Form::label("email", "E-Mail:")!!}
+            {!!Form::label("email", "Email:")!!}
             {!!Form::text("email", $user->email, [ "class" => "form-control", "placeholder" => "example@hotmail.com", "required" ,"",""])!!}
         </div>
 
-        <div class="form-group col-md-6">
-            {!!Form::label("estudios", "Estudios:")!!}
-            {!!Form::text("estudios", $user->estudios, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
-        </div>
+       <div class="form-group col-md-6">
+        {!!Form::label("facebook", "Facebook:")!!}
+        {!!Form::text("facebook", $user->facebook, [ "class" => "form-control", "placeholder" => "Facebook", "required",""])!!}
+       </div>
 
-        <div class="form-group col-md-6">
-            {!!Form::label("grado", "Grado:")!!}
-            {!!Form::text("grado", $user->grado, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
+      <div class="form-group col-md-6">
+        <div class="col-md-4">
+          {!!Form::label("genero", "Genero:")!!}
         </div>
+          <div class="col-md-4">
+            <div class="row">
+              <label class="radio-inline">
+                @if($user->genero === "masculino")
+                <input id="femenino" type="radio" name="genero" value="femenino" checked>
+                @else
+                <input id="femenino" type="radio" name="genero" value="femenino">
+                @endif
+                Femenino
+              </label>
+            </div>
+            <div class="row">
+              <label class="radio-inline">
+                @if($user->genero === "masculino")
+                <input id="masculino" type="radio" name="genero" value="masculino" checked>
+                @else
+                <input id="masculino" type="radio" name="genero" value="masculino">
+                @endif
+                Masculino
+              </label>
+          </div>
+          </div>
+      </div>
 
-        <div class="form-group col-md-6">
-            {!!Form::label("area", "Area:")!!}
-            {!!Form::text("area", $user->area, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
+      <div class="form-group col-md-6">
+        <div class="col-md-4">
+          {!!Form::label("tutor", "Tutor:")!!}
         </div>
+          <div class="col-md-4">
+            <div class="row">
+              <label class="radio-inline">
+                @if($user->tutor === "true")
+                <input id="tutor" type="radio" name="tutor" value="T" checked>
+                @else
+                <input id="tutor" type="radio" name="tutor" value="T">
+                @endif
+                Sí
+              </label>
+            </div>
+            <div class="row">
+              <label class="radio-inline">
+                @if($user->tutor !== "true")
+                <input id="tutor" type="radio" name="tutor" value="F" checked>
+                @else
+                <input id="tutor" type="radio" name="tutor" value="F">
+                @endif
+                No
+              </label>
+          </div>
+          </div>
+      </div>
 
        <div class="form-group col-md-6">
             {!!Form::label("comentarios", "Comentarios:")!!}
-            {!!Form::text("comentarios", $user->comentarios, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
+            {!!Form::textarea("comentarios", $user->comentarios, [ "class" => "form-control", "placeholder" => "Comentarios", "required",""])!!}
         </div>
-
-       <div class="form-group col-md-6">
-        {!!Form::label("genero", "Genero:")!!}
-        {!!Form::text("genero", $user->genero, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
-      </div>
-
-       <div class="form-group col-md-6">
-        {!!Form::label("tutor", "Tutor:")!!}
-        {!!Form::text("tutor", $user->tutor, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
-      </div>
 
        <div class="form-group col-md-6">
         {!!Form::label("semblanza_corta", "Semblanza corta:")!!}
-        {!!Form::text("semblanza_corta", $user->semblanza_corta, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
+        {!!Form::textarea("semblanza_corta", $user->semblanza_corta, [ "class" => "form-control", "placeholder" => "Semblanza", "required",""])!!}
+      </div>
+      <div class="col-md-6">
+        <a href="{{ URL::to('profesor', $user->id) }}" class="btn btn-info btn-block">Cancelar</a>
+      </div>
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
       </div>
 
-       <div class="form-group col-md-6">
-        {!!Form::label("facebook", "Facebook:")!!}
-        {!!Form::text("facebook", $user->facebook, [ "class" => "form-control", "placeholder" => "RFC", "required",""])!!}
-       </div>
-       <div>
-           <button type="submit" class="btn btn-primary col-md-offset-1">Actualizar</button>
-        </div>
         {!! Form::close() !!}
     </div>
 

@@ -84,6 +84,7 @@ class ProfesorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        /*dd($request);*/
         $user = Profesor::find($id);
          $user->nombres = $request->nombres;
         $user->apellido_paterno = $request->apellido_paterno;
@@ -95,11 +96,16 @@ class ProfesorController extends Controller
         $user->fecha_nacimiento = $request->fecha_nacimiento;
         $user->telefono = $request->telefono;
         $user->grado = $request->grado;
-        $user->estudios = $request->estudios;
+        /*$user->estudios = $request->estudios;*/
         $user->area = $request->area;
         $user->comentarios = $request->comentarios;
         $user->genero = $request->genero;
-        $user->tutor = $request->tutor;
+        if ($request->tutor == "T") {
+            $user->tutor = "true";
+        }
+        else{
+            $user->tutor = "false";   
+        }
         $user->semblanza_corta = $request->semblanza_corta;
         $user->facebook = $request->facebook;
         $user ->unam = $request -> unam;
@@ -119,7 +125,7 @@ class ProfesorController extends Controller
             }
 
         $user->save();
-        return view("pages.update-profesor")
+        return view("pages.ver-profesor")
             ->with("user",$user);
     }
 
